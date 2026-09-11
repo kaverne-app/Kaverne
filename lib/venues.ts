@@ -13,6 +13,14 @@ export interface VenueSummary {
   genres: string[] | null;
 }
 
+export interface VenuePin {
+  id: string;
+  name: string;
+  stadt: string | null;
+  lat: number;
+  lon: number;
+}
+
 export interface VenueDetail extends VenueSummary {
   adresse: string | null;
   oeffnungstage: string[] | null;
@@ -38,6 +46,19 @@ export async function getVenues(): Promise<VenueSummary[]> {
   const { data, error } = await supabase.from("venues").select(SUMMARY_COLUMNS);
   if (error) throw error;
   return data as VenueSummary[];
+}
+
+// Nur Läden mit bestätigten Koordinaten — der Rest kann auf der Karte
+// naturgemäß nicht angezeigt werden.
+export async function getVenuePins(): Promise<VenuePin[]> {
+  const supabase = getSupabaseClient();
+  const { data, error } = await supabase
+    .from("venues")
+    .select("id,name,stadt,lat,lon")
+    .not("lat", "is", null)
+    .not("lon", "is", null);
+  if (error) throw error;
+  return data as VenuePin[];
 }
 
 export async function getVenue(id: string): Promise<VenueDetail | null> {

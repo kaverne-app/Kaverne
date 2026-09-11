@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BottomNav from "@/components/BottomNav";
 import { getVenues } from "@/lib/venues";
 import { groupByCity, joinList } from "@/lib/venue-view";
 
@@ -32,6 +33,7 @@ export default async function Home() {
           </ul>
         </section>
       ))}
+      <BottomNav active="liste" />
     </main>
   );
 }

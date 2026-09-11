@@ -19,6 +19,10 @@ a {
   padding: 0 16px;
 }
 
+.venue-list {
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+
 .city-heading {
   font-size: 15px;
   text-transform: uppercase;
@@ -109,4 +113,56 @@ a {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  height: 56px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.bottom-nav a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #888;
+  font-size: 15px;
+}
+
+.bottom-nav a.active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.map-page {
+  height: 100dvh;
+}
+
+.venue-map {
+  height: calc(100dvh - 56px - env(safe-area-inset-bottom));
+}
+
+.venue-pin {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #1a1a1a;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.maplibregl-popup-content {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  padding: 8px 12px;
 }
