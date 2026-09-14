@@ -304,3 +304,94 @@ a {
   font-size: 14px;
   color: #555;
 }
+
+.venue-actions {
+  margin-bottom: 24px;
+}
+
+.share-button {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 16px;
+  min-height: 44px;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+.venue-map-excerpt {
+  margin-top: 12px;
+}
+
+.venue-detail-map {
+  height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.report-toggle {
+  display: block;
+  border: none;
+  background: none;
+  padding: 12px 0;
+  min-height: 44px;
+  font-size: 14px;
+  color: #888;
+  text-align: left;
+}
+
+.report-confirmation {
+  font-size: 14px;
+  color: #555;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.report-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.report-form select,
+.report-form textarea {
+  font: inherit;
+  font-size: 15px;
+  color: #1a1a1a;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.report-form-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.report-form-actions button {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.report-form-actions button[type="submit"] {
+  border-color: #1a1a1a;
+  background: #1a1a1a;
+  color: #fff;
+}
