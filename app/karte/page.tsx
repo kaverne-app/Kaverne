@@ -1,16 +1,20 @@
 import BottomNav from "@/components/BottomNav";
 import VenueMapClient from "@/components/VenueMapClient";
+import { hasAnyPost } from "@/lib/posts";
 import { getFilterableVenues } from "@/lib/venues";
 
 export const dynamic = "force-dynamic";
 
 export default async function KartePage() {
-  const venues = await getFilterableVenues();
+  const [venues, showMagazin] = await Promise.all([
+    getFilterableVenues(),
+    hasAnyPost(),
+  ]);
 
   return (
     <>
       <VenueMapClient venues={venues} />
-      <BottomNav active="karte" />
+      <BottomNav active="karte" showMagazin={showMagazin} />
     </>
   );
 }
