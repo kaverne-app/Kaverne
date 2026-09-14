@@ -24,7 +24,7 @@ export default async function VenuePage({
 
   return (
     <main className="venue-detail">
-      <Link href="/" className="back-link">
+      <Link href="/liste" className="back-link">
         ← Zur Liste
       </Link>
       <h1>{venue.name}</h1>
@@ -78,7 +78,7 @@ export default async function VenuePage({
         </section>
       ))}
 
-      <ReportButton name={venue.name} />
+      <ReportButton id={venue.id} name={venue.name} />
     </main>
   );
 }
