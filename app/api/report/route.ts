@@ -74,8 +74,9 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.REPORT_TO_EMAIL;
-  if (!apiKey || !toEmail) {
-    console.error("RESEND_API_KEY oder REPORT_TO_EMAIL fehlt.");
+  const fromEmail = process.env.REPORT_FROM_EMAIL;
+  if (!apiKey || !toEmail || !fromEmail) {
+    console.error("RESEND_API_KEY, REPORT_TO_EMAIL oder REPORT_FROM_EMAIL fehlt.");
     return NextResponse.json(
       { ok: false, error: "Melden ist gerade nicht möglich." },
       { status: 500 },
@@ -83,18 +84,20 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "Kaverne <onboarding@resend.dev>";
 
   try {
+    // Antwortadresse ist die eigene Empfangsadresse, nicht die des Melders:
+    // Der Absender (feste Domain-Adresse) nimmt keine Antworten entgegen.
+    // Die vom Melder angegebene Adresse steht stattdessen im Text unten.
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
-      replyTo: email || undefined,
+      replyTo: toEmail,
       subject: `Meldung: ${venueName}`,
       text: [
         `Laden: ${venueName} (${venueId})`,
         `Betroffener Punkt: ${betroffenerPunkt}`,
-        email ? `Antwortadresse: ${email}` : "Antwortadresse: keine angegeben",
+        email ? `Antwortadresse des Melders: ${email}` : "Antwortadresse des Melders: keine angegeben",
         "",
         text,
       ].join("\n"),
