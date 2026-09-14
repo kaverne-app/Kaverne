@@ -66,6 +66,8 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Next.js, gehostet auf Vercel
 - Supabase (Postgres)
 - MapLibre GL mit freiem Tile-Anbieter
+- Meldeformular verschickt E-Mails serverseitig über Resend (kostenlose
+  Stufe). Empfängeradresse steht nur als Umgebungsvariable, nie im Quelltext.
 - Mobil zuerst. Nichts einbauen, was eine spätere Überführung per Capacitor
   verhindert.
 

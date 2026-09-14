@@ -366,13 +366,20 @@ a {
 }
 
 .report-form select,
-.report-form textarea {
+.report-form textarea,
+.report-form input {
   font: inherit;
   font-size: 15px;
   color: #1a1a1a;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
+}
+
+.report-error {
+  font-size: 14px;
+  color: #b3261e;
+  margin: 0;
 }
 
 .report-form-actions {
@@ -394,4 +401,8 @@ a {
   border-color: #1a1a1a;
   background: #1a1a1a;
   color: #fff;
+}
+
+.report-form-actions button:disabled {
+  opacity: 0.6;
 }

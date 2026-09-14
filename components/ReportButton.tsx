@@ -13,43 +13,79 @@ const BETROFFENE_PUNKTE = [
   "Etwas anderes",
 ];
 
-// Meldungen gehen per mailto direkt an Tim — kein eigener Dienst, keine
-// Speicherung, kein Blick in Supabase nötig.
-const MELDE_ADRESSE = "timey.fischer@gmail.com";
+const MAX_TEXT_LENGTH = 500;
+// Verhindert versehentliches Mehrfach-Absenden vom selben Gerät, ganz ohne
+// serverseitige Speicherung — der Zeitstempel liegt nur im Browser.
+const COOLDOWN_MS = 60_000;
+const COOLDOWN_KEY = "kaverne:last-report-at";
 
-export default function ReportButton({ name }: { name: string }) {
+type Status = "idle" | "sending" | "sent" | "error";
+
+export default function ReportButton({ id, name }: { id: string; name: string }) {
   const [open, setOpen] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const [punkt, setPunkt] = useState(BETROFFENE_PUNKTE[0]);
   const [text, setText] = useState("");
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event: FormEvent) {
+  function remainingCooldownMs(): number {
+    try {
+      const last = Number(localStorage.getItem(COOLDOWN_KEY) ?? "0");
+      return Math.max(0, COOLDOWN_MS - (Date.now() - last));
+    } catch {
+      return 0;
+    }
+  }
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!text.trim()) return;
 
-    const subject = `Meldung: ${name}`;
-    const body = [
-      `Laden: ${name}`,
-      `Link: ${window.location.href}`,
-      `Betroffener Punkt: ${punkt}`,
-      "",
-      text.trim(),
-    ].join("\n");
+    const waitMs = remainingCooldownMs();
+    if (waitMs > 0) {
+      setStatus("error");
+      setErrorMessage(
+        `Du hast gerade erst eine Meldung geschickt. Bitte noch ${Math.ceil(waitMs / 1000)} Sekunden warten.`,
+      );
+      return;
+    }
 
-    window.location.href = `mailto:${MELDE_ADRESSE}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-
-    setSent(true);
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          venueId: id,
+          venueName: name,
+          betroffenerPunkt: punkt,
+          text: text.trim(),
+          email: email.trim(),
+        }),
+      });
+      const data = (await response.json()) as { ok: boolean; error?: string };
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || "Meldung konnte nicht verschickt werden.");
+      }
+      try {
+        localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+      } catch {
+        // Zwischenablage/Storage nicht verfügbar — Meldung ist trotzdem raus.
+      }
+      setStatus("sent");
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error && err.message
+          ? err.message
+          : "Meldung konnte nicht verschickt werden. Bitte später erneut versuchen.",
+      );
+    }
   }
 
-  if (sent) {
-    return (
-      <p className="report-confirmation">
-        Danke. Dein Mail-Programm sollte sich mit der Meldung geöffnet haben —
-        bitte dort absenden.
-      </p>
-    );
+  if (status === "sent") {
+    return <p className="report-confirmation">Danke, die Meldung ist raus.</p>;
   }
 
   if (!open) {
@@ -73,17 +109,29 @@ export default function ReportButton({ name }: { name: string }) {
         </select>
       </label>
       <label>
-        Was ist falsch oder veraltet?
+        Was ist falsch oder veraltet? (max. {MAX_TEXT_LENGTH} Zeichen)
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
+          maxLength={MAX_TEXT_LENGTH}
           rows={4}
           required
         />
       </label>
+      <label>
+        E-Mail für Rückfragen (optional)
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      {status === "error" && <p className="report-error">{errorMessage}</p>}
       <div className="report-form-actions">
-        <button type="submit">Melden</button>
-        <button type="button" onClick={() => setOpen(false)}>
+        <button type="submit" disabled={status === "sending"}>
+          {status === "sending" ? "Wird gesendet …" : "Melden"}
+        </button>
+        <button type="button" onClick={() => setOpen(false)} disabled={status === "sending"}>
           Abbrechen
         </button>
       </div>
