@@ -5,8 +5,8 @@ wieder, nicht den geplanten.
 
 ## 1. Datum und Aufgaben-ID
 
-2026-09-14 — A-02 (Ergänzung): Meldeweg auf ein serverseitiges Formular
-umstellen statt mailto, DSA-tauglich vor Veröffentlichung.
+2026-09-14 — A-03: Meldungen von eigener Domain statt Resend-Testadresse
+senden, damit sie nicht im Spam landen.
 
 ## 2. Status je Aufgabe
 
@@ -14,122 +14,84 @@ umstellen statt mailto, DSA-tauglich vor Veröffentlichung.
   unverändert.
 - Baustein 4 (Filter, Favoriten, Notizen, Meldeknopf): Filter fertig.
   Favoriten und private Notizen **nicht gebaut** — stehen in der aktuellen
-  `CLAUDE.md` auch nicht mehr als Regel. Der Meldeknopf wurde in Baustein 8
-  gebaut (damals mailto) und ist jetzt mit A-02 auf serverseitigen Versand
-  umgestellt.
+  `CLAUDE.md` auch nicht mehr als Regel.
 - Baustein 5–7 (Beitragstabelle, Startseite, CLAUDE.md/STAND.md):
   **fertig**, unverändert.
-- Baustein 8 (Teilen, Meldeweg, Kartenausschnitt auf der Detailseite):
-  **fertig**. Teilen-Knopf und Kartenausschnitt unverändert; der Meldeweg
-  ist durch A-02 ersetzt (siehe unten).
-- A-02 (diese Aufgabe): **fertig**.
+- Baustein 8 / A-02 (Meldeweg über serverseitigen Mailversand): **fertig**,
+  unverändert.
+- A-03 (diese Aufgabe): **fertig**.
 
-## 3. Akzeptanzkriterien (A-02)
+## 3. Akzeptanzkriterien (A-03)
 
-- Formular auf der Seite statt `mailto` — **ja**,
-  `components/ReportButton.tsx` schickt per `fetch` an `app/api/report/route.ts`.
-- Fragt nach betroffenem Punkt (Auswahl) und Freitext, E-Mail optional —
-  **ja**.
-- Versand serverseitig an die Projektmailadresse, Nutzer sieht Bestätigung
-  — **ja, mit Einschränkung**: Der Code ruft Resend serverseitig auf; ob
-  eine echte Mail ankommt, ist **nicht getestet** (kein Netzwerkzugriff auf
-  Resend aus dieser Sandbox, siehe Abschnitt 6). Die Bestätigung im
-  Browser erscheint erst, wenn Resend den Versand bestätigt hat, nicht
-  vorher.
-- Freitext fest begrenzt, keine beliebig vielen Meldungen kurz
-  hintereinander — **ja**: 500 Zeichen, serverseitig und im Formular
-  geprüft; höchstens 3 Meldungen pro 10 Minuten pro Absender-IP
-  (serverseitig), zusätzlich 60 Sekunden Sperre im Browser nach einer
-  erfolgreich verschickten Meldung.
-- Versanddienst mit kostenloser Stufe, dokumentiert — **ja**, Resend.
-  Details unter Abschnitt 7.
-- Empfänger-Mailadresse nicht im Quelltext, nicht sichtbar — **ja**,
-  liegt nur in der Umgebungsvariable `REPORT_TO_EMAIL`; geprüft, dass sie
-  in keiner gebauten Client-Datei auftaucht (`grep` über `.next/static`).
-- Keine IP-Speicherung, Begrenzung ohne dauerhafte Speicherung
-  personenbezogener Daten — **ja, mit Auslegung**: siehe Abschnitt 4.
-- Verständliche Meldung bei Fehlschlag — **ja**, real geprüft: Da Resend
-  aus dieser Sandbox nicht erreichbar ist, schlägt der Versand tatsächlich
-  fehl, und die Seite zeigt „Meldung konnte nicht verschickt werden.“
-  statt einer technischen Fehlermeldung; das Formular bleibt ausgefüllt.
+- Absenderadresse ist `meldungen@kaverne.app`, nicht `onboarding@resend.dev`
+  — **ja**: Die feste Sandbox-Adresse ist aus dem Code entfernt. Der
+  tatsächliche Absender ergibt sich jetzt allein aus der neuen
+  Umgebungsvariable `REPORT_FROM_EMAIL`.
+- Antwortadresse ist `REPORT_TO_EMAIL` — **ja**: `replyTo` steht jetzt fest
+  auf `REPORT_TO_EMAIL`, nicht mehr auf der vom Melder optional
+  angegebenen Adresse. Eine vom Melder angegebene Adresse steht weiterhin
+  im Mailtext, damit sie nicht verloren geht.
+- Absenderadresse in Umgebungsvariable mit sprechendem Namen, nicht fest im
+  Code — **ja**: `REPORT_FROM_EMAIL`, ohne Fallback-Wert. Fehlt sie, meldet
+  die Funktion „gerade nicht möglich“ statt mit der alten
+  Sandbox-Adresse zu senden. Was in Vercel einzutragen ist, steht unten
+  unter Abschnitt 7.
+- Betreff nennt den betroffenen Laden — **ja, unverändert**: `Meldung:
+  ${venueName}` war bereits vor dieser Aufgabe so und erfüllt das
+  Kriterium unverändert.
+- Verhalten bei Fehlschlag bleibt wie es ist — **ja**: Prüfung real
+  ausgelöst (siehe Abschnitt 6, Resend aus dieser Sandbox nicht
+  erreichbar), Fehlermeldung und Statuscode sind identisch zu vorher.
+- Keine weiteren Änderungen am Meldeformular — **ja**:
+  `components/ReportButton.tsx` wurde in dieser Aufgabe nicht angefasst.
+- Keine Mailadresse im an den Browser ausgelieferten Code — **ja**,
+  geprüft per `grep` über `.next/static` nach dem Build: kein Treffer für
+  `meldungen@kaverne.app` oder die Variablennamen.
 
 ## 4. Abweichungen von der Aufgabenbeschreibung, mit Grund
 
-- **Die IP-Adresse wird kurzzeitig im Arbeitsspeicher der Serverfunktion
-  gehalten**, um die Begrenzung auf 3 Meldungen pro 10 Minuten technisch
-  durchzusetzen — sie wird nirgends geloggt, in eine Datenbank geschrieben
-  oder sonst dauerhaft festgehalten, nur für die Laufzeit des Prozesses in
-  einer einfachen Zähler-Map. Das ist eine Auslegung von „keine
-  IP-Adressen speichern“ als „nicht dauerhaft speichern“. Falls das zu
-  weit geht: Rückmeldung, dann bleibt nur die schwächere,
-  browserseitige Sperre übrig (umgehbar durch Neuladen mit gelöschtem
-  Speicher oder anderem Gerät).
-- **Die Begrenzung gilt pro Serverfunktions-Instanz, nicht global.** Bei
-  mehreren gleichzeitigen Vercel-Instanzen könnte die tatsächliche Grenze
-  etwas über 3 pro 10 Minuten liegen. Für die erwartete Meldungsmenge
-  ohne Bedeutung, aber kein hundertprozentiger Schutz vor Missbrauch.
-- **Erfolgspfad des Mailversands ungetestet** (siehe Abschnitt 6) — nur
-  der Fehlerpfad ließ sich in dieser Umgebung wirklich auslösen.
-- **Nebenbei behoben:** Der „← Zur Liste“-Link auf der Detailseite zeigte
-  auf `/` (seit Baustein 6 die Startseite, nicht mehr die Liste) statt auf
-  `/liste`. Baustein 8 wurde nach Baustein 6 gebaut, hatte das aber nicht
-  nachgezogen. Jetzt korrigiert.
+- Keine. Die Umsetzung folgt allen vier Akzeptanzkriterien und beiden
+  Verboten unverändert.
 
 ## 5. Braucht Entscheidung von Tim
 
-- Die frühere Frage „serverseitiger Versand ja/nein“ ist mit dieser
-  Aufgabe beantwortet (ja) und umgesetzt — **erledigt**.
-- Falls die engere Auslegung des IP-Punkts aus Abschnitt 4 gewünscht ist
-  (IP nie anfassen, auch nicht kurzzeitig im Arbeitsspeicher): Rückmeldung.
 - Weiterhin offen (aus Baustein 7, unverändert): `genres`/`typ` sind noch
   Freitext, keine feste Liste im Datenmodell.
-- Weiterhin offen (aus Baustein 7, unverändert): Der in den Anzeigeregeln
-  verlangte Sichtbarkeitsfilter (Status, mindestens ein Link,
-  `zuletzt_geprueft` gesetzt) ist nicht implementiert.
 
 ## 6. Bekannte Fehler
 
 - **Kartenkacheln laden in dieser Umgebung weiterhin nicht** (unverändert
   seit Baustein 3/8) — `tiles.openfreemap.org` ist aus der Sandbox heraus
   netzwerkseitig blockiert.
-- **Mailversand über Resend nie gegen den echten Dienst getestet.**
-  `api.resend.com` ist aus derselben Sandbox heraus ebenfalls nicht
-  erreichbar. Geprüft ist nur, dass die Anfrage korrekt aufgebaut wird und
-  bei einem echten Fehlschlag die richtige, verständliche Meldung
-  erscheint — nicht, dass eine echte Mail ankommt.
+- **Mailversand über Resend weiterhin nie gegen den echten Dienst
+  getestet**, da `api.resend.com` aus derselben Sandbox nicht erreichbar
+  ist. Geprüft ist in dieser Aufgabe: Ohne `REPORT_FROM_EMAIL` meldet die
+  Funktion korrekt „gerade nicht möglich“; mit allen drei Variablen
+  gesetzt baut sie die Anfrage mit der neuen Absender- und Antwortadresse
+  auf und scheitert am blockierten Netzwerk mit derselben Fehlermeldung
+  wie vorher. Ob eine echte Mail mit der neuen Absenderadresse ankommt und
+  nicht im Spam landet, ist erst nach der Domain-Einrichtung durch Tim
+  prüfbar (siehe Abschnitt 7).
 - Sonst keine offenen Fehler bekannt.
 
 ## 7. Musst du selbst tun
 
-- **Resend-Konto anlegen** (resend.com, kostenlose Stufe reicht für die
-  erwartete Menge).
-- Einen API-Key erzeugen und in Vercel als Umgebungsvariable
-  `RESEND_API_KEY` eintragen (als Secret).
-- `REPORT_TO_EMAIL` in Vercel auf die gewünschte Empfänger-Adresse setzen
-  (nicht `NEXT_PUBLIC_…`, damit sie nie im Browser landet). Ohne diese
-  Variable meldet die Funktion „gerade nicht möglich“, statt zu senden.
-- **Wichtig:** Ohne eigene, bei Resend verifizierte Absender-Domain
-  funktioniert der Versand nur an die E-Mail-Adresse, mit der das
-  Resend-Konto angelegt wurde (Resend-Sandbox-Beschränkung). `REPORT_TO_EMAIL`
-  sollte also erst mal genau diese Adresse sein. Für eine andere
-  Zieladresse oder einen eigenen Absendernamen später `RESEND_FROM_EMAIL`
-  setzen und eine Domain bei Resend verifizieren (eigene DNS-Einträge).
+- **Bei Resend die Domain `kaverne.app` verifizieren** (Resend-Dashboard
+  → Domains → Domain hinzufügen), die dort angezeigten DNS-Einträge
+  (SPF/DKIM, ggf. DMARC) beim Domain-Anbieter eintragen. Das ist die
+  eigentliche Voraussetzung dafür, dass Mails nicht im Spam landen — ohne
+  verifizierte Domain weist Resend Sendeversuche von dieser Adresse ab.
+- In Vercel eine neue Umgebungsvariable **`REPORT_FROM_EMAIL`** anlegen,
+  Wert z. B. `Kaverne <meldungen@kaverne.app>` (nicht `NEXT_PUBLIC_…`,
+  damit sie nie im Browser landet). Ohne diese Variable meldet die
+  Funktion „gerade nicht möglich“, statt zu senden.
+- `REPORT_TO_EMAIL` bleibt wie bisher deine eigene Empfangsadresse — sie
+  wird jetzt zusätzlich als Antwortadresse verwendet, muss also ein
+  Postfach sein, das du tatsächlich liest.
 - Nach dem Einrichten: einmal selbst auf der echten Seite eine
-  Testmeldung abschicken und prüfen, ob die Mail ankommt und lesbar ist.
+  Testmeldung abschicken, prüfen, dass sie im Posteingang (nicht im Spam)
+  ankommt, und dass ein „Antworten“ tatsächlich an deine eigene Adresse
+  geht.
 - Weiterhin offen: prüfen, ob `supabase/migrations/0002_posts.sql` im
   SQL-Editor eingespielt ist (seit Baustein 7 ungeklärt).
 - Weiterhin offen: Text für `/ueber` liefern.
-
-## 8. Abgleich mit den Festlegungen
-
-- **Trennung der internen Felder:** unverändert eingehalten, diese
-  Aufgabe hat `venues_internal` an keiner Stelle berührt.
-- **Kartenanbieter:** unverändert eingehalten, keine Änderung in dieser
-  Aufgabe.
-- **Beitragstabelle vorhanden:** unverändert, siehe Baustein 5/7.
-- **`/magazin`-URL-Struktur vorhanden:** unverändert, siehe Baustein 5/7.
-- **Neuer Dienst (Resend):** wäre laut „Nicht selbst entscheiden“
-  eigentlich zustimmungspflichtig — Tim hat die Umstellung in dieser
-  Sitzung ausdrücklich freigegeben („Ja, jetzt umstellen“, Kosten bei der
-  erwarteten Menge für unerheblich erklärt), deshalb umgesetzt statt nur
-  eingetragen.
