@@ -3,95 +3,118 @@
 Wird am Ende jeder Sitzung überschrieben. Gibt den tatsächlichen Stand
 wieder, nicht den geplanten.
 
+**Hinweis zu dieser Fassung:** Auf Tims Wunsch ist dies eine ausführliche
+Gesamt-Bestandsaufnahme über alle bisherigen Aufgaben hinweg, kein
+gewöhnliches Sitzungsende. Ausnahmsweise länger als eine Seite — danach
+wird wieder knapp pro Aufgabe überschrieben.
+
 ## 1. Datum und Aufgaben-ID
 
-2026-09-14 — A-03: Meldungen von eigener Domain statt Resend-Testadresse
-senden, damit sie nicht im Spam landen.
+2026-09-14 — Gesamtstand nach A-03. A-03 (eigene Absenderdomain für den
+Meldeweg) ist von Tim live getestet und als funktionsfähig bestätigt.
+Kein neuer Auftrag in dieser Sitzung, sondern eine vollständige
+Bestandsaufnahme über das gesamte Projekt.
 
 ## 2. Status je Aufgabe
 
-- Baustein 1–3 (Datenbank/Import, Liste/Detailseite, Karte): **fertig**,
-  unverändert.
-- Baustein 4 (Filter, Favoriten, Notizen, Meldeknopf): Filter fertig.
-  Favoriten und private Notizen **nicht gebaut** — stehen in der aktuellen
-  `CLAUDE.md` auch nicht mehr als Regel.
-- Baustein 5–7 (Beitragstabelle, Startseite, CLAUDE.md/STAND.md):
-  **fertig**, unverändert.
-- Baustein 8 / A-02 (Meldeweg über serverseitigen Mailversand): **fertig**,
-  unverändert.
-- A-03 (diese Aufgabe): **fertig**.
+- **Baustein 1 — Datenbank & Import:** fertig. `venues` und
+  `venues_internal` angelegt, CSV-Import wiederholbar über `id`.
+- **Baustein 2 — Liste & Detailseite:** fertig.
+- **Baustein 3 — Karte:** fertig. MapLibre GL mit OpenFreeMap-Kacheln
+  (freier Anbieter, kein Google-Dienst).
+- **Baustein 4 — Filter:** fertig (Stadt, Genre). Favoriten und private
+  Notizen waren ursprünglich Teil dieses Bausteins, sind aber inzwischen
+  aus den Regeln gestrichen (siehe `CLAUDE.md`, „Verbote") und wurden nie
+  gebaut.
+- **Baustein 5 — Beitragstabelle & Magazin-Struktur:** fertig.
+  `posts`/`people`/`reihen` angelegt, `/magazin`-Route vorhanden, bewusst
+  ohne Inhalte.
+- **Baustein 6 — Startseite:** fertig.
+- **Baustein 7 — CLAUDE.md/STAND.md eingerichtet:** fertig.
+- **Baustein 8 — Teilen-Knopf, Meldeweg (damals mailto), Kartenausschnitt
+  auf der Detailseite:** fertig. Der Meldeweg aus diesem Baustein wurde
+  danach durch A-02 ersetzt.
+- **A-02 — Meldeweg auf serverseitiges Formular umgestellt:** fertig.
+  Kein `mailto` mehr, Versand über Resend, Rate-Limit, Zeichenbegrenzung.
+- **A-03 — Eigene Absenderdomain, feste Antwortadresse:** fertig **und
+  jetzt live bestätigt** (siehe Abschnitt 3).
 
-## 3. Akzeptanzkriterien (A-03)
+Insgesamt: Alle bisher beauftragten Bausteine sind fertig. Offene Punkte
+sind keine unfertigen Bausteine, sondern bewusst zurückgestellte
+Entscheidungen und Dinge, die nur Tim erledigen kann (Abschnitte 5–7).
 
-- Absenderadresse ist `meldungen@kaverne.app`, nicht `onboarding@resend.dev`
-  — **ja**: Die feste Sandbox-Adresse ist aus dem Code entfernt. Der
-  tatsächliche Absender ergibt sich jetzt allein aus der neuen
-  Umgebungsvariable `REPORT_FROM_EMAIL`.
-- Antwortadresse ist `REPORT_TO_EMAIL` — **ja**: `replyTo` steht jetzt fest
-  auf `REPORT_TO_EMAIL`, nicht mehr auf der vom Melder optional
-  angegebenen Adresse. Eine vom Melder angegebene Adresse steht weiterhin
-  im Mailtext, damit sie nicht verloren geht.
-- Absenderadresse in Umgebungsvariable mit sprechendem Namen, nicht fest im
-  Code — **ja**: `REPORT_FROM_EMAIL`, ohne Fallback-Wert. Fehlt sie, meldet
-  die Funktion „gerade nicht möglich“ statt mit der alten
-  Sandbox-Adresse zu senden. Was in Vercel einzutragen ist, steht unten
-  unter Abschnitt 7.
-- Betreff nennt den betroffenen Laden — **ja, unverändert**: `Meldung:
-  ${venueName}` war bereits vor dieser Aufgabe so und erfüllt das
-  Kriterium unverändert.
-- Verhalten bei Fehlschlag bleibt wie es ist — **ja**: Prüfung real
-  ausgelöst (siehe Abschnitt 6, Resend aus dieser Sandbox nicht
-  erreichbar), Fehlermeldung und Statuscode sind identisch zu vorher.
-- Keine weiteren Änderungen am Meldeformular — **ja**:
-  `components/ReportButton.tsx` wurde in dieser Aufgabe nicht angefasst.
-- Keine Mailadresse im an den Browser ausgelieferten Code — **ja**,
-  geprüft per `grep` über `.next/static` nach dem Build: kein Treffer für
-  `meldungen@kaverne.app` oder die Variablennamen.
+## 3. Akzeptanzkriterien (A-03, jetzt live bestätigt)
+
+- Absenderadresse `meldungen@kaverne.app` statt `onboarding@resend.dev`
+  — **ja**, von Tim live getestet.
+- Antwortadresse ist `REPORT_TO_EMAIL` — **ja**, von Tim live getestet
+  (Antworten kommen bei ihm an).
+- Absenderadresse in Umgebungsvariable (`REPORT_FROM_EMAIL`), nicht fest
+  im Code — **ja**.
+- Betreff nennt den betroffenen Laden — **ja**, unverändert seit A-02.
+- Verhalten bei Fehlschlag unverändert — **ja**, nicht neu ausgelöst,
+  aber Code seit A-02 unverändert an dieser Stelle.
+- Landet nicht im Spam — **von Tim bestätigt** („Getestet und
+  Funktional"). Damit ist der zuvor in dieser Sandbox nicht testbare
+  Erfolgspfad des Mailversands jetzt real bestätigt — der entsprechende
+  Eintrag unter „Bekannte Fehler" aus der letzten Fassung entfällt.
 
 ## 4. Abweichungen von der Aufgabenbeschreibung, mit Grund
 
-- Keine. Die Umsetzung folgt allen vier Akzeptanzkriterien und beiden
-  Verboten unverändert.
+- Keine offenen Abweichungen bei A-02/A-03. Einzige Besonderheit dieser
+  Fassung: STAND.md ist diesmal absichtlich ausführlicher als sonst
+  (siehe Hinweis oben), auf Tims ausdrücklichen Wunsch nach einer
+  vollständigen Bestandsaufnahme.
 
 ## 5. Braucht Entscheidung von Tim
 
-- Weiterhin offen (aus Baustein 7, unverändert): `genres`/`typ` sind noch
-  Freitext, keine feste Liste im Datenmodell.
+- **`genres` und `typ` sind weiterhin Freitext, keine feste Liste.** Laut
+  `CLAUDE.md` sollen beide aus festen Listen kommen. Weder in der
+  Datenbank (Spalten sind einfacher `text`/`text[]` ohne Einschränkung)
+  noch im Import-Code gibt es bisher eine feste Werteliste. Das ist eine
+  Änderung am Datenmodell und damit nicht meine Entscheidung: Ich brauche
+  von dir die konkrete(n) Liste(n) für `typ` und für `genres`, dann baue
+  ich die Einschränkung ein (Datenbank-Check und Import-Prüfung). Bisher
+  unbeantwortet, seit Baustein 7 offen.
+- **Rate-Limit beim Meldeweg speichert die Absender-IP kurzzeitig im
+  Arbeitsspeicher.** Bei der Umstellung auf serverseitigen Versand (A-02)
+  musste ich „keine IP-Adressen speichern" auslegen: Die IP wird
+  nirgends geloggt oder dauerhaft gespeichert, dient aber für die Dauer
+  des laufenden Prozesses als Schlüssel in einer einfachen Zähler-Liste,
+  damit nicht beliebig viele Meldungen kurz hintereinander durchgehen.
+  Diese Auslegung („nicht dauerhaft speichern" statt „nie anfassen") ist
+  bisher unbeantwortet. Falls dir die engere Auslegung wichtig ist
+  (IP nie anfassen, auch nicht kurzzeitig): Rückmeldung, dann bleibt nur
+  die schwächere, rein browserseitige Sperre übrig (umgehbar durch
+  Neuladen mit gelöschtem Speicher oder anderem Gerät).
 
 ## 6. Bekannte Fehler
 
-- **Kartenkacheln laden in dieser Umgebung weiterhin nicht** (unverändert
-  seit Baustein 3/8) — `tiles.openfreemap.org` ist aus der Sandbox heraus
-  netzwerkseitig blockiert.
-- **Mailversand über Resend weiterhin nie gegen den echten Dienst
-  getestet**, da `api.resend.com` aus derselben Sandbox nicht erreichbar
-  ist. Geprüft ist in dieser Aufgabe: Ohne `REPORT_FROM_EMAIL` meldet die
-  Funktion korrekt „gerade nicht möglich“; mit allen drei Variablen
-  gesetzt baut sie die Anfrage mit der neuen Absender- und Antwortadresse
-  auf und scheitert am blockierten Netzwerk mit derselben Fehlermeldung
-  wie vorher. Ob eine echte Mail mit der neuen Absenderadresse ankommt und
-  nicht im Spam landet, ist erst nach der Domain-Einrichtung durch Tim
-  prüfbar (siehe Abschnitt 7).
-- Sonst keine offenen Fehler bekannt.
+- **Kartenkacheln laden in der Entwicklungs-/Testumgebung dieser Sitzung
+  nicht.** Das ist keine Auffälligkeit der App, sondern eine
+  Netzwerksperre dieser Sandbox gegenüber `tiles.openfreemap.org`. Auf
+  der echten Vercel-Deployment hattest du das bereits bestätigt
+  („Ja sieht gut aus"), betrifft also nur das Testen hier, nicht die
+  Live-Seite.
+- Sonst keine offenen Fehler bekannt. Der Meldeweg über Resend ist jetzt
+  vollständig (inklusive Zustellung) live bestätigt.
 
 ## 7. Musst du selbst tun
 
-- **Bei Resend die Domain `kaverne.app` verifizieren** (Resend-Dashboard
-  → Domains → Domain hinzufügen), die dort angezeigten DNS-Einträge
-  (SPF/DKIM, ggf. DMARC) beim Domain-Anbieter eintragen. Das ist die
-  eigentliche Voraussetzung dafür, dass Mails nicht im Spam landen — ohne
-  verifizierte Domain weist Resend Sendeversuche von dieser Adresse ab.
-- In Vercel eine neue Umgebungsvariable **`REPORT_FROM_EMAIL`** anlegen,
-  Wert z. B. `Kaverne <meldungen@kaverne.app>` (nicht `NEXT_PUBLIC_…`,
-  damit sie nie im Browser landet). Ohne diese Variable meldet die
-  Funktion „gerade nicht möglich“, statt zu senden.
-- `REPORT_TO_EMAIL` bleibt wie bisher deine eigene Empfangsadresse — sie
-  wird jetzt zusätzlich als Antwortadresse verwendet, muss also ein
-  Postfach sein, das du tatsächlich liest.
-- Nach dem Einrichten: einmal selbst auf der echten Seite eine
-  Testmeldung abschicken, prüfen, dass sie im Posteingang (nicht im Spam)
-  ankommt, und dass ein „Antworten“ tatsächlich an deine eigene Adresse
-  geht.
-- Weiterhin offen: prüfen, ob `supabase/migrations/0002_posts.sql` im
-  SQL-Editor eingespielt ist (seit Baustein 7 ungeklärt).
-- Weiterhin offen: Text für `/ueber` liefern.
+- **Erledigt, nur zur Nachvollziehbarkeit:** Resend-Domain `kaverne.app`
+  verifiziert, `REPORT_FROM_EMAIL` in Vercel gesetzt, Testmeldung
+  verschickt und Zustellung geprüft — laut deiner Rückmeldung
+  abgeschlossen und funktionsfähig.
+- **Noch offen:** Prüfen, ob `supabase/migrations/0002_posts.sql`
+  (Tabellen `posts`, `people`, `reihen`) im Supabase-SQL-Editor
+  eingespielt ist. Das ist seit Baustein 7 unbeantwortet — ohne diese
+  Migration existieren die Magazin-Tabellen in der echten Datenbank
+  noch nicht, `/magazin` liefe dann bei einem echten Seitenaufruf ins
+  Leere (aktuell unkritisch, da das Magazin ohnehin noch ohne Inhalte
+  ist, aber vor dem ersten Beitrag nötig).
+- **Noch offen:** Text für `/ueber` liefern — die Seite zeigt aktuell
+  nur die Überschrift „Über" ohne Inhalt.
+- **Noch offen (siehe Abschnitt 5):** feste Wertelisten für `typ` und
+  `genres` festlegen.
+- **Noch offen (siehe Abschnitt 5):** Rückmeldung zur IP-Auslegung beim
+  Rate-Limit des Meldewegs, falls die engere Auslegung gewünscht ist.
