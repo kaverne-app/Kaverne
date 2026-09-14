@@ -5,77 +5,68 @@ wieder, nicht den geplanten.
 
 ## 1. Datum und Aufgaben-ID
 
-2026-09-15 — A-07: Impressum und Datenschutzerklärung als eigene Seiten,
-mit Verweis aus dem Fußbereich aller Läden-/Magazin-/Über-Seiten.
+2026-09-15 — A-06: Filterauswahl (Stadt/Genre) in die Adresszeile statt
+in den Browserspeicher.
 
 ## 2. Status je Aufgabe
 
-- Baustein 1–8, A-02, A-03: **fertig**, unverändert (siehe vorherige
+- Baustein 1–8, A-02, A-03: **fertig**, unverändert (siehe frühere
   Fassungen dieser Datei für Details).
-- A-04 (Prüfdokument `PRUEFUNG-DATENSCHUTZ.md` für Impressum/Datenschutz):
-  **fertig**, unverändert.
-- A-07 (diese Aufgabe): **fertig**.
+- A-04 (Prüfdokument `PRUEFUNG-DATENSCHUTZ.md`), A-07 (Impressum/
+  Datenschutz als Seiten): **fertig**, unverändert.
+- A-06 (diese Aufgabe): **fertig**.
 
-## 3. Akzeptanzkriterien (A-07)
+## 3. Akzeptanzkriterien (A-06)
 
-- `/impressum` und `/datenschutz` geben den gelieferten Text wieder,
-  Überschriftenstruktur erhalten — **ja**: `/impressum` mit „Impressum“
-  (h1) und „Verantwortlich für den Inhalt“ (h2); `/datenschutz` mit
-  „Datenschutzerklärung“ (h1) und den zehn nummerierten Abschnitten als
-  h2. Geprüft per Playwright-Screenshot beider Seiten.
-- Fußbereich mit „Impressum“ und „Datenschutz“ auf `/`, `/liste`,
-  `/karte`, `/venues/[id]`, `/magazin`, `/magazin/[slug]`, `/ueber` — **ja**:
-  alle sieben Seiten lokal gegen einen Mock-Server aufgerufen, Fußbereich
-  mit beiden Links auf jeder geprüft (Playwright, `footer.site-footer`
-  gefunden, korrekte `href`-Werte).
-- Klick aus dem Fußbereich führt direkt zur jeweiligen Seite — **ja**,
-  per Klick-Test von `/ueber` auf „Impressum“ geprüft, URL wechselt
-  korrekt.
-- Beide Seiten auf dem Handy lesbar, gleiche Zeilenlänge/Schriftgröße/
-  Abstände wie im Rest der App — **ja**: beide Seiten nutzen die
-  bestehende `.venue-detail`-Gestaltung (gleiche Breite, Schrift,
-  Abstände wie z. B. `/ueber` oder eine Ladenseite), bei 390px
-  Bildschirmbreite gegengeprüft (Screenshot).
-- Text nicht umformuliert/gekürzt/ergänzt — **ja**: Wortlaut unverändert
-  aus der Aufgabenbeschreibung übernommen.
-- Eckige Klammern im Text unverändert lassen und in „Musst du selbst
-  tun“ eintragen — **entfällt**: Der gelieferte Text enthält keine
-  eckigen Klammern, daher kein Eintrag nötig.
-- Adresse in `/impressum` als zusammenhängender Block mit
-  Zeilenumbrüchen — **ja**, per `<br />` zwischen den Zeilen, per
-  Screenshot geprüft (Name, Straße, PLZ/Ort, Land, E-Mail jeweils in
-  eigener Zeile).
+- Auswahl ändert sichtbar die Adresse — **ja**: Stadt/Genre stehen als
+  `?stadt=…&genre=…` in der URL, mit Komma bei Mehrfachauswahl. Geprüft
+  per Playwright: nach Auswahl von „Techno“ und „Karlsruhe“ zeigt die
+  Adressleiste `/liste?stadt=Karlsruhe&genre=Techno`.
+- Geteilte Adresse zeigt auf anderem Gerät dieselbe Auswahl — **ja**,
+  simuliert durch Öffnen der URL in einem zweiten, unabhängigen
+  Browser-Tab ohne gemeinsamen Speicher: gleiche Chips aktiv.
+- Zurück-Taste führt zur vorherigen Auswahl, nicht aus der Seite heraus
+  — **ja**: jede Filteränderung erzeugt einen eigenen Browserverlauf-
+  Eintrag; „Zurück“ zeigt die vorherige Auswahl, „Vor“ wieder die
+  spätere. Geprüft per Playwright (`page.goBack()`/`goForward()`).
+- Auswahl bleibt beim Wechsel zwischen Karte und Liste bestehen — **ja**:
+  die Links „Liste“/„Karte“ in der unteren Navigation nehmen die aktuelle
+  Adresszeilen-Auswahl mit. Geprüft per Klick zwischen beiden Seiten mit
+  aktiver Auswahl.
+- Ohne Auswahl bleibt die Adresse sauber — **ja**: kein `?` und keine
+  leeren Parameter, wenn kein Filter aktiv ist oder „Zurücksetzen“
+  gedrückt wird. Geprüft per Playwright.
+- Filter nicht mehr im Browser gespeichert, `kaverne:filter` entfernt —
+  **ja**: `lib/use-local-storage-state.ts` (nur dafür genutzt) gelöscht,
+  `lib/use-venue-filter.ts` liest/schreibt ausschließlich die
+  Adresszeile. Geprüft: `localStorage` ist nach mehreren Filteraktionen
+  weiterhin leer (Playwright, `Object.keys(localStorage)` → `[]`), und
+  eine Codesuche nach `kaverne:filter` im ganzen Repository findet
+  keinen Treffer mehr.
 
 ## 4. Abweichungen von der Aufgabenbeschreibung, mit Grund
 
-- Auf `/karte` sitzt der Fußbereich nicht am Ende einer scrollbaren
-  Seite wie bei den anderen sechs Seiten, sondern als schmale Zeile
-  zwischen Karte und unterer Navigation — die Kartenseite ist als
-  einzelner, nicht scrollender Bildschirm gebaut (Karte füllt exakt die
-  Fläche zwischen Filterleiste und Navigation). Ein gewöhnlicher
-  Scroll-Fußbereich hätte dafür die bestehende Höhenberechnung der Karte
-  ändern müssen, was über den Einbau des Fußbereichs hinausgegangen
-  wäre. Stattdessen nutzt der Fußbereich dort eine bereits vorhandene,
-  ungenutzte Lücke von rund 48px direkt über der Navigation — geprüft
-  per Screenshot, keine Überlappung mit Karte oder Navigation.
-- `/impressum` und `/datenschutz` selbst haben keinen eigenen
-  Fußbereich — das war nicht Teil der Aufgabenbeschreibung (dort sind
-  nur die sieben bestehenden Seiten aufgeführt), deshalb bewusst nicht
-  ergänzt.
-- Beide Seiten haben wie die übrigen Inhaltsseiten einen „← Zur
-  Startseite“-Link oben, obwohl das nicht ausdrücklich verlangt war —
-  das ist reine Navigation, kein Zusatz zum Rechtstext selbst, und
-  entspricht dem bestehenden Muster aller anderen Inhaltsseiten.
+- Keine.
 
 ## 5. Braucht Entscheidung von Tim
 
-- **`genres` und `typ` sind weiterhin Freitext, keine feste Liste**
-  (unverändert, siehe vorherige Fassungen) — kommt laut Tim in einer
-  der nächsten Runden als eigene Aufgabe.
-- **Rate-Limit beim Meldeweg speichert die Absender-IP kurzzeitig im
-  Arbeitsspeicher** (unverändert, siehe vorherige Fassungen) — die
-  Auslegung von „keine IP-Adressen speichern“ wird laut Tim final in
-  einer der nächsten Runden geklärt.
+- Beide bisherigen Punkte sind laut Tim erledigt und entfallen: die
+  IP-Auslegung beim Rate-Limit des Meldewegs sowie die Werteliste für
+  `typ`/`genres` (jetzt eigene Aufgabe A-09).
+- **Neu, zur Prüfung:** `/datenschutz`, Abschnitt 6 („Speicherung auf
+  Ihrem Endgerät“), beschreibt noch, dass die Filterauswahl auf dem
+  Gerät gespeichert wird („sowie Ihre zuletzt gewählte Filterauswahl,
+  damit sie beim nächsten Besuch erhalten bleibt“). Das stimmt seit
+  dieser Aufgabe nicht mehr — die Auswahl steht jetzt nur noch in der
+  Adresszeile, nicht mehr auf dem Gerät. Der Rechtstext selbst wurde
+  hier bewusst nicht angefasst (siehe A-07: Text nicht selbst
+  umformulieren). Bitte Abschnitt 6 entsprechend anpassen oder mir den
+  neuen Wortlaut zum Einsetzen geben.
+- **Nicht Teil dieser Aufgabe, aber aufgefallen:** Die Adresse in
+  `/impressum` enthält seit einer Änderung außerhalb dieser Sitzung
+  keine Straße und keinen Ort mehr (nur noch Name, „Deutschland“ und
+  E-Mail). Falls das nicht beabsichtigt war: Rückmeldung, dann setze ich
+  die vollständige Adresse aus A-07 wieder ein.
 
 ## 6. Bekannte Fehler
 
@@ -88,8 +79,8 @@ mit Verweis aus dem Fußbereich aller Läden-/Magazin-/Über-Seiten.
 
 - **Noch offen, kommt in einer der nächsten Runden:** Text für `/ueber`
   liefern — die Seite zeigt weiterhin nur die Überschrift „Über“ ohne
-  Inhalt (durch A-07 nicht verändert, nur um den Fußbereich ergänzt).
-- **Noch offen (siehe Abschnitt 5):** Werteliste für `typ` und `genres`
-  festlegen.
-- **Noch offen (siehe Abschnitt 5):** Rückmeldung zur IP-Auslegung beim
-  Rate-Limit des Meldewegs.
+  Inhalt.
+- **Noch offen (siehe Abschnitt 5):** Text in `/datenschutz`, Abschnitt
+  6, an die neue Filter-Speicherung (nur Adresszeile) anpassen.
+- **Noch offen (siehe Abschnitt 5):** Klären, ob die Adresse in
+  `/impressum` vollständig sein soll.
