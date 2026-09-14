@@ -1,6 +1,6 @@
 # Kaverne
 
-## Baustein 1 — Datenbank und Import
+## Einrichtung und Datenimport
 
 ### Einmalig einrichten
 
