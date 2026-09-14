@@ -406,3 +406,20 @@ a {
 .report-form-actions button:disabled {
   opacity: 0.6;
 }
+
+.site-footer {
+  display: flex;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+}
+
+.site-footer a {
+  color: #888;
+  text-decoration: none;
+}
+
+.site-footer--bottom-nav {
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}

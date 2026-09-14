@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import Footer from "@/components/Footer";
 import { hasAnyPost } from "@/lib/posts";
 import { getVenueStats } from "@/lib/venues";
 
@@ -34,6 +35,7 @@ export default async function StartPage() {
           <span className="home-block-title">Über</span>
         </Link>
       </main>
+      <Footer hasBottomNav />
       <BottomNav active="start" showMagazin={showMagazin} />
     </>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
+import Footer from "@/components/Footer";
 import { getPosts, hasAnyPost } from "@/lib/posts";
 
 export const dynamic = "force-dynamic";
@@ -24,6 +25,7 @@ export default async function MagazinPage() {
           </ul>
         )}
       </main>
+      <Footer hasBottomNav />
       <BottomNav active="magazin" showMagazin={showMagazin} />
     </>
   );
