@@ -60,6 +60,25 @@ export async function getFilterableVenues(): Promise<VenueFilterable[]> {
   return data as VenueFilterable[];
 }
 
+export interface VenueStats {
+  count: number;
+  cities: string[];
+}
+
+// Für die Startseite: Anzahl und Städte, ohne die übrigen Felder zu laden.
+export async function getVenueStats(): Promise<VenueStats> {
+  const supabase = getSupabaseClient();
+  const { data, error } = await supabase.from("venues").select("id,stadt");
+  if (error) throw error;
+
+  const collator = new Intl.Collator("de");
+  const cities = Array.from(
+    new Set(data.map((v) => v.stadt).filter((s): s is string => Boolean(s))),
+  ).sort((a, b) => collator.compare(a, b));
+
+  return { count: data.length, cities };
+}
+
 export async function getVenue(id: string): Promise<VenueDetail | null> {
   const supabase = getSupabaseClient();
   const { data, error } = await supabase

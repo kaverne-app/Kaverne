@@ -1,14 +1,17 @@
 import Link from "next/link";
 
 interface BottomNavProps {
-  active: "liste" | "karte" | "magazin";
+  active: "start" | "liste" | "karte" | "magazin";
   showMagazin: boolean;
 }
 
 export default function BottomNav({ active, showMagazin }: BottomNavProps) {
   return (
     <nav className="bottom-nav">
-      <Link href="/" className={active === "liste" ? "active" : undefined}>
+      <Link href="/" className={active === "start" ? "active" : undefined}>
+        Start
+      </Link>
+      <Link href="/liste" className={active === "liste" ? "active" : undefined}>
         Liste
       </Link>
       <Link href="/karte" className={active === "karte" ? "active" : undefined}>
