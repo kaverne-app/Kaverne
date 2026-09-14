@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "./Footer";
 import VenueFilterPanel from "./VenueFilterPanel";
 import VenueMap from "./VenueMap";
 import { useVenueFilter } from "@/lib/use-venue-filter";
@@ -32,6 +33,7 @@ export default function VenueMapClient({ venues }: { venues: VenueFilterable[] }
         onChange={setFilter}
       />
       <VenueMap venues={pins} />
+      <Footer />
     </main>
   );
 }
