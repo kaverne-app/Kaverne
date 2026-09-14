@@ -1,23 +1,40 @@
+import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
-import VenueListClient from "@/components/VenueListClient";
 import { hasAnyPost } from "@/lib/posts";
-import { getFilterableVenues } from "@/lib/venues";
+import { getVenueStats } from "@/lib/venues";
 
-// Läden ändern sich nur durch einen erneuten CSV-Import, nicht durch
-// Nutzeraktionen — deshalb bei jedem Aufruf frisch von Supabase laden,
-// statt den Seiteninhalt beim Build fest einzufrieren.
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
-  const [venues, showMagazin] = await Promise.all([
-    getFilterableVenues(),
-    hasAnyPost(),
-  ]);
+export default async function StartPage() {
+  const [stats, showMagazin] = await Promise.all([getVenueStats(), hasAnyPost()]);
 
   return (
     <>
-      <VenueListClient venues={venues} />
-      <BottomNav active="liste" showMagazin={showMagazin} />
+      <main className="home">
+        <h1 className="home-wordmark">Kaverne</h1>
+        <p className="home-tagline">
+          Clubs und Venues für elektronische Musik im Südwesten
+        </p>
+
+        <Link href="/karte" className="home-block">
+          <span className="home-block-title">Clubs</span>
+          <span className="home-block-meta">
+            {stats.count} {stats.count === 1 ? "Eintrag" : "Einträge"}
+            {stats.cities.length > 0 ? ` · ${stats.cities.join(", ")}` : ""}
+          </span>
+        </Link>
+
+        {showMagazin && (
+          <Link href="/magazin" className="home-block">
+            <span className="home-block-title">Magazin</span>
+          </Link>
+        )}
+
+        <Link href="/ueber" className="home-block">
+          <span className="home-block-title">Über</span>
+        </Link>
+      </main>
+      <BottomNav active="start" showMagazin={showMagazin} />
     </>
   );
 }
