@@ -138,6 +138,3 @@ Seite, kein Code, keine personenbezogenen Daten. Abschnitte:
 5. Braucht Entscheidung von Tim
 6. Bekannte Fehler
 7. Musst du selbst tun (Konten, Zugangsschlüssel, Einstellungen)
-8. Abgleich mit den Festlegungen: geprüfter Zustand von Trennung der
-   internen Felder, Kartenanbieter, Beitragstabelle und
-   `/magazin`-URL-Struktur
