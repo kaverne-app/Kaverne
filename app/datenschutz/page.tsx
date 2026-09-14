@@ -9,7 +9,11 @@ export default function DatenschutzPage() {
       <h1>Datenschutzerklärung</h1>
 
       <h2>1. Verantwortlicher</h2>
-      <p>Tim Fischer Deutschland E-Mail: kaverne.app@gmail.com</p>
+      <p>Tim Fischer 
+         <br />
+        Deutschland 
+         <br />
+        E-Mail: kaverne.app@gmail.com</p>
 
       <h2>2. Überblick</h2>
       <p>
