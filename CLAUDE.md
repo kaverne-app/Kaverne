@@ -1,10 +1,52 @@
 # Kaverne — Regeln für Claude Code
 
-**Diese Datei enthält nur dauerhafte Regeln.** Sie wird in jeder Sitzung
-mitgelesen. Was gerade gebaut wird, steht in der jeweiligen
-Aufgabenbeschreibung; der Stand der Arbeit steht in `STAND.md`.
+**Diese Datei enthält einen kurzen Projektüberblick und dauerhafte Regeln.**
+Sie wird in jeder Sitzung mitgelesen. Was gerade gebaut wird, steht in der
+jeweiligen Aufgabenbeschreibung; der Stand der Arbeit steht in `STAND.md`.
 Keine Sitzungsziele, keine Aufgaben, keine „nicht in dieser Sitzung"-Listen
 in dieser Datei.
+
+---
+
+## Projektüberblick
+
+Kaverne ist ein mobiles Verzeichnis von Clubs und Venues für elektronische
+Musik im Südwesten Deutschlands: Liste, Karte, dazu ein noch leeres
+Magazin-Gerüst.
+
+**Stack:** Next.js 14 (App Router, TypeScript), Supabase (Postgres),
+MapLibre GL für die Karte, gehostet auf Vercel.
+
+**Seiten (`app/`):**
+- `/` — Startseite/Verteiler
+- `/liste` — alle Läden, gruppiert nach Stadt
+- `/karte` — Karte mit Pins
+- `/venues/[id]` — Detailseite eines Ladens
+- `/magazin`, `/magazin/[slug]` — Beitragsübersicht/-detail (Struktur da,
+  aktuell ohne Beiträge)
+- `/ueber` — nur Gerüst, Text noch offen
+
+**Verzeichnisse:**
+- `lib/` — Supabase-Zugriff und reine Anzeigelogik (keine Seiteneffekte)
+- `components/` — Client-Komponenten (Karte, Filter, Listen)
+- `scripts/` — Kommandozeilen-Werkzeuge für den CSV-Import
+- `supabase/migrations/` — SQL zum Anlegen der Tabellen; wird von Hand im
+  Supabase-SQL-Editor ausgeführt, da diese Umgebung Supabase selbst nicht
+  erreichen kann
+
+**Datenbank:** `venues` (öffentlich lesbar) und `venues_internal` (nie
+abgefragt); dazu `posts`, `people`, `reihen` für das Magazin.
+
+**Befehle:** `npm run dev` / `build` / `lint`; `npm run geocode -- <csv>`
+ermittelt Koordinaten und schreibt eine Prüfdatei; `npm run import -- <csv>`
+importiert nach Supabase (braucht `SUPABASE_SERVICE_ROLE_KEY`);
+`npx tsx scripts/generate-import-sql.ts` bzw. `generate-coordinates-sql.ts`
+erzeugen fertiges SQL zum Einfügen im Supabase-Editor, wenn keine
+Kommandozeile zur Verfügung steht.
+
+**Umgebung:** `NEXT_PUBLIC_SUPABASE_URL` und `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
+öffentlich sind — abgesichert wird über Row-Level-Security, nicht Geheimhaltung.
 
 ---
 
@@ -96,3 +138,6 @@ Seite, kein Code, keine personenbezogenen Daten. Abschnitte:
 5. Braucht Entscheidung von Tim
 6. Bekannte Fehler
 7. Musst du selbst tun (Konten, Zugangsschlüssel, Einstellungen)
+8. Abgleich mit den Festlegungen: geprüfter Zustand von Trennung der
+   internen Felder, Kartenanbieter, Beitragstabelle und
+   `/magazin`-URL-Struktur
