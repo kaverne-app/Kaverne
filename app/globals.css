@@ -121,6 +121,11 @@ a {
   flex-wrap: wrap;
 }
 
+.post-text {
+  margin-top: 24px;
+  white-space: pre-wrap;
+}
+
 .bottom-nav {
   position: fixed;
   left: 0;

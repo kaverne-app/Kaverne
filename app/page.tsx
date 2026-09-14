@@ -1,5 +1,6 @@
 import BottomNav from "@/components/BottomNav";
 import VenueListClient from "@/components/VenueListClient";
+import { hasAnyPost } from "@/lib/posts";
 import { getFilterableVenues } from "@/lib/venues";
 
 // Läden ändern sich nur durch einen erneuten CSV-Import, nicht durch
@@ -8,12 +9,15 @@ import { getFilterableVenues } from "@/lib/venues";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const venues = await getFilterableVenues();
+  const [venues, showMagazin] = await Promise.all([
+    getFilterableVenues(),
+    hasAnyPost(),
+  ]);
 
   return (
     <>
       <VenueListClient venues={venues} />
-      <BottomNav active="liste" />
+      <BottomNav active="liste" showMagazin={showMagazin} />
     </>
   );
 }
