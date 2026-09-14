@@ -1,90 +1,98 @@
-# Aufgabenbeschreibung für Claude Code — Kaverne, erster Stand
+# Kaverne — Regeln für Claude Code
 
-**Ziel dieser Sitzung:** Eine Web-App, die auf dem Handy eine Karte und eine Liste der erfassten Läden zeigt, mit einer Detailseite pro Laden. Sonst nichts.
-
-**Diese Datei wird als `CLAUDE.md` ins Hauptverzeichnis des Repositorys gelegt und bei jeder Sitzung mitgelesen.**
+**Diese Datei enthält nur dauerhafte Regeln.** Sie wird in jeder Sitzung
+mitgelesen. Was gerade gebaut wird, steht in der jeweiligen
+Aufgabenbeschreibung; der Stand der Arbeit steht in `STAND.md`.
+Keine Sitzungsziele, keine Aufgaben, keine „nicht in dieser Sitzung"-Listen
+in dieser Datei.
 
 ---
 
-## Kontext
+## Zusammenarbeit
 
-- Ich lese keinen Code. Erkläre Entscheidungen so, dass ich sie ohne Code beurteilen kann.
-- Die Daten sind echt und lückenhaft. Ungefähr die Hälfte der Felder ist bei den meisten Läden leer. Das ist Absicht, nicht ein Fehler in den Daten.
-- Wenn etwas unklar ist, frag nach, statt Platzhalter oder Beispieldaten zu erfinden.
+- Tim liest keinen Code. Entscheidungen so erklären, dass er sie ohne Code
+  beurteilen kann.
+- Die Daten sind echt und lückenhaft. Bei den meisten Läden ist ungefähr die
+  Hälfte der Felder leer. Das ist Absicht, kein Fehler in den Daten.
+- Bei Unklarheit nachfragen, statt Platzhalter oder Beispieldaten zu erfinden.
+- Eine Aufgabe pro Sitzung. Nach jedem abgeschlossenen Baustein anhalten und
+  zeigen, was Tim prüfen kann.
+- Am Ende jeder Sitzung `STAND.md` überschreiben (siehe unten).
 
 ## Stack — verbindlich
 
 - Next.js, gehostet auf Vercel
-- Supabase (Postgres) als Datenbank
+- Supabase (Postgres)
 - MapLibre GL mit freiem Tile-Anbieter
-- Mobil zuerst. Keine Web-spezifischen Lösungen, die eine spätere Überführung per Capacitor verhindern.
+- Mobil zuerst. Nichts einbauen, was eine spätere Überführung per Capacitor
+  verhindert.
 
-**Ausdrücklich verboten:** Google Maps Platform, jede Form von Konto oder Login, Bewertungen, Events.
+## Verbote
 
----
+- Google Maps Platform oder ein anderer Google-Dienst.
+- Konto, Login, öffentliche Bewertungen, Eventkalender. Alles vier gehört in
+  Phase 4 und wird nicht vorbereitet.
+- `venues_internal` wird von der App nie abgefragt. Nicht „im Frontend
+  ausgeblendet" — die Abfrage existiert nicht. Gilt besonders für
+  `ansprechpartner`, das personenbezogene Daten enthält.
+- Fremde Bilder, Logos und Texte nicht übernehmen, auch nicht von Instagram.
+- Fremde Datenbanken nicht automatisiert auslesen.
+- Keine Beispiel- oder Platzhalterdaten in der Datenbank.
 
-## Baustein 1 — Datenbank und Import
+## Datenmodell — feste Regeln
 
-**Ziel:** Die Läden aus meinem Sheet liegen in Supabase.
+- Zwei Tabellen: `venues` (sichtbar) und `venues_internal` (nie abgefragt).
+- `id` ist Text nach dem Schema `stadt-name`, ohne Umlaute, ß und
+  Großbuchstaben. Eine ID wird nie geändert und nie wiederverwendet.
+- Der Import ist wiederholbar: ein zweiter Lauf aktualisiert bestehende Zeilen
+  anhand der `id` und legt keine Dubletten an.
+- Leere Zellen bleiben leer. Nie „nein", „0" oder „unbekannt".
+- Koordinaten werden beim Import aus der Adresse erzeugt und zuerst in eine
+  Prüfdatei geschrieben. Erst nach Bestätigung gehen sie in die Datenbank.
+- `genres` und `typ` kommen aus festen Listen. Kein Freitext.
+- `links` bleibt eine flexible Liste aus Typ und URL.
+- Für Personen und Reihen existieren eigene Objekte. In v1 werden sie als
+  Textfeld gefüllt, die Struktur steht trotzdem.
+- Eine Beitragstabelle (Titel, Slug, Text, Datum, Verknüpfung auf Laden,
+  Person oder Reihe) existiert und bleibt leer. Die URL-Struktur sieht
+  `/magazin` von Anfang an vor.
 
-**Tabellen:**
-- `venues` — alle Felder, die der Nutzer sehen darf
-- `venues_internal` — interne Felder, per Verweis auf `venues`
+## Anzeigeregeln
 
-**Felder in `venues`:**
-id (Text, z. B. `karlsruhe-gotec`, Primärschlüssel) · name · typ · stadt · adresse · lat · lon · genres (Mehrfachwerte) · status · oeffnungstage (Mehrfachwerte) · kurzbeschreibung · kapazitaet · residents · reihen · preisniveau · kartenzahlung · garderobe · raucherbereich · haltestelle · barrierefreiheit · kamerapolitik · links (Liste aus Typ und URL)
+- Leere Felder verschwinden vollständig. Kein Platzhalter, kein ausgegrauter
+  Text, keine Aufforderung an den Nutzer, etwas beizusteuern.
+- Ist ein ganzer Block leer, verschwindet auch seine Überschrift.
+- Ein Laden, bei dem nur die Pflichtfelder gefüllt sind, sieht nach einer
+  fertigen Seite aus und nicht nach einem Fehler.
+- `residents` steht in der Datenbank und wird nicht angezeigt.
+- „Zuletzt geprüft", Herkunft und Quellenangaben werden nie angezeigt.
+- Ein Eintrag erscheint nur, wenn alles davon zutrifft: Name, Typ, Stadt und
+  Adresse vorhanden; Koordinaten bestätigt; mindestens ein Genre aus der
+  festen Liste; Status „aktiv" oder „unregelmäßig"; mindestens ein Link;
+  `zuletzt_geprueft` gesetzt.
+- Blockreihenfolge auf der Detailseite: Wann & wo · Programm & Kanäle ·
+  Preise & Größe · Vor Ort.
+- Alles in Daumenreichweite bedienbar.
 
-**Felder in `venues_internal`:**
-venue_id · zuletzt_geprueft · herkunft · ansprechpartner · was_passiert_dort · notiz
+## Nicht selbst entscheiden
 
-**Akzeptanzkriterien:**
-- Ein CSV-Export meines Sheets lässt sich importieren, ohne dass ich etwas von Hand nacharbeite.
-- Leere Zellen landen als leer in der Datenbank, nicht als „nein", „0" oder „unbekannt".
-- Der Import ist wiederholbar: ein zweiter Lauf mit korrigierten Daten aktualisiert bestehende Zeilen anhand der id und legt keine Dubletten an.
-- Koordinaten werden beim Import aus der Adresse erzeugt und in eine Datei geschrieben, die ich prüfen kann, bevor sie in die Datenbank gehen.
+Diese Punkte werden nicht umgesetzt, sondern in `STAND.md` unter
+„Braucht Entscheidung" eingetragen:
 
-**Verbote:**
-- `venues_internal` wird von der App nie abgefragt. Nicht „im Frontend ausgeblendet" — die Abfrage existiert nicht. Das betrifft besonders `ansprechpartner`, das personenbezogene Daten enthält.
+- Änderungen am Datenmodell
+- Neue Dienste oder Abhängigkeiten, die Geld kosten können
+- Jeder Zugriff auf `venues_internal`
+- Alles, was diesen Regeln widerspricht
 
----
+## STAND.md
 
-## Baustein 2 — Liste und Detailseite
+Am Ende jeder Sitzung überschreiben, nicht fortschreiben. Höchstens eine
+Seite, kein Code, keine personenbezogenen Daten. Abschnitte:
 
-**Ziel:** Ich kann auf dem Handy durch die Läden scrollen und einen davon öffnen.
-
-**Liste:** pro Eintrag Name, Typ, Stadt, Genres. Sortiert nach Stadt, darin alphabetisch.
-
-**Detailseite:** Name, Typ, Stadt, Genres, dann in Blöcken:
-- Wann & wo — Öffnungstage, Adresse
-- Programm & Kanäle — Reihen, Links
-- Preise & Größe — Preisniveau, Kapazität
-- Vor Ort — Kartenzahlung, Garderobe, Raucherbereich, Haltestelle, Barrierefreiheit, Kamerapolitik
-
-**Akzeptanzkriterien:**
-- Leere Felder verschwinden vollständig. Kein Platzhalter, kein ausgegrauter Text, keine Aufforderung, etwas beizusteuern.
-- Ist ein ganzer Block leer, verschwindet auch die Überschrift.
-- Ein Laden, bei dem nur die Pflichtfelder gefüllt sind, sieht trotzdem nach einer fertigen Seite aus und nicht nach einem Fehler.
-- `residents` wird nicht angezeigt, obwohl es in der Datenbank steht.
-- Die Seite ist auf einem Handy in Daumenreichweite bedienbar.
-
----
-
-## Baustein 3 — Karte
-
-**Ziel:** Alle Läden als Pins, Tippen führt zur Detailseite.
-
-**Akzeptanzkriterien:**
-- Die Karte zeigt alle Läden mit bestätigten Koordinaten.
-- Tippen auf einen Pin zeigt Name und Stadt, ein zweiter Tipp öffnet die Detailseite.
-- Startausschnitt umfasst alle Läden.
-- Kein Google-Dienst im Spiel.
-
----
-
-## Reihenfolge
-
-Baustein 1, dann 2, dann 3. Nach jedem Baustein anhalten und mir zeigen, was ich prüfen kann.
-
-## Nicht in dieser Sitzung
-
-Filter, Favoriten, private Notizen, Meldeknopf, Suche, Impressum, Datenschutz, Gestaltung über das Nötigste hinaus, Bilder.
+1. Datum und Aufgaben-ID
+2. Status je Aufgabe (offen / in Arbeit / fertig / blockiert)
+3. Akzeptanzkriterien: je Kriterium erfüllt ja oder nein, und wie geprüft
+4. Abweichungen von der Aufgabenbeschreibung, mit Grund
+5. Braucht Entscheidung von Tim
+6. Bekannte Fehler
+7. Musst du selbst tun (Konten, Zugangsschlüssel, Einstellungen)
