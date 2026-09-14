@@ -20,7 +20,13 @@ a {
 }
 
 .venue-list {
+  padding-top: 48px;
   padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+
+.empty-state {
+  padding: 24px 16px;
+  color: #666;
 }
 
 .city-heading {
@@ -147,7 +153,7 @@ a {
 }
 
 .venue-map {
-  height: calc(100dvh - 56px - env(safe-area-inset-bottom));
+  height: calc(100dvh - 48px - 56px - env(safe-area-inset-bottom));
 }
 
 .venue-pin {
@@ -165,4 +171,92 @@ a {
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 14px;
   padding: 8px 12px;
+}
+
+.filter-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 10;
+}
+
+.filter-toggle {
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding: 8px 0;
+}
+
+.filter-reset {
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: #888;
+  padding: 8px 0;
+}
+
+.filter-panel {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-group h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 8px;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-chip {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.filter-chip.active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
+
+.filter-done {
+  width: 100%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 15px;
+  min-height: 44px;
 }

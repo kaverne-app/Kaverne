@@ -21,6 +21,13 @@ export interface VenuePin {
   lon: number;
 }
 
+// Für Liste und Karte: beide filtern auf demselben Datensatz (Stadt, Genre),
+// die Karte braucht zusätzlich lat/lon.
+export interface VenueFilterable extends VenueSummary {
+  lat: number | null;
+  lon: number | null;
+}
+
 export interface VenueDetail extends VenueSummary {
   adresse: string | null;
   oeffnungstage: string[] | null;
@@ -41,24 +48,16 @@ export interface VenueDetail extends VenueSummary {
 const SUMMARY_COLUMNS = "id,name,typ,stadt,genres";
 const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,oeffnungstage,reihen,links,preisniveau,kapazitaet,kartenzahlung,garderobe,raucherbereich,haltestelle,barrierefreiheit,kamerapolitik`;
 
-export async function getVenues(): Promise<VenueSummary[]> {
-  const supabase = getSupabaseClient();
-  const { data, error } = await supabase.from("venues").select(SUMMARY_COLUMNS);
-  if (error) throw error;
-  return data as VenueSummary[];
-}
-
-// Nur Läden mit bestätigten Koordinaten — der Rest kann auf der Karte
-// naturgemäß nicht angezeigt werden.
-export async function getVenuePins(): Promise<VenuePin[]> {
+// Liste und Karte laden denselben Datensatz — gefiltert wird client-seitig,
+// damit Filterauswahl sich sofort auswirkt, ohne bei jedem Klick neu von
+// Supabase zu laden.
+export async function getFilterableVenues(): Promise<VenueFilterable[]> {
   const supabase = getSupabaseClient();
   const { data, error } = await supabase
     .from("venues")
-    .select("id,name,stadt,lat,lon")
-    .not("lat", "is", null)
-    .not("lon", "is", null);
+    .select(`${SUMMARY_COLUMNS},lat,lon`);
   if (error) throw error;
-  return data as VenuePin[];
+  return data as VenueFilterable[];
 }
 
 export async function getVenue(id: string): Promise<VenueDetail | null> {
