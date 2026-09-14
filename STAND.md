@@ -71,22 +71,18 @@ Entscheidungen und Dinge, die nur Tim erledigen kann (Abschnitte 5–7).
 - **`genres` und `typ` sind weiterhin Freitext, keine feste Liste.** Laut
   `CLAUDE.md` sollen beide aus festen Listen kommen. Weder in der
   Datenbank (Spalten sind einfacher `text`/`text[]` ohne Einschränkung)
-  noch im Import-Code gibt es bisher eine feste Werteliste. Das ist eine
-  Änderung am Datenmodell und damit nicht meine Entscheidung: Ich brauche
-  von dir die konkrete(n) Liste(n) für `typ` und für `genres`, dann baue
-  ich die Einschränkung ein (Datenbank-Check und Import-Prüfung). Bisher
-  unbeantwortet, seit Baustein 7 offen.
+  noch im Import-Code gibt es bisher eine feste Werteliste. Die Liste
+  selbst existiert laut Tim noch nicht — kommt in einer der nächsten
+  Runden als eigene Aufgabe, sobald die Werteliste feststeht.
 - **Rate-Limit beim Meldeweg speichert die Absender-IP kurzzeitig im
   Arbeitsspeicher.** Bei der Umstellung auf serverseitigen Versand (A-02)
   musste ich „keine IP-Adressen speichern" auslegen: Die IP wird
   nirgends geloggt oder dauerhaft gespeichert, dient aber für die Dauer
   des laufenden Prozesses als Schlüssel in einer einfachen Zähler-Liste,
   damit nicht beliebig viele Meldungen kurz hintereinander durchgehen.
-  Diese Auslegung („nicht dauerhaft speichern" statt „nie anfassen") ist
-  bisher unbeantwortet. Falls dir die engere Auslegung wichtig ist
-  (IP nie anfassen, auch nicht kurzzeitig): Rückmeldung, dann bleibt nur
-  die schwächere, rein browserseitige Sperre übrig (umgehbar durch
-  Neuladen mit gelöschtem Speicher oder anderem Gerät).
+  Laut Tim wird diese Auslegung („nicht dauerhaft speichern" statt „nie
+  anfassen") in einer der nächsten Runden final geklärt. Bis dahin bleibt
+  die aktuelle, transiente Umsetzung in Kraft.
 
 ## 6. Bekannte Fehler
 
@@ -101,20 +97,19 @@ Entscheidungen und Dinge, die nur Tim erledigen kann (Abschnitte 5–7).
 
 ## 7. Musst du selbst tun
 
-- **Erledigt, nur zur Nachvollziehbarkeit:** Resend-Domain `kaverne.app`
-  verifiziert, `REPORT_FROM_EMAIL` in Vercel gesetzt, Testmeldung
-  verschickt und Zustellung geprüft — laut deiner Rückmeldung
-  abgeschlossen und funktionsfähig.
-- **Noch offen:** Prüfen, ob `supabase/migrations/0002_posts.sql`
-  (Tabellen `posts`, `people`, `reihen`) im Supabase-SQL-Editor
-  eingespielt ist. Das ist seit Baustein 7 unbeantwortet — ohne diese
-  Migration existieren die Magazin-Tabellen in der echten Datenbank
-  noch nicht, `/magazin` liefe dann bei einem echten Seitenaufruf ins
-  Leere (aktuell unkritisch, da das Magazin ohnehin noch ohne Inhalte
-  ist, aber vor dem ersten Beitrag nötig).
-- **Noch offen:** Text für `/ueber` liefern — die Seite zeigt aktuell
-  nur die Überschrift „Über" ohne Inhalt.
-- **Noch offen (siehe Abschnitt 5):** feste Wertelisten für `typ` und
-  `genres` festlegen.
-- **Noch offen (siehe Abschnitt 5):** Rückmeldung zur IP-Auslegung beim
-  Rate-Limit des Meldewegs, falls die engere Auslegung gewünscht ist.
+- **Erledigt:** Resend-Domain `kaverne.app` verifiziert,
+  `REPORT_FROM_EMAIL` in Vercel gesetzt, Testmeldung verschickt und
+  Zustellung geprüft — bestätigt funktionsfähig.
+- **Erledigt:** `supabase/migrations/0002_posts.sql` (Tabellen `posts`,
+  `people`, `reihen`) ist im Supabase-SQL-Editor eingespielt — von Tim
+  bestätigt. Damit sind alle bisherigen Migrationen (`0001_init.sql`,
+  `0002_posts.sql`) in der echten Datenbank angekommen.
+- **Noch offen, kommt in einer der nächsten Runden:** Text für `/ueber`
+  liefern — die Seite zeigt aktuell nur die Überschrift „Über" ohne
+  Inhalt.
+- **Noch offen, kommt in einer der nächsten Runden (siehe Abschnitt 5):**
+  Werteliste für `typ` und `genres` festlegen, dann als eigene Aufgabe
+  einbauen.
+- **Noch offen, wird final in einer der nächsten Runden geklärt (siehe
+  Abschnitt 5):** Auslegung der IP-Handhabung beim Rate-Limit des
+  Meldewegs.
