@@ -1,16 +1,16 @@
 import BottomNav from "@/components/BottomNav";
-import VenueMap from "@/components/VenueMap";
-import { getVenuePins } from "@/lib/venues";
+import VenueMapClient from "@/components/VenueMapClient";
+import { getFilterableVenues } from "@/lib/venues";
 
 export const dynamic = "force-dynamic";
 
 export default async function KartePage() {
-  const venues = await getVenuePins();
+  const venues = await getFilterableVenues();
 
   return (
-    <main className="map-page">
-      <VenueMap venues={venues} />
+    <>
+      <VenueMapClient venues={venues} />
       <BottomNav active="karte" />
-    </main>
+    </>
   );
 }
