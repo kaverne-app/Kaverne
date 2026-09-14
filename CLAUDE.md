@@ -72,8 +72,9 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 ## Verbote
 
 - Google Maps Platform oder ein anderer Google-Dienst.
-- Konto, Login, öffentliche Bewertungen, Eventkalender. Alles vier gehört in
-  Phase 4 und wird nicht vorbereitet.
+- Konto, Login, Bewertungen (öffentlich wie privat), Eventkalender,
+  Merkliste, private Notizen. Gehört alles in spätere Phasen und wird nicht
+  vorbereitet.
 - `venues_internal` wird von der App nie abgefragt. Nicht „im Frontend
   ausgeblendet" — die Abfrage existiert nicht. Gilt besonders für
   `ansprechpartner`, das personenbezogene Daten enthält.
@@ -108,10 +109,12 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
   fertigen Seite aus und nicht nach einem Fehler.
 - `residents` steht in der Datenbank und wird nicht angezeigt.
 - „Zuletzt geprüft", Herkunft und Quellenangaben werden nie angezeigt.
-- Ein Eintrag erscheint nur, wenn alles davon zutrifft: Name, Typ, Stadt und
-  Adresse vorhanden; Koordinaten bestätigt; mindestens ein Genre aus der
-  festen Liste; Status „aktiv" oder „unregelmäßig"; mindestens ein Link;
-  `zuletzt_geprueft` gesetzt.
+- Es gibt keine Anzeigebedingungen. Was in `venues` steht, wird angezeigt.
+  Nicht nach Status, Genre, Links oder Prüfdatum filtern.
+- Fehlen `lat` oder `lon`, erscheint kein Pin auf der Karte und kein
+  Kartenausschnitt und kein Kartenverweis auf der Detailseite. Der Eintrag
+  bleibt in Liste und Detailansicht vollständig nutzbar.
+- Kein Konto, keine Merkliste, keine privaten Notizen, keine Sterne.
 - Blockreihenfolge auf der Detailseite: Wann & wo · Programm & Kanäle ·
   Preise & Größe · Vor Ort.
 - Alles in Daumenreichweite bedienbar.
