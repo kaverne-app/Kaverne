@@ -65,12 +65,11 @@ export default function DatenschutzPage() {
 
       <h2>6. Speicherung auf Ihrem Endgerät</h2>
       <p>
-        Gespeichert werden zwei Werte: der Zeitpunkt Ihrer letzten Meldung
-        über das Meldeformular, damit dieselbe Meldung nicht versehentlich
-        mehrfach abgeschickt wird, sowie Ihre zuletzt gewählte
-        Filterauswahl, damit sie beim nächsten Besuch erhalten bleibt. Beide
-        Werte enthalten keine Kennung und lassen keinen Rückschluss auf Ihre
-        Person zu. Über die Browsereinstellungen können Sie sie löschen.
+        Gespeichert wird ein Wert: der Zeitpunkt Ihrer letzten Meldung über
+        das Meldeformular, damit dieselbe Meldung nicht versehentlich
+        mehrfach abgeschickt wird. Dieser Wert enthält keine Kennung und
+        lässt keinen Rückschluss auf Ihre Person zu. Über die
+        Browsereinstellungen können Sie ihn löschen.
       </p>
 
       <h2>7. Meldeformular</h2>
