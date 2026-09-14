@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getVenue } from "@/lib/venues";
 import { buildDetailBlocks, joinList } from "@/lib/venue-view";
+import ShareButton from "@/components/ShareButton";
+import ReportButton from "@/components/ReportButton";
+import VenueDetailMap from "@/components/VenueDetailMap";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +20,7 @@ export default async function VenuePage({
   const subtitle = [venue.typ, venue.stadt, joinList(venue.genres)]
     .filter(Boolean)
     .join(" · ");
+  const hasCoordinates = venue.lat != null && venue.lon != null;
 
   return (
     <main className="venue-detail">
@@ -25,6 +29,10 @@ export default async function VenuePage({
       </Link>
       <h1>{venue.name}</h1>
       {subtitle && <p className="venue-subtitle">{subtitle}</p>}
+
+      <div className="venue-actions">
+        <ShareButton name={venue.name} />
+      </div>
 
       {blocks.map((block) => (
         <section key={block.title} className="detail-block">
@@ -54,8 +62,23 @@ export default async function VenuePage({
               </div>
             ))}
           </dl>
+          {/* Koordinaten stammen aus der Adresse (siehe Import) — wo sie
+              gesetzt sind, ist auch der Block "Wann & wo" vorhanden. */}
+          {block.title === "Wann & wo" && hasCoordinates && (
+            <div className="venue-map-excerpt">
+              <VenueDetailMap name={venue.name} lat={venue.lat!} lon={venue.lon!} />
+              <a
+                className="map-link"
+                href={`geo:${venue.lat},${venue.lon}?q=${venue.lat},${venue.lon}(${encodeURIComponent(venue.name)})`}
+              >
+                In Karten-App öffnen
+              </a>
+            </div>
+          )}
         </section>
       ))}
+
+      <ReportButton name={venue.name} />
     </main>
   );
 }
