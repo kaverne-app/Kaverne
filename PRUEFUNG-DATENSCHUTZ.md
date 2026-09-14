@@ -5,10 +5,10 @@ Prüffragen als Grundlage für Impressum und Datenschutzerklärung. Keine
 Änderung an der App — reine Bestandsaufnahme des Codes, wie er aktuell auf
 `main` liegt.
 
-**Hinweis zur Fragenzahl:** Die Aufgabenbeschreibung kündigt 14 Fragen an,
-enthält aber nur 7 nummerierte Fragen. Die folgenden Antworten beziehen
-sich auf genau diese 7. Falls weitere Fragen nachgereicht werden sollen,
-bitte melden.
+**Hinweis zur Fragenzahl:** Die ursprüngliche Aufgabenbeschreibung kündigte
+14 Fragen an, enthielt aber nur 7 nummerierte Fragen. Frage 8 wurde
+nachträglich als Ergänzungsfrage gestellt und hier ergänzt. Falls weitere
+Fragen nachgereicht werden sollen, bitte melden.
 
 ---
 
@@ -193,3 +193,29 @@ Die Seite besteht aktuell ausschließlich aus Text, Formularelementen und
 der Karte (Kartenkacheln sind keine Bilddatei der Seite selbst, sondern
 werden von MapLibre vom externen Kachel-Anbieter geladen, siehe Antwort
 zu Frage 3).
+
+## 8. Fehlerüberwachung: Ist Sentry, Logtail oder Ähnliches angebunden?
+
+**Antwort: Nein.**
+
+Geprüft mit:
+- `package.json`: Weder in `dependencies` noch in `devDependencies` taucht
+  ein Monitoring-/Error-Tracking-Paket auf (`@sentry/*`, `logtail`,
+  `@logtail/*`, `datadog`, `bugsnag`, `rollbar` o. ä.) — die einzigen
+  Laufzeit-Abhängigkeiten sind Supabase-Client, MapLibre GL, Next.js,
+  React und Resend.
+- Codesuche `grep -rniE "sentry|logtail|datadog|bugsnag|rollbar|logrocket|betterstack|highlight\.io|axiom"`
+  über das ganze Repository (außerhalb von `node_modules`): keine
+  Treffer im Quellcode. Ein einzelner Treffer lag in `.next/server/...`
+  — das ist ein bei `npm run build` frisch erzeugter, nicht versionierter
+  Build-Ordner (siehe `.gitignore`), und bei genauerem Hinsehen nur eine
+  eingebaute Prüfung einer Abhängigkeit, ob *zufällig* ein fremdes
+  Sentry-Setup im selben Prozess mitläuft — keine eigene Anbindung.
+- Keine `instrumentation.ts`- oder `sentry.*.config.*`-Datei im
+  Repository (Next.js' üblicher Ort für eine Sentry-Einbindung).
+- Kein DSN, API-Key oder ähnliche Variable für einen Monitoring-Dienst in
+  `.env.example`.
+- Fehler werden aktuell ausschließlich über `console.error` ausgegeben
+  (z. B. in `app/api/report/route.ts`, wenn der Mailversand fehlschlägt)
+  — das landet nur in den serverseitigen Vercel-Logs, nicht bei einem
+  externen Dienst.
