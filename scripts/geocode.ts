@@ -51,7 +51,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { inlineCoordinates, addresses } = readVenueCsv(csvPath);
+  const { inlineCoordinates, addresses, rowInfo } = readVenueCsv(csvPath);
   const existingReview = readCoordinateReview(reviewPath);
 
   const outputRows: CoordinateReviewRow[] = [];
@@ -68,14 +68,17 @@ async function main() {
       reused += 1;
       continue;
     }
+    const info = rowInfo.get(id);
     outputRows.push({
       id,
-      name: existing?.name ?? id,
-      adresse: existing?.adresse ?? "",
+      name: info?.name ?? existing?.name ?? id,
+      adresse: info?.adresse ?? existing?.adresse ?? "",
       lat: String(lat),
       lon: String(lon),
       quelle: "tabelle",
-      hinweis: "",
+      hinweis:
+        "Koordinate aus der Tabelle übernommen — keine automatische Gegenprüfung " +
+        "(Nominatim wurde hierfür nicht abgefragt)",
     });
     fromSheet += 1;
   }
