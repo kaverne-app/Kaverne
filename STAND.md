@@ -5,41 +5,35 @@ wieder, nicht den geplanten.
 
 ## 1. Datum und Aufgaben-ID
 
-2026-09-15 — A-08: Text für `/ueber`.
+2026-09-15 — A-10: Datenschutzerklärung an den Stand nach A-06
+angepasst.
 
 ## 2. Status je Aufgabe
 
 - Baustein 1–8, A-02, A-03: **fertig**, unverändert (siehe frühere
   Fassungen dieser Datei für Details).
-- A-04 (Prüfdokument `PRUEFUNG-DATENSCHUTZ.md`), A-07 (Impressum/
-  Datenschutz als Seiten), A-06 (Filter in der Adresszeile) inkl.
-  Nachtrag (Datenschutztext angepasst): **fertig**, unverändert.
-- A-08 (diese Aufgabe): **fertig**.
+- A-04 (Prüfdokument `PRUEFUNG-DATENSCHUTZ.md`), A-06 (Filter in der
+  Adresszeile), A-07 (Impressum/Datenschutz als Seiten), A-08 (Text für
+  `/ueber`): **fertig**, unverändert.
+- A-10 (diese Aufgabe): **fertig**.
 
-## 3. Akzeptanzkriterien (A-08)
+## 3. Akzeptanzkriterien (A-10)
 
-- `/ueber` zeigt den Text wortgleich, vier getrennte Absätze in der
-  angegebenen Reihenfolge — **ja**, per Playwright geprüft (vier
-  `<p>`-Elemente, Wortlaut exakt verglichen).
-- Wortlaut unverändert, keine Zwischenüberschriften — **ja**, Text
-  1:1 aus der Aufgabenbeschreibung übernommen, einschließlich
-  Halbgeviertstrich (–, U+2013) statt Bindestrich im zweiten Absatz —
-  per Skript auf das korrekte Zeichen geprüft.
-- Bisherige Überschrift „Über“ durch neue h1 ersetzt, nicht zusätzlich
-  vorhanden — **ja**, genau eine `<h1>` auf der Seite.
-- Letzter Absatz „Man sieht sich.“ optisch abgesetzt, ohne neue
-  CSS-Klasse — **ja**, per Inline-Stil `marginTop: 48px` auf dem
-  einzelnen Absatz, `globals.css` unverändert. Per Screenshot geprüft.
-- Bei 390 px lesbar, gleiche Gestaltung wie `/impressum` — **ja**, beide
-  nutzen dieselbe bestehende `.venue-detail`-Klasse, Screenshot bei
-  390 px Breite geprüft.
-- Fußbereich mit „Impressum“/„Datenschutz“ unverändert vorhanden —
-  **ja**, aus A-07 unverändert übernommen, per Playwright geprüft.
-- „← Zur Startseite“ oben vorhanden — **ja**, unverändert übernommen.
-- Keine Bilder/Logos/Symbole, kein Kontaktweg, keine Kanal-Links, kein
-  zusätzlicher Text (Datum o. ä.) — **ja**, geprüft: 0 `<img>`/`<svg>`
-  auf der Seite, keine Mailadresse, keine externen Links, keine weiteren
-  Textzeilen außer den vier Absätzen.
+- Abschnitt 6 lautet wortgleich wie vorgegeben (inkl. Verweis auf § 25
+  Abs. 2 Nr. 2 TDDDG) — **ja**, Text 1:1 übernommen.
+- Bisheriger Text von Abschnitt 6 vollständig ersetzt, „Filterauswahl“
+  und „beide Werte“ kommen nicht mehr vor — **ja**, per Codesuche
+  geprüft (kein Treffer).
+- Abschnitt 10 „Stand“ enthält `15.09.2026` — **ja**.
+- Abschnitte 1–5 und 7–9 Zeichen für Zeichen unverändert — **ja**, per
+  `diff` gegen den Stand vor der Änderung geprüft: einzige Abweichung
+  ist Abschnitt 6.
+- Überschriftennummerierung und Gestaltung unverändert — **ja**, nur
+  der Absatztext innerhalb von Abschnitt 6 geändert, keine Überschrift
+  angefasst.
+- `/impressum` und Fußbereich unverändert — **ja**, nicht angefasst
+  (per `git status`/`diff` geprüft: einzige geänderte Datei ist
+  `app/datenschutz/page.tsx`).
 
 ## 4. Abweichungen von der Aufgabenbeschreibung, mit Grund
 
