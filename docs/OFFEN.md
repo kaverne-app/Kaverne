@@ -10,9 +10,10 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
 15.09.2026 — A-13 Feldliste an docs/KAVERNE.md angeglichen — **fertig**
-- Spalte `aussenbereich` (ja/nein, leer erlaubt): Migrationsdatei angelegt,
-  CSV-Spalte „Außenbereich" wird gelesen, Detailseite zeigt sie im Block
-  „Vor Ort", wenn gefüllt. Noch nicht live angewendet, siehe „Zu entscheiden".
+- Spalte `aussenbereich` (ja/nein, leer erlaubt): Migration angelegt und
+  nach Tims Bestätigung live angewendet (19 Zeilen unverändert, Spalte
+  überall leer). CSV-Spalte „Außenbereich" wird gelesen, Detailseite zeigt
+  sie im Block „Vor Ort", wenn gefüllt.
 - Feste Listen für typ/genres jetzt an einer Stelle im Code
   (`scripts/lib/fixed-lists.ts`), wortgleich zu KAVERNE.md. Import listet
   unbekannte Werte (Zeile, Spalte, Wert) und fragt vor dem Schreiben nach.
@@ -22,7 +23,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
   Genre-Filter wählbar; leerer Vor-Ort-Block bleibt verborgen.
 - `npm run build`/`lint` erfolgreich, „Tech House" kommt nur einmal im
   Code vor.
-- Kein Schreiben in die Live-Datenbank in dieser Sitzung.
 
 ## Als Nächstes für Claude Code
 
@@ -42,9 +42,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Migration für `aussenbereich` (`supabase/migrations/0003_aussenbereich.sql`,
-  eine neue leere Spalte, keine Datenänderung) liegt bereit, ist aber noch
-  nicht auf der Live-Datenbank angewendet. Anwenden?
 - Lu's Beach Club und KUFA Saarbrücken: In der Recherche ohne belegbares
   elektronisches Programm markiert, ein Abgleich mit der Aufnahmeregel ist
   nicht dokumentiert. Drin lassen oder aussortieren?
