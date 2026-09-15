@@ -5,6 +5,7 @@
 //
 // Aufruf: npx tsx scripts/generate-import-sql.ts pfad/zur/datei.csv [pfad/zur/pruefdatei.csv] > import.sql
 
+import { confirmUnknownValuesOrExit } from "./lib/confirm-unknown-values";
 import { readCoordinateReview } from "./lib/coordinates-review";
 import { readVenueCsv } from "./lib/read-csv";
 import type { VenueInternalRow, VenueRow } from "./lib/types";
@@ -51,6 +52,7 @@ const VENUE_COLUMNS = [
   "kartenzahlung",
   "garderobe",
   "raucherbereich",
+  "aussenbereich",
   "haltestelle",
   "barrierefreiheit",
   "kamerapolitik",
@@ -77,6 +79,7 @@ function venueValues(venue: VenueRow, lat: number | null, lon: number | null): s
     sqlString(venue.kartenzahlung),
     sqlString(venue.garderobe),
     sqlString(venue.raucherbereich),
+    sqlString(venue.aussenbereich),
     sqlString(venue.haltestelle),
     sqlString(venue.barrierefreiheit),
     sqlString(venue.kamerapolitik),
@@ -95,7 +98,7 @@ function internalValues(row: VenueInternalRow): string {
   return `(${values.join(",")})`;
 }
 
-function main() {
+async function main() {
   const csvPath = process.argv[2];
   const reviewPath = process.argv[3] ?? "data/koordinaten-pruefen.csv";
   if (!csvPath) {
@@ -105,8 +108,17 @@ function main() {
     process.exit(1);
   }
 
-  const { venues, internal } = readVenueCsv(csvPath);
+  const { venues, internal, lineNumbers } = readVenueCsv(csvPath);
   const coordinateReview = readCoordinateReview(reviewPath);
+
+  await confirmUnknownValuesOrExit(
+    venues.map((v) => ({
+      zeile: lineNumbers.get(v.id) ?? 0,
+      id: v.id,
+      typ: v.typ,
+      genres: v.genres,
+    })),
+  );
 
   const venueRows = venues.map((venue) => {
     const review = coordinateReview.get(venue.id);
@@ -143,4 +155,7 @@ commit;
   process.stdout.write(sql);
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

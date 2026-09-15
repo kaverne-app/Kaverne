@@ -146,6 +146,7 @@ export function buildDetailBlocks(venue: VenueDetail): DetailBlock[] {
         textField("Kartenzahlung", venue.kartenzahlung),
         textField("Garderobe", venue.garderobe),
         textField("Raucherbereich", venue.raucherbereich),
+        textField("Außenbereich", venue.aussenbereich),
         textField("Haltestelle", venue.haltestelle),
         textField("Barrierefreiheit", venue.barrierefreiheit),
         textField("Kamerapolitik", venue.kamerapolitik),

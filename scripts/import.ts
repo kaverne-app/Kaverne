@@ -12,6 +12,7 @@
 
 import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
+import { confirmUnknownValuesOrExit } from "./lib/confirm-unknown-values";
 import { readCoordinateReview } from "./lib/coordinates-review";
 import { readVenueCsv } from "./lib/read-csv";
 
@@ -33,8 +34,17 @@ async function main() {
     process.exit(1);
   }
 
-  const { venues, internal } = readVenueCsv(csvPath);
+  const { venues, internal, lineNumbers } = readVenueCsv(csvPath);
   const coordinateReview = readCoordinateReview(reviewPath);
+
+  await confirmUnknownValuesOrExit(
+    venues.map((v) => ({
+      zeile: lineNumbers.get(v.id) ?? 0,
+      id: v.id,
+      typ: v.typ,
+      genres: v.genres,
+    })),
+  );
 
   const missingCoordinates: string[] = [];
   const venuesWithCoordinates = venues.map((venue) => {
