@@ -1,10 +1,9 @@
 # Kaverne — Regeln für Claude Code
 
-**Diese Datei enthält einen kurzen Projektüberblick und dauerhafte Regeln.**
-Sie wird in jeder Sitzung mitgelesen. Was gerade gebaut wird, steht in der
-jeweiligen Aufgabenbeschreibung; der Stand der Arbeit steht in `STAND.md`.
-Keine Sitzungsziele, keine Aufgaben, keine „nicht in dieser Sitzung"-Listen
-in dieser Datei.
+**Diese Datei enthält Regeln für die Arbeit am Code**, nicht fürs
+Produkt — das steht in `docs/KAVERNE.md`. Was ansteht und zu entscheiden
+ist, steht in `docs/OFFEN.md`. Keine Sitzungsziele, keine Aufgaben, keine
+„nicht in dieser Sitzung"-Listen in dieser Datei.
 
 ---
 
@@ -30,9 +29,7 @@ MapLibre GL für die Karte, gehostet auf Vercel.
 - `lib/` — Supabase-Zugriff und reine Anzeigelogik (keine Seiteneffekte)
 - `components/` — Client-Komponenten (Karte, Filter, Listen)
 - `scripts/` — Kommandozeilen-Werkzeuge für den CSV-Import
-- `supabase/migrations/` — SQL zum Anlegen der Tabellen; wird von Hand im
-  Supabase-SQL-Editor ausgeführt, da diese Umgebung Supabase selbst nicht
-  erreichen kann
+- `supabase/migrations/` — SQL zum Anlegen und Ändern der Tabellen
 
 **Datenbank:** `venues` (öffentlich lesbar) und `venues_internal` (nie
 abgefragt); dazu `posts`, `people`, `reihen` für das Magazin.
@@ -48,6 +45,16 @@ Kommandozeile zur Verfügung steht.
 sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 öffentlich sind — abgesichert wird über Row-Level-Security, nicht Geheimhaltung.
 
+## Supabase-Zugriff
+
+- Lesen aus `venues`, `posts`, `people`, `reihen` ist erlaubt.
+- Schreiben in die Live-Datenbank (Import, Migration) nur, nachdem Tim in der
+  Sitzung die konkrete Änderung bestätigt hat: welche Zeilen neu sind, welche
+  aktualisiert werden, welche Spalten sich ändern.
+- Jede Schemaänderung liegt zusätzlich als Datei in `supabase/migrations`.
+- Inhalte aus `venues_internal` nie lesen, ausgeben oder in Dateien schreiben.
+  Das Importwerkzeug darf dorthin schreiben.
+
 ---
 
 ## Zusammenarbeit
@@ -59,7 +66,10 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Bei Unklarheit nachfragen, statt Platzhalter oder Beispieldaten zu erfinden.
 - Eine Aufgabe pro Sitzung. Nach jedem abgeschlossenen Baustein anhalten und
   zeigen, was Tim prüfen kann.
-- Am Ende jeder Sitzung `STAND.md` überschreiben (siehe unten).
+- Am Ende jeder Sitzung `docs/OFFEN.md` pflegen (siehe unten).
+- Gibt Tim eine „Übergabe" aus einem Projektchat, werden die genannten
+  Änderungen wörtlich in `docs/KAVERNE.md` bzw. `docs/OFFEN.md` übernommen.
+  Widerspricht eine Änderung dem Code oder dieser Datei, vorher nachfragen.
 
 ## Stack — verbindlich
 
@@ -77,69 +87,42 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Konto, Login, Bewertungen (öffentlich wie privat), Eventkalender,
   Merkliste, private Notizen. Gehört alles in spätere Phasen und wird nicht
   vorbereitet.
-- `venues_internal` wird von der App nie abgefragt. Nicht „im Frontend
-  ausgeblendet" — die Abfrage existiert nicht. Gilt besonders für
-  `ansprechpartner`, das personenbezogene Daten enthält.
 - Fremde Bilder, Logos und Texte nicht übernehmen, auch nicht von Instagram.
 - Fremde Datenbanken nicht automatisiert auslesen.
 - Keine Beispiel- oder Platzhalterdaten in der Datenbank.
 
-## Datenmodell — feste Regeln
+## Produktregeln
 
-- Zwei Tabellen: `venues` (sichtbar) und `venues_internal` (nie abgefragt).
-- `id` ist Text nach dem Schema `stadt-name`, ohne Umlaute, ß und
-  Großbuchstaben. Eine ID wird nie geändert und nie wiederverwendet.
-- Der Import ist wiederholbar: ein zweiter Lauf aktualisiert bestehende Zeilen
-  anhand der `id` und legt keine Dubletten an.
-- Leere Zellen bleiben leer. Nie „nein", „0" oder „unbekannt".
-- Koordinaten werden beim Import aus der Adresse erzeugt und zuerst in eine
-  Prüfdatei geschrieben. Erst nach Bestätigung gehen sie in die Datenbank.
-- `genres` und `typ` kommen aus festen Listen. Kein Freitext.
-- `links` bleibt eine flexible Liste aus Typ und URL.
-- Für Personen und Reihen existieren eigene Objekte. In v1 werden sie als
-  Textfeld gefüllt, die Struktur steht trotzdem.
-- Eine Beitragstabelle (Titel, Slug, Text, Datum, Verknüpfung auf Laden,
-  Person oder Reihe) existiert und bleibt leer. Die URL-Struktur sieht
-  `/magazin` von Anfang an vor.
-
-## Anzeigeregeln
-
-- Leere Felder verschwinden vollständig. Kein Platzhalter, kein ausgegrauter
-  Text, keine Aufforderung an den Nutzer, etwas beizusteuern.
-- Ist ein ganzer Block leer, verschwindet auch seine Überschrift.
-- Ein Laden, bei dem nur die Pflichtfelder gefüllt sind, sieht nach einer
-  fertigen Seite aus und nicht nach einem Fehler.
-- `residents` steht in der Datenbank und wird nicht angezeigt.
-- „Zuletzt geprüft", Herkunft und Quellenangaben werden nie angezeigt.
-- Es gibt keine Anzeigebedingungen. Was in `venues` steht, wird angezeigt.
-  Nicht nach Status, Genre, Links oder Prüfdatum filtern.
-- Fehlen `lat` oder `lon`, erscheint kein Pin auf der Karte und kein
-  Kartenausschnitt und kein Kartenverweis auf der Detailseite. Der Eintrag
-  bleibt in Liste und Detailansicht vollständig nutzbar.
-- Kein Konto, keine Merkliste, keine privaten Notizen, keine Sterne.
-- Blockreihenfolge auf der Detailseite: Wann & wo · Programm & Kanäle ·
-  Preise & Größe · Vor Ort.
-- Alles in Daumenreichweite bedienbar.
+- Feldlisten, Aufnahme-, Anzeige- und Rechercheregeln stehen in
+  `docs/KAVERNE.md`. Vor jeder Aufgabe, die Daten, Import oder Anzeige
+  betrifft, die Abschnitte „Datenfelder" und „Anzeige" lesen.
+- `venues_internal` wird von der App nie abgefragt; die Abfrage existiert
+  nicht. Gilt besonders für `ansprechpartner`.
+- IDs werden nie geändert oder wiederverwendet.
+- Der Import ist wiederholbar und aktualisiert anhand der `id`.
+- Leere Zellen bleiben leer, nie „nein", „0" oder „unbekannt".
+- Neue Koordinaten gehen zuerst in eine Prüfdatei.
 
 ## Nicht selbst entscheiden
 
-Diese Punkte werden nicht umgesetzt, sondern in `STAND.md` unter
-„Braucht Entscheidung" eingetragen:
+Diese Punkte werden nicht umgesetzt, sondern in `docs/OFFEN.md` unter
+„Zu entscheiden" eingetragen:
 
 - Änderungen am Datenmodell
 - Neue Dienste oder Abhängigkeiten, die Geld kosten können
-- Jeder Zugriff auf `venues_internal`
+- Jeder Zugriff auf `venues_internal` außerhalb des Importwerkzeugs
 - Alles, was diesen Regeln widerspricht
 
-## STAND.md
+## OFFEN.md
 
-Am Ende jeder Sitzung überschreiben, nicht fortschreiben. Höchstens eine
-Seite, kein Code, keine personenbezogenen Daten. Abschnitte:
+Am Ende jeder Sitzung in `docs/OFFEN.md`:
 
-1. Datum und Aufgaben-ID
-2. Status je Aufgabe (offen / in Arbeit / fertig / blockiert)
-3. Akzeptanzkriterien: je Kriterium erfüllt ja oder nein, und wie geprüft
-4. Abweichungen von der Aufgabenbeschreibung, mit Grund
-5. Braucht Entscheidung von Tim
-6. Bekannte Fehler
-7. Musst du selbst tun (Konten, Zugangsschlüssel, Einstellungen)
+a) Den Abschnitt „Letzte Claude-Code-Sitzung" überschreiben: Datum,
+   Aufgaben-ID, Status (fertig / blockiert / abgebrochen), je Prüfkriterium
+   erfüllt ja/nein und wie geprüft, Abweichungen mit Grund, bekannte Fehler.
+   Höchstens 15 Zeilen, kein Code, keine personenbezogenen Daten.
+b) Die erledigte Aufgabe aus „Als Nächstes für Claude Code" nach „Kürzlich
+   erledigt" verschieben, Einträge älter als eine Woche dort löschen.
+c) Neues eintragen unter „Zu entscheiden" oder „Du selbst".
+
+Alle anderen Abschnitte von `docs/OFFEN.md` nicht umformulieren.
