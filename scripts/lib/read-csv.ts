@@ -29,6 +29,7 @@ interface RawCsvRow {
   Facebook: string;
   Kartenzahlung: string;
   Garderobe: string;
+  Außenbereich: string;
   Raucherbereich: string;
   ÖPNV: string;
   Parken: string;
@@ -61,6 +62,9 @@ export interface ParsedCsv {
   // schon in der Tabelle standen — für die Prüfdatei, damit auch Zeilen mit
   // Koordinaten aus der Tabelle Name und Adresse zum Gegenprüfen zeigen.
   rowInfo: Map<string, { name: string; adresse: string | null }>;
+  // id -> Zeilennummer in der CSV-Datei (Kopfzeile = 1), für Meldungen beim
+  // Prüfen auf Werte außerhalb der festen Listen.
+  lineNumbers: Map<string, number>;
 }
 
 export function readVenueCsv(path: string): ParsedCsv {
@@ -76,8 +80,9 @@ export function readVenueCsv(path: string): ParsedCsv {
   const inlineCoordinates = new Map<string, [number, number]>();
   const addresses = new Map<string, { name: string; adresse: string }>();
   const rowInfo = new Map<string, { name: string; adresse: string | null }>();
+  const lineNumbers = new Map<string, number>();
 
-  for (const raw of rows) {
+  rows.forEach((raw, index) => {
     const id = emptyToNull(raw.ID);
     const name = emptyToNull(raw.Name);
     if (!id || !name) {
@@ -103,6 +108,7 @@ export function readVenueCsv(path: string): ParsedCsv {
       kartenzahlung: emptyToNull(raw.Kartenzahlung),
       garderobe: emptyToNull(raw.Garderobe),
       raucherbereich: emptyToNull(raw.Raucherbereich),
+      aussenbereich: emptyToNull(raw.Außenbereich),
       haltestelle: emptyToNull(raw.ÖPNV),
       barrierefreiheit: emptyToNull(raw.Barrierefreiheit),
       kamerapolitik: emptyToNull(raw.Kamerapolitik),
@@ -119,12 +125,13 @@ export function readVenueCsv(path: string): ParsedCsv {
     const inline = parseInlineCoordinates(raw.Koordinaten);
     const adresse = emptyToNull(raw.Adresse);
     rowInfo.set(id, { name, adresse });
+    lineNumbers.set(id, index + 2); // Kopfzeile ist Zeile 1
     if (inline) {
       inlineCoordinates.set(id, inline);
     } else if (adresse) {
       addresses.set(id, { name, adresse });
     }
-  }
+  });
 
-  return { venues, internal, inlineCoordinates, addresses, rowInfo };
+  return { venues, internal, inlineCoordinates, addresses, rowInfo, lineNumbers };
 }

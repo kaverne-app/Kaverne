@@ -20,6 +20,7 @@ export interface VenueRow {
   kartenzahlung: string | null;
   garderobe: string | null;
   raucherbereich: string | null;
+  aussenbereich: string | null;
   haltestelle: string | null;
   barrierefreiheit: string | null;
   kamerapolitik: string | null;

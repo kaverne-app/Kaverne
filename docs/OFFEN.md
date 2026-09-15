@@ -9,24 +9,22 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-15.09.2026 — A-12 Projektdokumente umgebaut — **fertig**
-- `docs/KAVERNE.md`, `docs/OFFEN.md` unverändert aus den Anhängen übernommen.
-- `CLAUDE.md` umgebaut: Produktregeln raus (Verweis auf KAVERNE.md statt
-  doppelter Pflege), Pflege dieser Datei statt der alten Statusdatei, neuer
-  Abschnitt Supabase-Zugriff, „venues_internal“-Ausnahme fürs Importwerkzeug.
-- Die alte Statusdatei und die alte Datenschutz-Prüfdatei entfernt.
-- Geprüft: `CLAUDE.md` jetzt unter 130 Zeilen; Repository-Suche nach dem
-  Namen der alten Statusdatei ergibt keinen Treffer mehr außer hier;
-  `npm run build` erfolgreich.
-- Kein App-Code, keine Datenbankänderung.
-- Bekannt: In den Anhängen zwei Auffälligkeiten entdeckt, nicht selbst
-  korrigiert — siehe Rückmeldung im Chat.
+15.09.2026 — A-13 Feldliste an docs/KAVERNE.md angeglichen — **fertig**
+- Spalte `aussenbereich` (ja/nein, leer erlaubt): Migrationsdatei angelegt,
+  CSV-Spalte „Außenbereich" wird gelesen, Detailseite zeigt sie im Block
+  „Vor Ort", wenn gefüllt. Noch nicht live angewendet, siehe „Zu entscheiden".
+- Feste Listen für typ/genres jetzt an einer Stelle im Code
+  (`scripts/lib/fixed-lists.ts`), wortgleich zu KAVERNE.md. Import listet
+  unbekannte Werte (Zeile, Spalte, Wert) und fragt vor dem Schreiben nach.
+- Lokal geprüft (nicht live): Probeimport mit „Tech-House" bricht ohne
+  Bestätigung ab, mit Bestätigung läuft er durch; reiner Import mit
+  gültigen Werten fragt nicht nach; „Gemischt" wird angezeigt und ist im
+  Genre-Filter wählbar; leerer Vor-Ort-Block bleibt verborgen.
+- `npm run build`/`lint` erfolgreich, „Tech House" kommt nur einmal im
+  Code vor.
+- Kein Schreiben in die Live-Datenbank in dieser Sitzung.
 
 ## Als Nächstes für Claude Code
-
-- **A-13** Feldliste nachziehen: Spalte `aussenbereich`, feste Listen für
-  `typ`/`genres` an einer Stelle im Code, Import warnt bei unbekannten Werten
-  (Aufgabenbeschreibung liegt vor)
 
 ## Du selbst
 
@@ -44,6 +42,9 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
+- Migration für `aussenbereich` (`supabase/migrations/0003_aussenbereich.sql`,
+  eine neue leere Spalte, keine Datenänderung) liegt bereit, ist aber noch
+  nicht auf der Live-Datenbank angewendet. Anwenden?
 - Lu's Beach Club und KUFA Saarbrücken: In der Recherche ohne belegbares
   elektronisches Programm markiert, ein Abgleich mit der Aufnahmeregel ist
   nicht dokumentiert. Drin lassen oder aussortieren?
@@ -60,6 +61,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-13 Feldliste an docs/KAVERNE.md angeglichen (15.09.)
 - A-12 Projektdokumente umgebaut (15.09.)
 - A-11 Import, 19 Einträge (15.09.)
 - A-10 Datenschutzerklärung, Browser-Speicher (15.09.)
