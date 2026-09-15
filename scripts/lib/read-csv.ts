@@ -57,6 +57,10 @@ export interface ParsedCsv {
   inlineCoordinates: Map<string, [number, number]>;
   // id -> { name, adresse }, für das Geocoding
   addresses: Map<string, { name: string; adresse: string }>;
+  // id -> { name, adresse } für jede Zeile, unabhängig davon, ob Koordinaten
+  // schon in der Tabelle standen — für die Prüfdatei, damit auch Zeilen mit
+  // Koordinaten aus der Tabelle Name und Adresse zum Gegenprüfen zeigen.
+  rowInfo: Map<string, { name: string; adresse: string | null }>;
 }
 
 export function readVenueCsv(path: string): ParsedCsv {
@@ -71,6 +75,7 @@ export function readVenueCsv(path: string): ParsedCsv {
   const internal: VenueInternalRow[] = [];
   const inlineCoordinates = new Map<string, [number, number]>();
   const addresses = new Map<string, { name: string; adresse: string }>();
+  const rowInfo = new Map<string, { name: string; adresse: string | null }>();
 
   for (const raw of rows) {
     const id = emptyToNull(raw.ID);
@@ -113,6 +118,7 @@ export function readVenueCsv(path: string): ParsedCsv {
 
     const inline = parseInlineCoordinates(raw.Koordinaten);
     const adresse = emptyToNull(raw.Adresse);
+    rowInfo.set(id, { name, adresse });
     if (inline) {
       inlineCoordinates.set(id, inline);
     } else if (adresse) {
@@ -120,5 +126,5 @@ export function readVenueCsv(path: string): ParsedCsv {
     }
   }
 
-  return { venues, internal, inlineCoordinates, addresses };
+  return { venues, internal, inlineCoordinates, addresses, rowInfo };
 }
