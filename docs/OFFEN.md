@@ -9,17 +9,16 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — Nachtrag zu A-14 (Filter, Kartenfarben) — **fertig**
-- Filter auf Liste/Karte: zwei Dropdowns „Stadt"/„Genre" mit
-  Mehrfachauswahl statt einer flachen Chipreihe, Button zeigt die Anzahl
-  („Stadt (2)"). Ein dritter Filter passt später ohne Layout-Änderung rein.
-- Kartenfarben: eigenen Fehler behoben, der Ortsnamen mit ausgeblendet
-  hatte (Symbol und Beschriftung hingen an derselben Ebene); Land, Straßen
-  und Beschriftung kontrastreicher, damit die Struktur bei weiter
-  Zoomstufe erkennbar bleibt. Stil bleibt „liberty", Pins weiterhin orange.
-- Echte Kartenkacheln kann ich von hier aus nicht laden (Netzwerksperre in
-  dieser Sitzung) — Kontrast bitte auf einem echten Gerät prüfen.
-- `npm run build`/`lint` erfolgreich.
+16.09.2026 — Lu's Beach Club entfernt — **fertig**
+- Auf Bestätigung hin aus `venues` gelöscht (id `ludwigshafen-lusbeachclub`);
+  zugehöriger Eintrag in `venues_internal` automatisch mitgelöscht
+  (Fremdschlüssel mit Kaskade). 18 Läden verbleiben.
+- Kein Code geändert: Detailseite liefert für gelöschte IDs automatisch
+  404, Liste und Karte laden live aus Supabase.
+- Aufnahmeregel in docs/KAVERNE.md war schon direkt im Repo aktualisiert
+  (nicht durch mich) — Wortlaut geprüft, stimmt mit der Übergabe überein.
+- Anmerkung: Die Aufgabe nannte „STAND.md überschreiben" (Datei seit A-12
+  weg) und die ID „A-06" (schon vergeben) — hier ohne Aufgaben-ID geführt.
 
 ## Als Nächstes für Claude Code
 
@@ -39,9 +38,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Lu's Beach Club und KUFA Saarbrücken: In der Recherche ohne belegbares
-  elektronisches Programm markiert, ein Abgleich mit der Aufnahmeregel ist
-  nicht dokumentiert. Drin lassen oder aussortieren?
 - Impressum: Wohnadresse oder c/o-Dienst — vor dem ersten Artikel.
 - Themen für die ersten zwei bis drei Artikel.
 - Gestaltung: Logo, Farben, Schrift.
@@ -55,6 +51,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Lu's Beach Club aus der Datenbank entfernt (16.09.)
 - A-14 Grundgestaltung (16.09.)
 - A-13 Feldliste an docs/KAVERNE.md angeglichen (15.09.)
 - A-12 Projektdokumente umgebaut (15.09.)
