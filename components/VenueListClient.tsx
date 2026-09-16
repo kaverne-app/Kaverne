@@ -7,10 +7,10 @@ import type { VenueFilterable } from "@/lib/venues";
 import {
   availableCityOptions,
   availableGenreOptions,
+  buildRowMeta,
   effectiveFilter,
   filterVenues,
   groupByCity,
-  joinList,
 } from "@/lib/venue-view";
 
 export default function VenueListClient({ venues }: { venues: VenueFilterable[] }) {
@@ -29,7 +29,7 @@ export default function VenueListClient({ venues }: { venues: VenueFilterable[] 
         filter={filter}
         onChange={setFilter}
       />
-      <main className="venue-list">
+      <main className="venue-list has-filter">
         {groups.length === 0 && (
           <p className="empty-state">Keine Läden für diese Auswahl.</p>
         )}
@@ -41,11 +41,7 @@ export default function VenueListClient({ venues }: { venues: VenueFilterable[] 
                 <li key={venue.id}>
                   <Link href={`/venues/${venue.id}`} className="venue-row">
                     <span className="venue-name">{venue.name}</span>
-                    <span className="venue-meta">
-                      {[venue.typ, joinList(venue.genres)]
-                        .filter(Boolean)
-                        .join(" · ")}
-                    </span>
+                    <span className="venue-meta">{buildRowMeta(venue)}</span>
                   </Link>
                 </li>
               ))}

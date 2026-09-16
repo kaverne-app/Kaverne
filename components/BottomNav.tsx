@@ -14,22 +14,22 @@ export default function BottomNav({ active, showMagazin }: BottomNavProps) {
   const query = useSearchParams().toString();
   const withQuery = (path: string) => (query ? `${path}?${query}` : path);
 
+  function item(href: string, key: BottomNavProps["active"], label: string) {
+    const isActive = active === key;
+    return (
+      <Link href={href} className={isActive ? "active" : undefined}>
+        <span className="nav-dot" aria-hidden="true" />
+        {label}
+      </Link>
+    );
+  }
+
   return (
     <nav className="bottom-nav">
-      <Link href="/" className={active === "start" ? "active" : undefined}>
-        Start
-      </Link>
-      <Link href={withQuery("/liste")} className={active === "liste" ? "active" : undefined}>
-        Liste
-      </Link>
-      <Link href={withQuery("/karte")} className={active === "karte" ? "active" : undefined}>
-        Karte
-      </Link>
-      {showMagazin && (
-        <Link href="/magazin" className={active === "magazin" ? "active" : undefined}>
-          Magazin
-        </Link>
-      )}
+      {item("/", "start", "Start")}
+      {item(withQuery("/liste"), "liste", "Liste")}
+      {item(withQuery("/karte"), "karte", "Karte")}
+      {showMagazin && item("/magazin", "magazin", "Magazin")}
     </nav>
   );
 }

@@ -168,3 +168,17 @@ function isField(f: DetailField | null): f is DetailField {
 export function joinList(values: string[] | null): string | null {
   return values && values.length > 0 ? values.join(", ") : null;
 }
+
+// Listenzeile 2: Stadt · Typ · bis zu zwei Genres, weitere als "+n".
+export function buildRowMeta(venue: {
+  stadt: string | null;
+  typ: string | null;
+  genres: string[] | null;
+}): string {
+  const genres = venue.genres ?? [];
+  const shown = genres.slice(0, 2);
+  const rest = genres.length - shown.length;
+  const genrePart =
+    shown.length > 0 ? shown.join(", ") + (rest > 0 ? ` +${rest}` : "") : null;
+  return [venue.stadt, venue.typ, genrePart].filter(Boolean).join(" · ");
+}

@@ -99,7 +99,7 @@ export default function ReportButton({ id, name }: { id: string; name: string })
   return (
     <form className="report-form" onSubmit={handleSubmit}>
       <label>
-        Betroffener Punkt
+        <span className="field-label">Betroffener Punkt</span>
         <select value={punkt} onChange={(e) => setPunkt(e.target.value)}>
           {BETROFFENE_PUNKTE.map((p) => (
             <option key={p} value={p}>
@@ -109,7 +109,9 @@ export default function ReportButton({ id, name }: { id: string; name: string })
         </select>
       </label>
       <label>
-        Was ist falsch oder veraltet? (max. {MAX_TEXT_LENGTH} Zeichen)
+        <span className="field-label">
+          Was ist falsch oder veraltet? (max. {MAX_TEXT_LENGTH} Zeichen)
+        </span>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -119,7 +121,7 @@ export default function ReportButton({ id, name }: { id: string; name: string })
         />
       </label>
       <label>
-        E-Mail für Rückfragen (optional)
+        <span className="field-label">E-Mail für Rückfragen (optional)</span>
         <input
           type="email"
           value={email}

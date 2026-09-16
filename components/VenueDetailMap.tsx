@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { applyMutedMapStyle } from "./mapMutedStyle";
 
 // Gleicher freier Kachelstil wie auf /karte, kein Google-Dienst beteiligt.
 const STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
@@ -28,6 +29,7 @@ export default function VenueDetailMap({
       zoom: 15,
       interactive: false,
     });
+    map.on("load", () => applyMutedMapStyle(map));
 
     const el = document.createElement("div");
     el.className = "venue-pin";
