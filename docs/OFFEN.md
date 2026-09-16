@@ -23,16 +23,16 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 ## Als Nächstes für Claude Code
 
 - A-15 Tabelle ausgeschieden und nächtlicher Datenstand
-- Sheet-Abgleich (Daten-Sitzung, braucht Tims CSV-Export in lokal/)
+- Sheet-Abgleich (Daten-Sitzung, braucht Tims CSV-Export als Anhang)
 
 ## Du selbst
 
 - Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
 - Vor dem Sheet-Abgleich: beide Tabs (Läden, Ausgeschieden) als CSV
-  exportieren, Spalten Ansprechpartner und Notiz vorher löschen, Dateien nach
-  lokal/ legen. Nach dem Abgleich Sheet in „ARCHIV – nicht pflegen"
-  umbenennen.
+  exportieren, Spalten Ansprechpartner und Notiz vorher löschen, Dateien als
+  Anhang in der Daten-Sitzung schicken. Nach dem Abgleich Sheet in
+  „ARCHIV – nicht pflegen" umbenennen.
 - KUFA Saarbrücken: Programm prüfen (bleibt bis dahin drin).
 - Vor der ersten Korrekturmail an Betreiber: Postfach mit AV-Vertrag.
 

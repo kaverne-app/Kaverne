@@ -29,7 +29,8 @@ MapLibre GL für die Karte, gehostet auf Vercel.
 - `components/` — Client-Komponenten (Karte, Filter, Listen)
 - `scripts/` — Kommandozeilen-Werkzeuge für den CSV-Import
 - `supabase/migrations/` — SQL zum Anlegen und Ändern der Tabellen
-- `lokal/` — Tims Arbeitsdateien (z. B. Sheet-Export), nie committen
+- `lokal/` — Dateien, die Tim als Anhang schickt (z. B. Sheet-Export) und
+  die die Sitzung dort ablegt, nie committen
 
 **Datenbank:** `venues` (öffentlich lesbar) und `venues_internal` (nie
 abgefragt); dazu `posts`, `people`, `reihen` für das Magazin.
@@ -50,6 +51,12 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Ein Thema pro Sitzung. Tims erster Satz sagt, worum es geht.
 - Zu Beginn jeder Sitzung git pull. Am Ende jeder Sitzung, die etwas
   geändert hat: committen und pushen. Nichts bleibt uncommittet liegen.
+- Jede Sitzung arbeitet auf einem eigenen Zweig. Stand, Klären, Recherche
+  und Daten: am Ende selbst in main zusammenführen. Bauen: erst nach Tims
+  „live". Geht das Zusammenführen nicht ohne Tim, einen Pull Request
+  erstellen und Tim Schritt für Schritt sagen, wo er in GitHub klickt.
+- Sitzungen laufen in einer Cloud-Umgebung. Dateien gibt Tim als Anhang in
+  der Nachricht, nicht über einen Ordner.
 - Stand: „Was steht an?" aus docs/OFFEN.md beantworten, kurz, nach
   Dringlichkeit.
 - Bauen: Aufgabe aus docs/OFFEN.md. Arbeit auf einem eigenen Zweig,
