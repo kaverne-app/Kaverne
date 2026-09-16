@@ -24,16 +24,14 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-- Sheet-Abgleich (Daten-Sitzung, braucht Tims CSV-Export als Anhang)
+*(nichts offen)*
 
 ## Du selbst
 
 - Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
-- Vor dem Sheet-Abgleich: beide Tabs (Läden, Ausgeschieden) als CSV
-  exportieren, Spalten Ansprechpartner und Notiz vorher löschen, Dateien als
-  Anhang in der Daten-Sitzung schicken. Nach dem Abgleich Sheet in
-  „ARCHIV – nicht pflegen" umbenennen.
+- Sheet in „ARCHIV – nicht pflegen" umbenennen — Supabase ist jetzt die
+  einzige Quelle.
 - KUFA Saarbrücken: Programm prüfen (bleibt bis dahin drin).
 - Vor der ersten Korrekturmail an Betreiber: Postfach mit AV-Vertrag.
 
@@ -50,6 +48,10 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Sheet-Abgleich: Läden-Export gegen venues geprüft (keine Abweichungen
+  außer dem Tippfehler unten), Ausgeschieden-Export in die Tabelle
+  ausgeschieden übernommen (19 Zeilen), Tippfehler im Reihen-Text bei
+  mannheim-msconnexioncomplex korrigiert (16.09.)
 - A-15 Tabelle ausgeschieden und nächtlicher Datenstand (16.09.)
 - Umstellung auf Claude Code als Arbeitsplatz (16.09.)
 - Lu's Beach Club aus der Datenbank entfernt (16.09.), Grund kommt beim
