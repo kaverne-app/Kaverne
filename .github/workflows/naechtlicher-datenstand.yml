@@ -1,0 +1,44 @@
+name: Nächtlicher Datenstand
+
+# A-15: schreibt einmal pro Nacht (und auf Zuruf) den aktuellen Inhalt von
+# "venues" nach data/venues.json, damit jede Datenänderung über die
+# Git-Historie nachvollziehbar und rückgängig zu machen ist. Liest mit dem
+# öffentlichen anon-Key, kein service_role-Key im Spiel.
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  datenstand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: venues aus Supabase lesen
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: npx tsx scripts/export-venues.ts
+
+      - name: Commit, falls sich etwas geändert hat
+        run: |
+          if git diff --quiet -- data/venues.json; then
+            echo "Kein Unterschied zum letzten Stand, kein Commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/venues.json
+          git commit -m "Nächtlicher Datenstand: data/venues.json aktualisiert"
+          git push

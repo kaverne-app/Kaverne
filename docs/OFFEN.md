@@ -9,16 +9,18 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — Lu's Beach Club entfernt — **fertig**
-- Auf Bestätigung hin aus `venues` gelöscht (id `ludwigshafen-lusbeachclub`);
-  zugehöriger Eintrag in `venues_internal` automatisch mitgelöscht
-  (Fremdschlüssel mit Kaskade). 18 Läden verbleiben.
-- Kein Code geändert: Detailseite liefert für gelöschte IDs automatisch
-  404, Liste und Karte laden live aus Supabase.
-- Aufnahmeregel in docs/KAVERNE.md war schon direkt im Repo aktualisiert
-  (nicht durch mich) — Wortlaut geprüft, stimmt mit der Übergabe überein.
-- Anmerkung: Die Aufgabe nannte „STAND.md überschreiben" (Datei seit A-12
-  weg) und die ID „A-06" (schon vergeben) — hier ohne Aufgaben-ID geführt.
+16.09.2026 — A-15 Tabelle ausgeschieden und nächtlicher Datenstand — **blockiert**
+- Tabelle `ausgeschieden` existiert (Migration + direkt in Supabase
+  angewendet), RLS an, keine Policy: ja, geprüft — Testzeile eingefügt, mit
+  dem öffentlichen Schlüssel abgefragt (0 Zeilen), Testzeile wieder gelöscht.
+- Action einmal ausgelöst, data/venues.json vollständig: nein — braucht
+  zwei GitHub-Secrets und eine Berechtigungs-Einstellung, die nur Tim
+  setzen kann (siehe „Du selbst").
+- Zweiter Lauf ohne Commit: noch nicht geprüft, folgt nach dem ersten Lauf.
+- Repo ist öffentlich → Action läuft im kostenlosen Rahmen, keine
+  Rückfrage nötig.
+- Kein Service-Role-Key verwendet, keine Ladendaten und kein App-Code
+  geändert.
 
 ## Als Nächstes für Claude Code
 
@@ -27,6 +29,18 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Du selbst
 
+- A-15 fertigstellen, zwei Dinge in GitHub anklicken (Werte stehen schon in
+  Vercel unter Settings → Environment Variables, sind absichtlich
+  öffentlich):
+  1. github.com/kaverne-app/Kaverne → Settings → Secrets and variables →
+     Actions → „New repository secret" → Name `NEXT_PUBLIC_SUPABASE_URL`,
+     Wert aus Vercel übernehmen. Zweites Secret genauso mit Name
+     `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+  2. Settings → Actions → General → „Workflow permissions" → „Read and
+     write permissions" auswählen → Save (die Action muss committen
+     können).
+  Danach kurz Bescheid geben — löse ich die Action aus und prüfe die
+  Prüfkriterien.
 - Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
 - Vor dem Sheet-Abgleich: beide Tabs (Läden, Ausgeschieden) als CSV
