@@ -1,0 +1,697 @@
+[
+  {
+    "id": "bruchsal-fabrik",
+    "name": "Fabrik",
+    "typ": "Club",
+    "stadt": "Bruchsal",
+    "adresse": "Kinzigstraße 5, 76646 Bruchsal",
+    "lat": 49.1350333448453,
+    "lon": 8.59381072597449,
+    "genres": [
+      "Gemischt"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.fabrik-bruchsal.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/fabrik_bruchsal.official"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/fabrikbruchsal"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "heidelberg-halle02",
+    "name": "halle02",
+    "typ": "Location",
+    "stadt": "Heidelberg",
+    "adresse": "Zollhofgarten 2, 69115 Heidelberg",
+    "lat": 49.4022288427668,
+    "lon": 8.67116329715185,
+    "genres": [
+      "Techno",
+      "House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": "ja",
+    "kamerapolitik": "Verboten",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.halle02.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/_halle02/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/halle02/"
+      }
+    ],
+    "created_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "kaiserslautern-ebene3",
+    "name": "Ebene 3",
+    "typ": "Club",
+    "stadt": "Kaiserslautern",
+    "adresse": "Marktstraße 9, 67655 Kaiserslautern",
+    "lat": 49.4451125329878,
+    "lon": 7.77114128181427,
+    "genres": [
+      "Techno"
+    ],
+    "status": "unregelmäßig",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/Ebene3KL/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "karlsruhe-c2ost",
+    "name": "C2 Ost",
+    "typ": "Club",
+    "stadt": "Karlsruhe",
+    "adresse": "Essenweinstraße 9, 76131 Karlsruhe",
+    "lat": 49.0104977033165,
+    "lon": 8.42474338363862,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": "THRILLED!",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Karl-Wilhelm-Platz, Tullastraße/Alter Schlachthof",
+    "barrierefreiheit": "teilweise",
+    "kamerapolitik": "eingeschränkt",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://c2-ost.club/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/c2ost.club/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "karlsruhe-erdbeermund",
+    "name": "Erdbeermund",
+    "typ": "Club",
+    "stadt": "Karlsruhe",
+    "adresse": "Baumeisterstraße 54, 76137 Karlsruhe",
+    "lat": 49.0044476298924,
+    "lon": 8.40963475295921,
+    "genres": [
+      "Techno",
+      "House",
+      "Tech House"
+    ],
+    "status": "unregelmäßig",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": "Freak 'n Jones, Pandora, THRILLED!",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/cluberdbeermund/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "karlsruhe-gotec",
+    "name": "Gotec Club",
+    "typ": "Club",
+    "stadt": "Karlsruhe",
+    "adresse": "Gablonzer Straße 11, 76185 Karlsruhe",
+    "lat": 49.0244512714915,
+    "lon": 8.35303435296017,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": "SCHRANZ TILL I DIE, TRANCY & BOUNCY",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": "Verboten",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://gotec-club.com/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/gotec_club/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/GotecClub/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "landau-logo",
+    "name": "LOGO",
+    "typ": "Club",
+    "stadt": "Landau",
+    "adresse": "Xylanderstraße 2, 76829 Landau in der Pfalz",
+    "lat": 49.194460917425,
+    "lon": 8.11256915481206,
+    "genres": [
+      "Gemischt"
+    ],
+    "status": "unregelmäßig",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/logo.landau/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "mannheim-daszimmer",
+    "name": "Das Zimmer",
+    "typ": "Club",
+    "stadt": "Mannheim",
+    "adresse": "Q5 Passage 14-22, 68161 Mannheim",
+    "lat": 49.4873576908671,
+    "lon": 8.47116781249522,
+    "genres": [
+      "Trance"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": "Der Donnerstag",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Strohmarkt, Paradeplatz, Marktplatz",
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.daszimmer.com/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/das_zimmer/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/daszimmer"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "mannheim-discozwei",
+    "name": "Disco Zwei",
+    "typ": "Club",
+    "stadt": "Mannheim",
+    "adresse": "T6 14, 68161 Mannheim",
+    "lat": 49.489500227292,
+    "lon": 8.47464239715582,
+    "genres": [
+      "Techno",
+      "House",
+      "Tech House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Mittwoch",
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": "DMan, mirella, Albert, Baby B, Day V. Jones",
+    "reihen": "Ponyclub, PALS, Raserei",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Nationaltheater, Gewerkschaftshaus",
+    "barrierefreiheit": null,
+    "kamerapolitik": "Verboten",
+    "links": null,
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "mannheim-hafen49",
+    "name": "Hafen 49",
+    "typ": "Club",
+    "stadt": "Mannheim",
+    "adresse": "Hafenstraße 49, 68159 Mannheim",
+    "lat": 49.498424536746,
+    "lon": 8.45731351249576,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag",
+      "Sonntag"
+    ],
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.hafen49.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/hafen49/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/Hafen49"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "mannheim-maimarkthalle",
+    "name": "Maimarkthalle",
+    "typ": "Location",
+    "stadt": "Mannheim",
+    "adresse": "Xaver-Fuhr-Straße 101, 68163 Mannheim",
+    "lat": 49.4681723736246,
+    "lon": 8.52391807288769,
+    "genres": [
+      "Gemischt"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Maimarkt",
+    "barrierefreiheit": "ja",
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.maimarktgelaende-mannheim.de/"
+      }
+    ],
+    "created_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "mannheim-msconnexioncomplex",
+    "name": "MS Connexion Complex",
+    "typ": "Club",
+    "stadt": "Mannheim",
+    "adresse": "Angelstraße 33, 68199 Mannheim",
+    "lat": 49.4494517237485,
+    "lon": 8.49632944317253,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": "uper Schwarzes Mannheim, DEX!T Techno",
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.msconnexion.com/"
+      },
+      {
+        "typ": "instagram",
+        "url": "http://instagram.com/msconnexioncomplex"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/MSConnexion"
+      }
+    ],
+    "created_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "neustadt-soku",
+    "name": "Soku",
+    "typ": "Club",
+    "stadt": "Neustadt an der Weinstraße",
+    "adresse": "Winzingerstraße 10, 67433 Neustadt an der Weinstraße",
+    "lat": 49.3490171041052,
+    "lon": 8.152362183654,
+    "genres": [
+      "Techno",
+      "House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://soku-nw.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/soku_nw/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/soku.nw/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "pirmasens-lager14",
+    "name": "Lager 14",
+    "typ": "Club",
+    "stadt": "Pirmasens",
+    "adresse": "North Carolina Avenue 5, 66953 Pirmasens",
+    "lat": 49.2197015713869,
+    "lon": 7.60929322472047,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://lager14.de/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/lagervierzehn/"
+      }
+    ],
+    "created_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "saarbruecken-discoplexa8",
+    "name": "Discoplex A8",
+    "typ": "Club",
+    "stadt": "Saarbrücken",
+    "adresse": "An der Saarlandhalle 3, 66113 Saarbrücken",
+    "lat": 49.2506011369294,
+    "lon": 6.98601672413563,
+    "genres": [
+      "Gemischt"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.a8-sb.de/"
+      }
+    ],
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "saarbruecken-kulturfabrikkufa",
+    "name": "KuFa Kulturfabrik",
+    "typ": "Club",
+    "stadt": "Saarbrücken",
+    "adresse": "Dudweiler Landstraße 7, 66123 Saarbrücken",
+    "lat": 49.24363443533,
+    "lon": 7.00399659345628,
+    "genres": [
+      "Gemischt"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://www.kufa.sb/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/kufasb/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/kufa.saarbruecken/"
+      }
+    ],
+    "created_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "saarbruecken-mauerpfeiffer",
+    "name": "Mauerpfeiffer",
+    "typ": "Club",
+    "stadt": "Saarbrücken",
+    "adresse": "Lebacher Str. 1-7, 66113 Saarbrücken",
+    "lat": 49.2431169755626,
+    "lon": 6.98085829714459,
+    "genres": [
+      "Techno",
+      "Trance",
+      "House",
+      "Tech House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": null,
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Ludwigstraße",
+    "barrierefreiheit": null,
+    "kamerapolitik": "Verboten",
+    "links": null,
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  },
+  {
+    "id": "saarbruecken-silodom",
+    "name": "Silodom",
+    "typ": "Club",
+    "stadt": "Saarbrücken",
+    "adresse": "An der Römerbrücke 3, 66121 Saarbrücken",
+    "lat": 49.2231741290795,
+    "lon": 7.02420072597847,
+    "genres": [
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": null,
+    "kurzbeschreibung": null,
+    "kapazitaet": "800",
+    "residents": null,
+    "reihen": null,
+    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": null,
+    "barrierefreiheit": null,
+    "kamerapolitik": null,
+    "links": null,
+    "created_at": "2026-09-11T14:05:33.764235+00:00",
+    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": null
+  }
+]
