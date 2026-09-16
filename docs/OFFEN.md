@@ -30,18 +30,20 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 - Sheet: Tippfehler „uper Schwarzes Mannheim" prüfen.
 - Kurzbeschreibungen: 0 von 19. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
-- Empfangspostfach Meldeformular: Im Datenschutz-Chat war Gmail ohne
-  AV-Vertrag als Lücke benannt, die Lösung lief über A-05, und A-05 wurde
-  gestrichen. Klären, ob das Postfach inzwischen gewechselt ist.
+- Empfangspostfach Meldeformular: läuft weiter über
+  kaverne.app@gmail.com, AV-Vertrag-Lücke bewusst akzeptiert. Wechsel des
+  Postfachs geplant, kein Termin.
 - Recherche-Prompt an die Feldliste in KAVERNE.md anpassen (Parken und
   Getränkepreis raus, Raucher- und Außenbereich als ja/nein, Genre-Liste).
 
 ## Zu entscheiden
 
-- Impressum: Wohnadresse oder c/o-Dienst — vor dem ersten Artikel.
 - Themen für die ersten zwei bis drei Artikel.
 - Gestaltung: Logo, Farben, Schrift.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant.
+- KUFA Saarbrücken: bleibt regulär im Verzeichnis (nicht in Ausgeschieden).
+  Belegbares elektronisches Programm noch nicht abschließend geprüft —
+  bewusst akzeptiertes Zwischenrisiko, Termine werden nachgeprüft.
 
 ## Ideen
 
