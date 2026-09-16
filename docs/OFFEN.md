@@ -9,20 +9,16 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — A-14 Grundgestaltung — **fertig**
-- Dunkles Erscheinungsbild wie vorgegeben umgesetzt: Farben, Schrift (IBM
-  Plex Sans, mit der App ausgeliefert), Abstände, feste Kopfzeile,
-  Filterleiste als durchlaufende Chipreihe, gedämpfte Kartenfarben,
-  Preisniveau- und Status-Anzeige.
-- Abweichung mit Grund: Status (aktiv/unregelmäßig) und Kurzbeschreibung
-  sind laut KAVERNE.md Pflicht-/Kernfelder, wurden aber bisher nirgends
-  angezeigt. Für die Gestaltung ergänzt (nur Anzeige, keine
-  Datenbankänderung), mit Tim vorab abgestimmt.
-- Geprüft mit Testdaten (nicht live): Start passt bei 375×667 ohne
-  Scrollen; fehlende Kurzbeschreibung erzeugt keine Lücke; Eintrag ohne
-  Koordinaten fehlt auf der Karte, ohne Kartenausschnitt; Akzentfarbe nur
-  an den drei vorgesehenen Stellen plus Absendeknopf; alle Tippflächen
-  mindestens 44 px; keine Schriftanfrage an fremden Server.
+16.09.2026 — Nachtrag zu A-14 (Filter, Kartenfarben) — **fertig**
+- Filter auf Liste/Karte: zwei Dropdowns „Stadt"/„Genre" mit
+  Mehrfachauswahl statt einer flachen Chipreihe, Button zeigt die Anzahl
+  („Stadt (2)"). Ein dritter Filter passt später ohne Layout-Änderung rein.
+- Kartenfarben: eigenen Fehler behoben, der Ortsnamen mit ausgeblendet
+  hatte (Symbol und Beschriftung hingen an derselben Ebene); Land, Straßen
+  und Beschriftung kontrastreicher, damit die Struktur bei weiter
+  Zoomstufe erkennbar bleibt. Stil bleibt „liberty", Pins weiterhin orange.
+- Echte Kartenkacheln kann ich von hier aus nicht laden (Netzwerksperre in
+  dieser Sitzung) — Kontrast bitte auf einem echten Gerät prüfen.
 - `npm run build`/`lint` erfolgreich.
 
 ## Als Nächstes für Claude Code
