@@ -17,8 +17,8 @@ MapLibre GL für die Karte, gehostet auf Vercel.
 
 **Seiten (`app/`):**
 - `/` — Startseite/Verteiler
-- `/liste` — alle Läden, gruppiert nach Stadt
-- `/karte` — Karte mit Pins
+- `/clubs` — alle Läden, Umschalter oben zwischen Liste (gruppiert nach
+  Stadt) und Karte mit Pins
 - `/venues/[id]` — Detailseite eines Ladens
 - `/magazin`, `/magazin/[slug]` — Beitragsübersicht/-detail (Struktur da,
   aktuell ohne Beiträge)

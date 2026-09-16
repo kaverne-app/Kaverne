@@ -19,6 +19,7 @@
   --radius-chip: 2px;
 
   --header-height: 56px;
+  --switch-height: 44px;
   --filter-height: 44px;
   --bottom-nav-height: 56px;
 
@@ -100,7 +101,9 @@ button {
 }
 
 .venue-list.has-filter {
-  padding-top: calc(var(--header-height) + var(--filter-height) + var(--space-2));
+  padding-top: calc(
+    var(--header-height) + var(--switch-height) + var(--filter-height) + var(--space-2)
+  );
 }
 
 .empty-state {
@@ -334,6 +337,35 @@ button {
   background: var(--color-accent);
 }
 
+/* Umschalter zwischen Liste und Karte auf /clubs */
+
+.view-switch {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  display: flex;
+  height: var(--switch-height);
+  background: var(--color-ground);
+  border-bottom: 1px solid var(--color-line);
+  z-index: 16;
+}
+
+.view-switch button {
+  flex: 1;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.view-switch button.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
 /* Karte */
 
 .map-page {
@@ -343,8 +375,8 @@ button {
 .venue-map-wrap {
   position: relative;
   height: calc(
-    100dvh - var(--header-height) - var(--filter-height) - var(--bottom-nav-height) -
-      env(safe-area-inset-bottom)
+    100dvh - var(--header-height) - var(--switch-height) - var(--filter-height) -
+      var(--bottom-nav-height) - env(safe-area-inset-bottom)
   );
 }
 
@@ -415,7 +447,7 @@ button {
 
 .filter-bar {
   position: fixed;
-  top: var(--header-height);
+  top: calc(var(--header-height) + var(--switch-height));
   left: 0;
   right: 0;
   height: var(--filter-height);
@@ -498,7 +530,7 @@ button {
 
 .filter-backdrop {
   position: fixed;
-  top: calc(var(--header-height) + var(--filter-height));
+  top: calc(var(--header-height) + var(--switch-height) + var(--filter-height));
   left: 0;
   right: 0;
   bottom: 0;

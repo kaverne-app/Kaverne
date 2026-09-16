@@ -29,13 +29,17 @@ export function useVenueFilter(): [VenueFilter, (filter: VenueFilter) => void] {
 
   const setFilter = useCallback(
     (next: VenueFilter) => {
-      const params = new URLSearchParams();
+      // Andere Parameter (z. B. die Ansicht auf /clubs) bleiben erhalten,
+      // nur Stadt und Genre werden hier verändert.
+      const params = new URLSearchParams(searchParams.toString());
       if (next.stadte.length > 0) params.set(STADT_PARAM, next.stadte.join(","));
+      else params.delete(STADT_PARAM);
       if (next.genres.length > 0) params.set(GENRE_PARAM, next.genres.join(","));
+      else params.delete(GENRE_PARAM);
       const query = params.toString();
       router.push(query ? `${pathname}?${query}` : pathname);
     },
-    [router, pathname],
+    [router, pathname, searchParams],
   );
 
   return [filter, setFilter];

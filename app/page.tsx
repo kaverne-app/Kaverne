@@ -18,7 +18,7 @@ export default async function StartPage() {
           Clubs und Venues für elektronische Musik im Südwesten
         </p>
 
-        <Link href="/karte" className="home-block">
+        <Link href="/clubs?ansicht=karte" className="home-block">
           <span className="home-block-title">Clubs</span>
           <span className="home-block-meta">
             {stats.count} {stats.count === 1 ? "Eintrag" : "Einträge"}

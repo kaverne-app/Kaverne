@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 interface BottomNavProps {
-  active: "start" | "liste" | "karte" | "magazin";
+  active: "start" | "clubs" | "magazin";
   showMagazin: boolean;
 }
 
 export default function BottomNav({ active, showMagazin }: BottomNavProps) {
-  // Beim Wechsel zwischen Liste und Karte die aktuelle Filterauswahl aus der
+  // Beim Wechsel zu Clubs die aktuelle Filter- und Ansichtsauswahl aus der
   // Adresszeile mitnehmen, damit sie dabei erhalten bleibt.
   const query = useSearchParams().toString();
   const withQuery = (path: string) => (query ? `${path}?${query}` : path);
@@ -27,8 +27,7 @@ export default function BottomNav({ active, showMagazin }: BottomNavProps) {
   return (
     <nav className="bottom-nav">
       {item("/", "start", "Start")}
-      {item(withQuery("/liste"), "liste", "Liste")}
-      {item(withQuery("/karte"), "karte", "Karte")}
+      {item(withQuery("/clubs"), "clubs", "Clubs")}
       {showMagazin && item("/magazin", "magazin", "Magazin")}
     </nav>
   );
