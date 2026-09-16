@@ -428,16 +428,24 @@ button {
   z-index: 15;
 }
 
-.filter-chips {
+.filter-groups {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  overflow-x: auto;
-  min-width: 0;
   flex: 1;
 }
 
-.filter-chip {
+/* Ein Filter ist ein Eintrag hier — ein weiterer später braucht keine
+   Layout-Änderung, nur einen zusätzlichen Eintrag in der Gruppenliste. */
+.filter-dropdown {
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.filter-dropdown-toggle {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -451,10 +459,53 @@ button {
   white-space: nowrap;
 }
 
-.filter-chip.active {
+.filter-dropdown-toggle.has-selection {
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+.filter-dropdown-panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 0;
+  z-index: 16;
+  min-width: 200px;
+  max-height: 60dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+}
+
+.filter-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--touch);
+  padding: 0 var(--space-2);
+  font-size: 15px;
+}
+
+.filter-checkbox-row input {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+}
+
+.filter-backdrop {
+  position: fixed;
+  top: calc(var(--header-height) + var(--filter-height));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: none;
+  padding: 0;
+  background: none;
+  z-index: 14;
 }
 
 .filter-reset {
