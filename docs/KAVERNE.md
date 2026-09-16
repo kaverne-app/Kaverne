@@ -61,10 +61,11 @@ Nichts davon wird vorbereitet, solange die Schwelle nicht erreicht ist.
 
 ## Aufnahme
 
-Ein Laden kommt rein, wenn er **belegbar regelmäßig elektronisches Programm**
-hat: eine wiederkehrende Nacht oder mehrere datierbare Veranstaltungen mit
-benanntem Line-up oder benannter Reihe im letzten Jahr. Ruf und
-Selbstbeschreibung reichen nicht.
+Ein Laden kommt rein, wenn elektronische Musik ein erkennbarer Schwerpunkt ist, nicht nur ein gelegentlicher Programmpunkt. Belegbare Grundlage bleibt Pflicht: eine wiederkehrende Nacht oder mehrere datierbare Veranstaltungen mit benanntem Line-up im letzten Jahr. Ruf und Selbstbeschreibung reichen nicht, ebenso wenig ein einzelnes elektronisches Event bei sonst anderem Programm.
+
+Der Schwerpunkt wird im Einzelfall beurteilt, nicht über eine feste Quote — die meisten Einträge werden ohnehin von Hand geprüft. Zwei Wege gelten ausdrücklich als Beleg: eine eigene elektronische Reihe mit eigenem Namen (Beispiel: Toxicator, Time Warp in der Maimarkthalle), auch wenn das übrige Programm des Ortes überwiegend anders ist — maßgeblich ist dann die Reihe, nicht der Ort als Ganzes. Oder ein Ort, dessen elektronisches Programm den überwiegenden, klar erkennbaren Teil seiner Identität ausmacht.
+
+Begründung: Die reine Häufigkeitsgrenze hätte Mehrzweck-Locations mit gelegentlichem elektronischem Programm eingeschlossen und das Verzeichnis von einer Anlaufstelle für die Szene zu einem allgemeinen Veranstaltungskalender verwässert.
 
 Floors, Bühnen und Außenformate desselben Betreibers am selben Ort bekommen
 keine eigene Zeile, sondern stehen beim Hauptladen unter „Wiederkehrende
