@@ -228,9 +228,9 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
 
 ## Arbeitsweise
 
-Gearbeitet wird in Claude Code im Repository, ein Thema pro Sitzung:
-Stand, Klären, Bauen, Recherche oder Daten. Die Regeln dafür stehen in
-CLAUDE.md.
+Gearbeitet wird in Claude Code im Repository: eine laufende Sitzung für
+Stand, Klären, Recherche und Daten, dazu eine eigene Sitzung pro
+Bau-Aufgabe. Die Regeln dafür stehen in CLAUDE.md.
 
 - `docs/KAVERNE.md` — was gilt
 - `docs/OFFEN.md` — was ansteht, was zu entscheiden ist, letzte Bau-Sitzung
