@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import { hasAnyPost } from "@/lib/posts";
@@ -11,8 +12,8 @@ export default async function StartPage() {
 
   return (
     <>
+      <Header />
       <main className="home">
-        <h1 className="home-wordmark">Kaverne</h1>
         <p className="home-tagline">
           Clubs und Venues für elektronische Musik im Südwesten
         </p>

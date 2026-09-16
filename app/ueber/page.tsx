@@ -1,13 +1,11 @@
-import Link from "next/link";
 import Footer from "@/components/Footer";
+import BackLink from "@/components/BackLink";
 
 export default function UeberPage() {
   return (
     <>
       <main className="venue-detail">
-        <Link href="/" className="back-link">
-          ← Zur Startseite
-        </Link>
+        <BackLink href="/">Zur Startseite</BackLink>
         <h1>Kaverne. Der Ort für elektronische Musik im Südwesten.</h1>
 
         <p>

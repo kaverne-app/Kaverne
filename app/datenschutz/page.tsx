@@ -1,11 +1,9 @@
-import Link from "next/link";
+import BackLink from "@/components/BackLink";
 
 export default function DatenschutzPage() {
   return (
     <main className="venue-detail">
-      <Link href="/" className="back-link">
-        ← Zur Startseite
-      </Link>
+      <BackLink href="/">Zur Startseite</BackLink>
       <h1>Datenschutzerklärung</h1>
 
       <h2>1. Verantwortlicher</h2>

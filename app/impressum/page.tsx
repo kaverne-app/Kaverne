@@ -1,11 +1,9 @@
-import Link from "next/link";
+import BackLink from "@/components/BackLink";
 
 export default function ImpressumPage() {
   return (
     <main className="venue-detail">
-      <Link href="/" className="back-link">
-        ← Zur Startseite
-      </Link>
+      <BackLink href="/">Zur Startseite</BackLink>
       <h1>Impressum</h1>
 
       <p>Angaben gemäß § 5 DDG und § 18 Abs. 1 MStV</p>

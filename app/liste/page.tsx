@@ -1,5 +1,5 @@
+import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
-import Footer from "@/components/Footer";
 import VenueListClient from "@/components/VenueListClient";
 import { hasAnyPost } from "@/lib/posts";
 import { getFilterableVenues } from "@/lib/venues";
@@ -17,8 +17,8 @@ export default async function ListePage() {
 
   return (
     <>
+      <Header />
       <VenueListClient venues={venues} />
-      <Footer hasBottomNav />
       <BottomNav active="liste" showMagazin={showMagazin} />
     </>
   );

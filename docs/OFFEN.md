@@ -9,20 +9,21 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-15.09.2026 — A-13 Feldliste an docs/KAVERNE.md angeglichen — **fertig**
-- Spalte `aussenbereich` (ja/nein, leer erlaubt): Migration angelegt und
-  nach Tims Bestätigung live angewendet (19 Zeilen unverändert, Spalte
-  überall leer). CSV-Spalte „Außenbereich" wird gelesen, Detailseite zeigt
-  sie im Block „Vor Ort", wenn gefüllt.
-- Feste Listen für typ/genres jetzt an einer Stelle im Code
-  (`scripts/lib/fixed-lists.ts`), wortgleich zu KAVERNE.md. Import listet
-  unbekannte Werte (Zeile, Spalte, Wert) und fragt vor dem Schreiben nach.
-- Lokal geprüft (nicht live): Probeimport mit „Tech-House" bricht ohne
-  Bestätigung ab, mit Bestätigung läuft er durch; reiner Import mit
-  gültigen Werten fragt nicht nach; „Gemischt" wird angezeigt und ist im
-  Genre-Filter wählbar; leerer Vor-Ort-Block bleibt verborgen.
-- `npm run build`/`lint` erfolgreich, „Tech House" kommt nur einmal im
-  Code vor.
+16.09.2026 — A-14 Grundgestaltung — **fertig**
+- Dunkles Erscheinungsbild wie vorgegeben umgesetzt: Farben, Schrift (IBM
+  Plex Sans, mit der App ausgeliefert), Abstände, feste Kopfzeile,
+  Filterleiste als durchlaufende Chipreihe, gedämpfte Kartenfarben,
+  Preisniveau- und Status-Anzeige.
+- Abweichung mit Grund: Status (aktiv/unregelmäßig) und Kurzbeschreibung
+  sind laut KAVERNE.md Pflicht-/Kernfelder, wurden aber bisher nirgends
+  angezeigt. Für die Gestaltung ergänzt (nur Anzeige, keine
+  Datenbankänderung), mit Tim vorab abgestimmt.
+- Geprüft mit Testdaten (nicht live): Start passt bei 375×667 ohne
+  Scrollen; fehlende Kurzbeschreibung erzeugt keine Lücke; Eintrag ohne
+  Koordinaten fehlt auf der Karte, ohne Kartenausschnitt; Akzentfarbe nur
+  an den drei vorgesehenen Stellen plus Absendeknopf; alle Tippflächen
+  mindestens 44 px; keine Schriftanfrage an fremden Server.
+- `npm run build`/`lint` erfolgreich.
 
 ## Als Nächstes für Claude Code
 
@@ -58,6 +59,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-14 Grundgestaltung (16.09.)
 - A-13 Feldliste an docs/KAVERNE.md angeglichen (15.09.)
 - A-12 Projektdokumente umgebaut (15.09.)
 - A-11 Import, 19 Einträge (15.09.)

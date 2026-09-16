@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import VenueMapClient from "@/components/VenueMapClient";
 import { hasAnyPost } from "@/lib/posts";
@@ -13,6 +14,7 @@ export default async function KartePage() {
 
   return (
     <>
+      <Header />
       <VenueMapClient venues={venues} />
       <BottomNav active="karte" showMagazin={showMagazin} />
     </>

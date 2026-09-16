@@ -11,12 +11,15 @@ export interface VenueSummary {
   typ: string | null;
   stadt: string | null;
   genres: string[] | null;
+  status: string | null;
 }
 
 export interface VenuePin {
   id: string;
   name: string;
+  typ: string | null;
   stadt: string | null;
+  status: string | null;
   lat: number;
   lon: number;
 }
@@ -32,6 +35,7 @@ export interface VenueDetail extends VenueSummary {
   adresse: string | null;
   lat: number | null;
   lon: number | null;
+  kurzbeschreibung: string | null;
   oeffnungstage: string[] | null;
   reihen: string | null;
   links: VenueLink[] | null;
@@ -48,8 +52,8 @@ export interface VenueDetail extends VenueSummary {
 
 // "residents" wird hier absichtlich nie ausgewählt — nicht nur im Frontend
 // ausgeblendet, die Spalte taucht in der Abfrage gar nicht auf.
-const SUMMARY_COLUMNS = "id,name,typ,stadt,genres";
-const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,lat,lon,oeffnungstage,reihen,links,preisniveau,kapazitaet,kartenzahlung,garderobe,raucherbereich,aussenbereich,haltestelle,barrierefreiheit,kamerapolitik`;
+const SUMMARY_COLUMNS = "id,name,typ,stadt,genres,status";
+const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,lat,lon,kurzbeschreibung,oeffnungstage,reihen,links,preisniveau,kapazitaet,kartenzahlung,garderobe,raucherbereich,aussenbereich,haltestelle,barrierefreiheit,kamerapolitik`;
 
 // Liste und Karte laden denselben Datensatz — gefiltert wird client-seitig,
 // damit Filterauswahl sich sofort auswirkt, ohne bei jedem Klick neu von
