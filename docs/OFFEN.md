@@ -22,28 +22,24 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
+- A-15 Tabelle ausgeschieden und nächtlicher Datenstand
+- Sheet-Abgleich (Daten-Sitzung, braucht Tims CSV-Export in lokal/)
+
 ## Du selbst
 
-- Sheet, Tab „Listen": Typ = Club, Bar, Location, Festival. Genre wie in
-  KAVERNE.md, „Gemischt" statt „EDM/Mixed". Dropdowns mit „Eingabe ablehnen".
-  Spalte „Außenbereich" anlegen.
-- Sheet: Tippfehler „uper Schwarzes Mannheim" prüfen.
-- Kurzbeschreibungen: 0 von 19. Für „Öffnen" mindestens bei den Läden, die
+- Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
-- Empfangspostfach Meldeformular: läuft weiter über
-  kaverne.app@gmail.com, AV-Vertrag-Lücke bewusst akzeptiert. Wechsel des
-  Postfachs geplant, kein Termin.
-- Recherche-Prompt an die Feldliste in KAVERNE.md anpassen (Parken und
-  Getränkepreis raus, Raucher- und Außenbereich als ja/nein, Genre-Liste).
+- Vor dem Sheet-Abgleich: beide Tabs (Läden, Ausgeschieden) als CSV
+  exportieren, Spalten Ansprechpartner und Notiz vorher löschen, Dateien nach
+  lokal/ legen. Nach dem Abgleich Sheet in „ARCHIV – nicht pflegen"
+  umbenennen.
+- KUFA Saarbrücken: Programm prüfen (bleibt bis dahin drin).
+- Vor der ersten Korrekturmail an Betreiber: Postfach mit AV-Vertrag.
 
 ## Zu entscheiden
 
 - Themen für die ersten zwei bis drei Artikel.
-- Gestaltung: Logo, Farben, Schrift.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant.
-- KUFA Saarbrücken: bleibt regulär im Verzeichnis (nicht in Ausgeschieden).
-  Belegbares elektronisches Programm noch nicht abschließend geprüft —
-  bewusst akzeptiertes Zwischenrisiko, Termine werden nachgeprüft.
 
 ## Ideen
 
@@ -53,7 +49,9 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
-- Lu's Beach Club aus der Datenbank entfernt (16.09.)
+- Umstellung auf Claude Code als Arbeitsplatz (16.09.)
+- Lu's Beach Club aus der Datenbank entfernt (16.09.), Grund kommt beim
+  Sheet-Abgleich in die Tabelle ausgeschieden
 - A-14 Grundgestaltung (16.09.)
 - A-13 Feldliste an docs/KAVERNE.md angeglichen (15.09.)
 - A-12 Projektdokumente umgebaut (15.09.)

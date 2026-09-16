@@ -75,13 +75,13 @@ Reihen". Eigene Zeile nur bei eigener Adresse und eigenem Programm.
 Städte am Rand nach eigenem Ermessen. Danach: Rhein-Main, Stuttgart, Freiburg.
 Eine Stadt erscheint im Filter, sobald sie einen Eintrag hat.
 
-Aussortierte Läden stehen im Sheet-Blatt „Ausgeschieden" mit Grund und werden
+Aussortierte Läden stehen in der Tabelle ausgeschieden mit Grund und werden
 einmal im Jahr durchgesehen.
 
 ## Datenfelder
 
-Die Werte der festen Listen gelten hier. Das Sheet (Tab „Listen", Dropdown,
-Eingabe ablehnen) spiegelt sie.
+Die Werte der festen Listen gelten hier. Die Daten selbst liegen nur in
+Supabase, ein Sheet gibt es nicht.
 
 **Pflicht:** Name · Typ · Stadt · Adresse · Status · mindestens ein Link
 
@@ -119,6 +119,10 @@ Betreiberantworten und Meldungen nachgetragen.
 **Intern** (Tabelle `venues_internal`, nie angezeigt, von der App nie
 abgefragt): zuletzt geprüft · Herkunft · Ansprechpartner · Themenspeicher ·
 Notiz
+Ansprechpartner und Notiz werden in keiner Sitzung gelesen oder
+ausgegeben. In ansprechpartner stehen keine Personennamen, bis die
+Korrekturmails an Betreiber rausgehen — davon hängt ab, dass die
+Datenschutzerklärung ohne Hinweis zu Kontaktpersonen auskommt.
 
 **Grundregeln**
 - Leer ist besser als geraten. Ja/Nein als Dropdown, leer heißt unbekannt.
@@ -150,7 +154,15 @@ Notiz
   eigene oder schriftlich freigegebene, kein Bild ist Pflicht.
 - Fremde Datenbanken nicht automatisiert auslesen. szene-radar.de ist keine
   Adressquelle.
-- Recherche-Chats laufen außerhalb dieses Projekts.
+- Recherche läuft als eigene Sitzung in Claude Code; Ergebnisse gehen nach
+  Tims „anlegen" direkt in Supabase.
+- Quellenrang: eigene Website > eigene Social-Beiträge > Ticketanbieter >
+  Presse. Kartendienste und Bewertungsportale zählen nicht.
+- Status: jüngster Nachweis bis 3 Monate = aktiv, 3–12 Monate =
+  unregelmäßig, älter oder Schließungsmeldung = geschlossen.
+- Genre aus den letzten datierbaren Veranstaltungen, nicht aus der
+  Selbstbeschreibung. Widersprüchliche Angaben: Feld leer.
+- Keine Türpolitik, keine Personennamen.
 - Datenpflegetag: Sonntag, sonst Montag.
 
 ## Technik
@@ -167,7 +179,26 @@ YouTube, SoundCloud, TikTok, GitHub. Ein Dachname, Inhalte als Zusatz
 („Kaverne Magazin"), keine zweite Marke. `.de` ist fremd, `.club` wird nicht
 genutzt. Projektadresse: `kaverne.app@gmail.com`.
 DPMA/EUIPO-Vorrecherche 09.09.2026, Klassen 9/41/42, ohne relevante Treffer
-(keine anwaltliche Bewertung). Gestaltung (Logo, Farben, Schrift) offen.
+(keine anwaltliche Bewertung).
+
+## Gestaltung
+
+Durchgehend dunkel, kein Hell-Modus. Grundfarbe fast schwarz (`#0d0d0e`),
+Flächen und Karten etwas heller (`#171719`), Text fast weiß (`#f2f2f0`),
+sekundärer Text grau (`#9b9b9f`). Akzentfarbe Orange (`#ff9f1c`): Kartenpins,
+ausgewählte Filter, Absenden-Button, aktiver Reiter unten. Schrift IBM Plex
+Sans, mit der Seite ausgeliefert statt von Google geladen. Wortmarke „KAVERNE"
+in Versalien, kein Bildlogo. Karte: OpenFreeMap „Liberty", auf die eigene
+Farbpalette gedämpft (Straßennamen und Hausnummern reduziert).
+
+## Ton
+
+Texte auf der Seite und im Magazin: unaufgeregt, direkt, nicht erklärend.
+Absender „wir", Leser „ihr". Keine Funktionen erklären, kein Eigenlob,
+kein Start-up- oder Marketington, keine Versprechen über Kommendes, keine
+Rankings, keine Aufrufe zur Mithilfe, nicht bemüht atmosphärisch.
+Die Startseite hat keinen Einleitungstext. Maßstab für den Ton ist die
+Über-Seite.
 
 ## Recht
 
@@ -188,16 +219,23 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
 - Interviews: schriftliche Freigabe vor Veröffentlichung.
 - Verzeichnisbetrieb ist zulässig. Einzelfakten sind frei, fremde Sammlungen
   geschützt.
+- Impressum mit Wohnadresse ist bewusst so entschieden, Risiko bei geringem
+  Verkehr akzeptiert.
+- Meldungen gehen per Resend an kaverne.app@gmail.com. Für das
+  Gmail-Postfach gibt es keinen AV-Vertrag (Art. 28 DSGVO) — als Lücke
+  bekannt und vorübergehend akzeptiert. Muss geschlossen sein, bevor die
+  erste Korrekturmail an einen Betreiber rausgeht.
 
 ## Arbeitsweise
 
-Drei Dateien tragen das Projekt, alle im Repository, per GitHub-Sync im
-Claude-Projekt:
+Gearbeitet wird in Claude Code im Repository, ein Thema pro Sitzung:
+Stand, Klären, Bauen, Recherche oder Daten. Die Regeln dafür stehen in
+CLAUDE.md.
 
-- `docs/KAVERNE.md` — was gilt (diese Datei)
-- `docs/OFFEN.md` — was ansteht, was zu entscheiden ist, letzte Sitzung
-- `CLAUDE.md` — Regeln für Claude Code
+- `docs/KAVERNE.md` — was gilt
+- `docs/OFFEN.md` — was ansteht, was zu entscheiden ist, letzte Bau-Sitzung
+- `CLAUDE.md` — wie in jeder Sitzung gearbeitet wird
 
-Ein Chat im Projekt klärt eine Frage und endet mit einer Übergabe (nur die
-Änderungen). Die Übergabe geht an Claude Code, das die Dateien anpasst.
-Danach im Projekt synchronisieren.
+Ladendaten liegen nur in Supabase. Jede Nacht wird der Datenstand ins
+Repository geschrieben. Größere Gestaltungsarbeit (z. B. ein Logo) läuft
+in Claude Design; das Ergebnis kommt danach unter „Gestaltung".

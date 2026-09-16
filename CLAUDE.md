@@ -1,9 +1,8 @@
 # Kaverne — Regeln für Claude Code
 
-**Diese Datei enthält Regeln für die Arbeit am Code**, nicht fürs
-Produkt — das steht in `docs/KAVERNE.md`. Was ansteht und zu entscheiden
-ist, steht in `docs/OFFEN.md`. Keine Sitzungsziele, keine Aufgaben, keine
-„nicht in dieser Sitzung"-Listen in dieser Datei.
+Diese Datei gilt für jede Sitzung in diesem Repository, nicht nur fürs
+Bauen. Was fürs Produkt gilt, steht in `docs/KAVERNE.md`, was ansteht in
+`docs/OFFEN.md`. Keine Sitzungsziele oder Aufgabenlisten in dieser Datei.
 
 ---
 
@@ -23,13 +22,14 @@ MapLibre GL für die Karte, gehostet auf Vercel.
 - `/venues/[id]` — Detailseite eines Ladens
 - `/magazin`, `/magazin/[slug]` — Beitragsübersicht/-detail (Struktur da,
   aktuell ohne Beiträge)
-- `/ueber` — nur Gerüst, Text noch offen
+- `/ueber` — Über-Seite
 
 **Verzeichnisse:**
 - `lib/` — Supabase-Zugriff und reine Anzeigelogik (keine Seiteneffekte)
 - `components/` — Client-Komponenten (Karte, Filter, Listen)
 - `scripts/` — Kommandozeilen-Werkzeuge für den CSV-Import
 - `supabase/migrations/` — SQL zum Anlegen und Ändern der Tabellen
+- `lokal/` — Tims Arbeitsdateien (z. B. Sheet-Export), nie committen
 
 **Datenbank:** `venues` (öffentlich lesbar) und `venues_internal` (nie
 abgefragt); dazu `posts`, `people`, `reihen` für das Magazin.
@@ -45,31 +45,83 @@ Kommandozeile zur Verfügung steht.
 sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 öffentlich sind — abgesichert wird über Row-Level-Security, nicht Geheimhaltung.
 
+## Sitzungen
+
+- Ein Thema pro Sitzung. Tims erster Satz sagt, worum es geht.
+- Zu Beginn jeder Sitzung git pull. Am Ende jeder Sitzung, die etwas
+  geändert hat: committen und pushen. Nichts bleibt uncommittet liegen.
+- Stand: „Was steht an?" aus docs/OFFEN.md beantworten, kurz, nach
+  Dringlichkeit.
+- Bauen: Aufgabe aus docs/OFFEN.md. Arbeit auf einem eigenen Zweig,
+  pushen, Vercel baut eine Vorschau. Tim den Vorschau-Link geben und sagen,
+  was er dort prüfen soll. Erst nach Tims „live" in main zusammenführen.
+  Ändert die Aufgabe nichts an der Seite, entfällt die Vorschau. Danach
+  „Letzte Claude-Code-Sitzung" in docs/OFFEN.md schreiben.
+- Klären (Entscheidungen, Ideen, Texte, Marke, Recht): kein App-Code.
+  Freigegebene Texte dürfen in bestehende Seiten eingesetzt werden, ohne
+  Layout- oder Logikänderung (über Vorschau wie beim Bauen). Jede
+  Entscheidung wird noch in derselben Sitzung in docs/KAVERNE.md oder
+  docs/OFFEN.md eingetragen; die geänderten Sätze kurz nennen. Beschlossene
+  Bauaufgaben bekommen die nächste freie Nummer A-xx und stehen mit Ziel,
+  Prüfkriterien und Verboten unter „Als Nächstes für Claude Code". Eine
+  Entscheidung, die nicht in einer Datei steht, gilt nicht.
+- Recherche: Regeln aus docs/KAVERNE.md, Abschnitte „Recherche" und
+  „Datenfelder". Ergebnis als Steckbrief mit Quellen. Nach Tims „anlegen"
+  direkt in Supabase schreiben. Nach „aussortieren" in die Tabelle
+  ausgeschieden. Wenige Seitenabrufe.
+- Daten: Änderungen direkt in Supabase nach „Supabase-Zugriff".
+  „Datenpflege Sonntag": zuerst nennen, was am längsten ungeprüft ist und
+  was am dringendsten fehlt.
+
+## Wie Tim arbeitet
+
+- Tim entscheidet Produkt, Design und Vermarktung und liest keinen Code.
+  Er prüft Ergebnisse, nicht Code. Technik so erklären, dass er sie ohne
+  Code beurteilen kann. Keine Code- oder Diff-Blöcke zum Abnicken zeigen.
+- Tim nie bitten, Dateien von Hand zu bearbeiten oder Text zwischen
+  Werkzeugen zu kopieren. Was sich ändern muss, ändert die Sitzung selbst.
+  Was nur Tim tun kann (Konten, Einstellungen, Freigaben, Recht,
+  Sheet-Export), ausdrücklich und Schritt für Schritt sagen.
+- Fragt Tim nach einer Entscheidung: entscheiden, keine Liste
+  gleichwertiger Optionen.
+- Schwache Ideen früh und direkt benennen. Kein Motivationston. Kurz halten.
+- 10 h/Woche, schwache Wochen 4 h. Passt etwas nicht, streichen statt
+  verdichten.
+- Engpass sind Datenpflege, Nutzer und Recht, nicht Technik. Bei jedem
+  Vorschlag mitprüfen: Wer pflegt die Daten, woher kommen die Nutzer?
+- Bausteine aus „Bewusst nicht" in docs/KAVERNE.md nicht als Verbesserung
+  vorschlagen. Bei Bedarf die Schwelle nennen.
+- Widersprechen Tims Nachricht, die Dateien und die Datenbank: in einem
+  Satz sagen und fragen, was gelten soll. Weicht die Praxis von einer Regel
+  ab: einmal sagen und vorschlagen, Regel oder Praxis anzupassen.
+- Aussagen zu Recht (DDG, DSGVO, TDDDG, DSA, MStV, UrhG, Datenbankschutz)
+  und zu Preisen von Diensten nur mit Quelle und Datum oder als
+  [ungeprüft]. Eigene Setzungen als [Annahme]. Keine erfundenen Zahlen.
+  Bei echtem Rechtsrisiko auf anwaltliche Beratung hinweisen.
+
 ## Supabase-Zugriff
 
-- Lesen aus `venues`, `posts`, `people`, `reihen` ist erlaubt.
-- Schreiben in die Live-Datenbank (Import, Migration) nur, nachdem Tim in der
-  Sitzung die konkrete Änderung bestätigt hat: welche Zeilen neu sind, welche
-  aktualisiert werden, welche Spalten sich ändern.
-- Jede Schemaänderung liegt zusätzlich als Datei in `supabase/migrations`.
-- Inhalte aus `venues_internal` nie lesen, ausgeben oder in Dateien schreiben.
-  Das Importwerkzeug darf dorthin schreiben.
+- Supabase ist die einzige Quelle für Ladendaten. Es gibt kein Sheet.
+- Lesen: alle Tabellen. Ausnahme: die Spalten ansprechpartner und notiz in
+  venues_internal nie lesen, ausgeben oder in Dateien schreiben; das
+  Importwerkzeug darf sie schreiben.
+- Ohne Rückfrage: Zeilen anlegen, Felder füllen oder ändern, Importe,
+  Exporte, Migrationen, die eine in docs/KAVERNE.md beschlossene
+  Feldänderung umsetzen.
+- Nach jeder Datenänderung im Klartext auflisten: Laden · Feld · alt → neu.
+- Nur nach Tims Bestätigung, in Klartext beschrieben statt als Code: Zeilen
+  löschen, gefüllte Felder leeren, IDs ändern, gefüllte Spalten umbenennen
+  oder löschen.
+- Jede Schemaänderung liegt zusätzlich als Datei in supabase/migrations.
 
 ---
 
 ## Zusammenarbeit
 
-- Tim liest keinen Code. Entscheidungen so erklären, dass er sie ohne Code
-  beurteilen kann.
 - Die Daten sind echt und lückenhaft. Bei den meisten Läden ist ungefähr die
   Hälfte der Felder leer. Das ist Absicht, kein Fehler in den Daten.
 - Bei Unklarheit nachfragen, statt Platzhalter oder Beispieldaten zu erfinden.
-- Eine Aufgabe pro Sitzung. Nach jedem abgeschlossenen Baustein anhalten und
-  zeigen, was Tim prüfen kann.
 - Am Ende jeder Sitzung `docs/OFFEN.md` pflegen (siehe unten).
-- Gibt Tim eine „Übergabe" aus einem Projektchat, werden die genannten
-  Änderungen wörtlich in `docs/KAVERNE.md` bzw. `docs/OFFEN.md` übernommen.
-  Widerspricht eine Änderung dem Code oder dieser Datei, vorher nachfragen.
 
 ## Stack — verbindlich
 
@@ -110,12 +162,12 @@ Diese Punkte werden nicht umgesetzt, sondern in `docs/OFFEN.md` unter
 
 - Änderungen am Datenmodell
 - Neue Dienste oder Abhängigkeiten, die Geld kosten können
-- Jeder Zugriff auf `venues_internal` außerhalb des Importwerkzeugs
+- Jeder Zugriff auf ansprechpartner oder notiz außerhalb des Importwerkzeugs
 - Alles, was diesen Regeln widerspricht
 
 ## OFFEN.md
 
-Am Ende jeder Sitzung in `docs/OFFEN.md`:
+Am Ende jeder Bau-Sitzung in `docs/OFFEN.md`:
 
 a) Den Abschnitt „Letzte Claude-Code-Sitzung" überschreiben: Datum,
    Aufgaben-ID, Status (fertig / blockiert / abgebrochen), je Prüfkriterium
@@ -124,5 +176,8 @@ a) Den Abschnitt „Letzte Claude-Code-Sitzung" überschreiben: Datum,
 b) Die erledigte Aufgabe aus „Als Nächstes für Claude Code" nach „Kürzlich
    erledigt" verschieben, Einträge älter als eine Woche dort löschen.
 c) Neues eintragen unter „Zu entscheiden" oder „Du selbst".
+
+Andere Sitzungen (Klären, Recherche, Daten) ändern nur die davon
+betroffenen Abschnitte, nicht „Letzte Claude-Code-Sitzung".
 
 Alle anderen Abschnitte von `docs/OFFEN.md` nicht umformulieren.
