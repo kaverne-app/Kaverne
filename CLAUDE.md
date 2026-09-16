@@ -48,17 +48,28 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 
 ## Sitzungen
 
-- Ein Thema pro Sitzung. Tims erster Satz sagt, worum es geht.
-- Zu Beginn jeder Sitzung git pull. Am Ende jeder Sitzung, die etwas
-  geändert hat: committen und pushen. Nichts bleibt uncommittet liegen.
+Es gibt zwei Arten von Sitzungen:
+- Laufend: eine Sitzung für Stand, Klären, Recherche und Daten. Tim gibt
+  dort nacheinander Aufgaben und nutzt zwischendurch /clear. Jeden Sonntag
+  beginnt Tim mit der Datenpflege eine neue Laufend-Sitzung.
+- Bauen: eine eigene Sitzung pro Aufgabe, die App-Code ändert, weil deren
+  Pull Request bis zu Tims Merge offen bleibt.
+
+In einer Laufend-Sitzung gilt für jede Aufgabe: vorher den Zweig auf den
+aktuellen Stand von main bringen, am Ende einen eigenen Pull Request
+erstellen. Nie Dokument- oder Datenänderungen mit App-Code in einem Pull
+Request mischen. Braucht eine Aufgabe App-Code: in docs/OFFEN.md eintragen
+und Tim sagen, dass er dafür eine Bau-Sitzung startet.
+
+- Vor jeder Aufgabe den Stand von main holen. Am Ende jeder Aufgabe, die
+  etwas geändert hat: committen und pushen. Nichts bleibt uncommittet liegen.
 - Zu Beginn jeder Sitzung prüfen, ob offene Pull Requests früherer
   Sitzungen existieren. Wenn ja, zuerst nennen, was darin steckt und ob er
   zusammengeführt werden kann.
-- Jede Sitzung arbeitet auf ihrem eigenen Zweig und erstellt am Ende selbst
-  einen Pull Request nach main. Ändert er nur docs/, CLAUDE.md oder data/,
-  wird er automatisch zusammengeführt. Ändert er App-Code, führt Tim ihn
-  zusammen, nachdem er die Vorschau geprüft hat. Dann Tim den Link zum Pull
-  Request und zur Vorschau geben und in einfachen Worten sagen, wo er
+- Jeder Pull Request geht nach main. Ändert er nur docs/, CLAUDE.md oder
+  data/, wird er automatisch zusammengeführt. Ändert er App-Code, führt Tim
+  ihn zusammen, nachdem er die Vorschau geprüft hat. Dann Tim den Link zum
+  Pull Request und zur Vorschau geben und in einfachen Worten sagen, wo er
   klickt.
 - Sitzungen laufen in einer Cloud-Umgebung. Dateien gibt Tim als Anhang in
   der Nachricht, nicht über einen Ordner.
@@ -72,7 +83,7 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Klären (Entscheidungen, Ideen, Texte, Marke, Recht): kein App-Code.
   Freigegebene Texte dürfen in bestehende Seiten eingesetzt werden, ohne
   Layout- oder Logikänderung (über Vorschau wie beim Bauen). Jede
-  Entscheidung wird noch in derselben Sitzung in docs/KAVERNE.md oder
+  Entscheidung wird noch in derselben Aufgabe in docs/KAVERNE.md oder
   docs/OFFEN.md eingetragen; die geänderten Sätze kurz nennen. Beschlossene
   Bauaufgaben bekommen die nächste freie Nummer A-xx und stehen mit Ziel,
   Prüfkriterien und Verboten unter „Als Nächstes für Claude Code". Eine
@@ -133,7 +144,7 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Die Daten sind echt und lückenhaft. Bei den meisten Läden ist ungefähr die
   Hälfte der Felder leer. Das ist Absicht, kein Fehler in den Daten.
 - Bei Unklarheit nachfragen, statt Platzhalter oder Beispieldaten zu erfinden.
-- Am Ende jeder Sitzung `docs/OFFEN.md` pflegen (siehe unten).
+- Am Ende jeder Aufgabe `docs/OFFEN.md` pflegen (siehe unten).
 
 ## Stack — verbindlich
 
@@ -189,7 +200,7 @@ b) Die erledigte Aufgabe aus „Als Nächstes für Claude Code" nach „Kürzlic
    erledigt" verschieben, Einträge älter als eine Woche dort löschen.
 c) Neues eintragen unter „Zu entscheiden" oder „Du selbst".
 
-Andere Sitzungen (Klären, Recherche, Daten) ändern nur die davon
-betroffenen Abschnitte, nicht „Letzte Claude-Code-Sitzung".
+Andere Aufgaben (Klären, Recherche, Daten) in einer Laufend-Sitzung ändern
+nur die davon betroffenen Abschnitte, nicht „Letzte Claude-Code-Sitzung".
 
 Alle anderen Abschnitte von `docs/OFFEN.md` nicht umformulieren.
