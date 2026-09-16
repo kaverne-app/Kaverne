@@ -9,38 +9,25 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — A-15 Tabelle ausgeschieden und nächtlicher Datenstand — **blockiert**
-- Tabelle `ausgeschieden` existiert (Migration + direkt in Supabase
-  angewendet), RLS an, keine Policy: ja, geprüft — Testzeile eingefügt, mit
-  dem öffentlichen Schlüssel abgefragt (0 Zeilen), Testzeile wieder gelöscht.
-- Action einmal ausgelöst, data/venues.json vollständig: nein — braucht
-  zwei GitHub-Secrets und eine Berechtigungs-Einstellung, die nur Tim
-  setzen kann (siehe „Du selbst").
-- Zweiter Lauf ohne Commit: noch nicht geprüft, folgt nach dem ersten Lauf.
-- Repo ist öffentlich → Action läuft im kostenlosen Rahmen, keine
-  Rückfrage nötig.
+16.09.2026 — A-15 Tabelle ausgeschieden und nächtlicher Datenstand — **fertig**
+- Tabelle `ausgeschieden` existiert, RLS an, keine Policy: ja, geprüft —
+  Testzeile eingefügt, mit dem öffentlichen Schlüssel abgefragt (0 Zeilen),
+  Testzeile wieder gelöscht.
+- Action einmal ausgelöst, data/venues.json vollständig: ja, alle 18 Läden,
+  sortiert nach id — nach zwei Nachbesserungen (Node-Version, Vergleich
+  überging neue Dateien) im dritten Anlauf geprüft.
+- Zweiter Lauf ohne Datenänderung erzeugt keinen Commit: ja, geprüft.
+- Migrationen 0004 und die zwei Korrekturen liefen über eigene Zweige +
+  Pull Requests (#28–#30), auf Zuruf gemergt, kein Direkt-Push auf main.
 - Kein Service-Role-Key verwendet, keine Ladendaten und kein App-Code
   geändert.
 
 ## Als Nächstes für Claude Code
 
-- A-15 Tabelle ausgeschieden und nächtlicher Datenstand
 - Sheet-Abgleich (Daten-Sitzung, braucht Tims CSV-Export als Anhang)
 
 ## Du selbst
 
-- A-15 fertigstellen, zwei Dinge in GitHub anklicken (Werte stehen schon in
-  Vercel unter Settings → Environment Variables, sind absichtlich
-  öffentlich):
-  1. github.com/kaverne-app/Kaverne → Settings → Secrets and variables →
-     Actions → „New repository secret" → Name `NEXT_PUBLIC_SUPABASE_URL`,
-     Wert aus Vercel übernehmen. Zweites Secret genauso mit Name
-     `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
-  2. Settings → Actions → General → „Workflow permissions" → „Read and
-     write permissions" auswählen → Save (die Action muss committen
-     können).
-  Danach kurz Bescheid geben — löse ich die Action aus und prüfe die
-  Prüfkriterien.
 - Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
   du selbst kennst.
 - Vor dem Sheet-Abgleich: beide Tabs (Läden, Ausgeschieden) als CSV
@@ -63,6 +50,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-15 Tabelle ausgeschieden und nächtlicher Datenstand (16.09.)
 - Umstellung auf Claude Code als Arbeitsplatz (16.09.)
 - Lu's Beach Club aus der Datenbank entfernt (16.09.), Grund kommt beim
   Sheet-Abgleich in die Tabelle ausgeschieden
