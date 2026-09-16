@@ -28,17 +28,19 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Du selbst
 
-- Kurzbeschreibungen: 0 von 18. Für „Öffnen" mindestens bei den Läden, die
-  du selbst kennst.
-- Sheet in „ARCHIV – nicht pflegen" umbenennen — Supabase ist jetzt die
-  einzige Quelle.
-- KUFA Saarbrücken: Programm prüfen (bleibt bis dahin drin).
-- Vor der ersten Korrekturmail an Betreiber: Postfach mit AV-Vertrag.
+- Kurzbeschreibungen: 1 von 18 (Gotec Club). Für „Öffnen" mindestens bei
+  den Läden, die du selbst kennst.
+- Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
+  gibt und die Seite aktiv beworben wird — bis dahin läuft es über Google.
 
 ## Zu entscheiden
 
 - Themen für die ersten zwei bis drei Artikel.
-- Schwelle für den Eventkalender — erst nach „Öffnen" relevant.
+- Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
+  ein gutes Stück später.
+- Filterkriterium für Läden mit nur gelegentlichem Programm (z. B. KuFa
+  Saarbrücken) — erst wenn mehr Läden dazukommen. Bis dahin bleibt KuFa
+  drin.
 
 ## Ideen
 
@@ -48,6 +50,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Sheet in „ARCHIV – nicht pflegen" umbenannt (16.09.)
+- Erste Kurzbeschreibung: Gotec Club (16.09.)
 - A-16 Automatisches Zusammenführen für Dokument-/Datenänderungen (16.09.)
 - Sheet-Abgleich: Läden-Export gegen venues geprüft (keine Abweichungen
   außer dem Tippfehler unten), Ausgeschieden-Export in die Tabelle

@@ -223,8 +223,9 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
   Verkehr akzeptiert.
 - Meldungen gehen per Resend an kaverne.app@gmail.com. Für das
   Gmail-Postfach gibt es keinen AV-Vertrag (Art. 28 DSGVO) — als Lücke
-  bekannt und vorübergehend akzeptiert. Muss geschlossen sein, bevor die
-  erste Korrekturmail an einen Betreiber rausgeht.
+  bekannt und vorübergehend akzeptiert. Muss geschlossen sein, sobald es
+  einen wirklichen Release gibt und die Seite aktiv beworben und
+  verbreitet wird; bis dahin bewusst zurückgestellt.
 
 ## Arbeitsweise
 
