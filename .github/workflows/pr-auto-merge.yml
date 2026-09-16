@@ -1,0 +1,82 @@
+name: Pull Requests automatisch zusammenführen
+
+# A-16: siehe CLAUDE.md, Abschnitt "Sitzungen". Jede Sitzung erstellt am
+# Ende einen Pull Request von einem claude/*-Zweig nach main. Ändert er
+# nur Dateien unter docs/, CLAUDE.md oder data/, wird er hier automatisch
+# zusammengeführt — Tim muss dafür nichts tun. Ändert er App-Code, bleibt
+# er offen, bis Tim ihn nach der Vorschau selbst zusammenführt: sein
+# Merge bleibt das "live". Ein Zusammenführungskonflikt lässt den Pull
+# Request in jedem Fall offen, mit einem Kommentar dazu.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    if: startsWith(github.head_ref, 'claude/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Geänderte Dateien prüfen und bei Dokument-/Datenänderungen zusammenführen
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+
+            const nurDokumenteOderDaten = (pfad) =>
+              pfad.startsWith('docs/') || pfad === 'CLAUDE.md' || pfad.startsWith('data/');
+
+            const dateien = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number,
+              per_page: 100,
+            });
+
+            const betroffeneDateien = dateien.map((datei) => datei.filename);
+            if (!betroffeneDateien.every(nurDokumenteOderDaten)) {
+              console.log(
+                'Ändert Dateien außerhalb von docs/, CLAUDE.md oder data/ — bleibt offen: ' +
+                  betroffeneDateien.join(', ')
+              );
+              return;
+            }
+
+            // Direkt nach dem Öffnen/Aktualisieren ist der Konfliktstatus oft noch
+            // nicht berechnet (mergeable === null) — kurz erneut abfragen.
+            let pr;
+            for (let versuch = 0; versuch < 5; versuch += 1) {
+              ({ data: pr } = await github.rest.pulls.get({ owner, repo, pull_number }));
+              if (pr.mergeable !== null) break;
+              await new Promise((weiter) => setTimeout(weiter, 3000));
+            }
+
+            if (pr && pr.mergeable === false) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pull_number,
+                body: 'Konflikt, bitte in einer Sitzung lösen.',
+              });
+              console.log('Zusammenführungskonflikt — Pull Request bleibt offen, kommentiert.');
+              return;
+            }
+
+            try {
+              await github.rest.pulls.merge({ owner, repo, pull_number, merge_method: 'merge' });
+              console.log('Automatisch zusammengeführt.');
+            } catch (fehler) {
+              console.log(`Zusammenführen fehlgeschlagen: ${fehler.message}`);
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: pull_number,
+                body: 'Konflikt, bitte in einer Sitzung lösen.',
+              });
+            }

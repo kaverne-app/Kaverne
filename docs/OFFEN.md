@@ -9,18 +9,18 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — A-15 Tabelle ausgeschieden und nächtlicher Datenstand — **fertig**
-- Tabelle `ausgeschieden` existiert, RLS an, keine Policy: ja, geprüft —
-  Testzeile eingefügt, mit dem öffentlichen Schlüssel abgefragt (0 Zeilen),
-  Testzeile wieder gelöscht.
-- Action einmal ausgelöst, data/venues.json vollständig: ja, alle 18 Läden,
-  sortiert nach id — nach zwei Nachbesserungen (Node-Version, Vergleich
-  überging neue Dateien) im dritten Anlauf geprüft.
-- Zweiter Lauf ohne Datenänderung erzeugt keinen Commit: ja, geprüft.
-- Migrationen 0004 und die zwei Korrekturen liefen über eigene Zweige +
-  Pull Requests (#28–#30), auf Zuruf gemergt, kein Direkt-Push auf main.
-- Kein Service-Role-Key verwendet, keine Ladendaten und kein App-Code
-  geändert.
+16.09.2026 — A-16 Automatisches Zusammenführen für Dokument-/Datenänderungen — **fertig**
+- Workflow `pr-auto-merge.yml`: merged claude/*-Pull-Requests automatisch,
+  wenn sie nur docs/**, CLAUDE.md oder data/** ändern, sonst nichts. Bei
+  Konflikt bleibt er offen, kommentiert „Konflikt, bitte in einer Sitzung
+  lösen".
+- Beide Fälle per Code geprüft (Logik, YAML- und Skriptsyntax) — echtes
+  Zusammenführen im Repository nicht: die nötige Freischaltung fehlt noch
+  (siehe Nachricht an Tim), zeigt sich beim ersten Pull Request danach.
+- Nächtliche Datenstand-Action läuft unverändert weiter.
+- CLAUDE.md, Abschnitt „Sitzungen" angepasst wie vorgegeben. Kein App-Code
+  geändert, keine Schutzregel abgeschaltet, kein Service-Role-Key
+  verwendet.
 
 ## Als Nächstes für Claude Code
 
@@ -48,6 +48,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-16 Automatisches Zusammenführen für Dokument-/Datenänderungen (16.09.)
 - Sheet-Abgleich: Läden-Export gegen venues geprüft (keine Abweichungen
   außer dem Tippfehler unten), Ausgeschieden-Export in die Tabelle
   ausgeschieden übernommen (19 Zeilen), Tippfehler im Reihen-Text bei
