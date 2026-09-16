@@ -28,7 +28,7 @@ export default async function VenuePage({
 
   return (
     <main className="venue-detail">
-      <BackLink href="/liste">Zur Liste</BackLink>
+      <BackLink href="/clubs">Zur Liste</BackLink>
 
       <div className="venue-head">
         <div>

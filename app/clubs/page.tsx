@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
-import VenueListClient from "@/components/VenueListClient";
+import ClubsView from "@/components/ClubsView";
 import { hasAnyPost } from "@/lib/posts";
 import { getFilterableVenues } from "@/lib/venues";
 
@@ -9,7 +9,7 @@ import { getFilterableVenues } from "@/lib/venues";
 // statt den Seiteninhalt beim Build fest einzufrieren.
 export const dynamic = "force-dynamic";
 
-export default async function ListePage() {
+export default async function ClubsPage() {
   const [venues, showMagazin] = await Promise.all([
     getFilterableVenues(),
     hasAnyPost(),
@@ -18,8 +18,8 @@ export default async function ListePage() {
   return (
     <>
       <Header />
-      <VenueListClient venues={venues} />
-      <BottomNav active="liste" showMagazin={showMagazin} />
+      <ClubsView venues={venues} />
+      <BottomNav active="clubs" showMagazin={showMagazin} />
     </>
   );
 }

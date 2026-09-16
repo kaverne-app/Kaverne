@@ -9,18 +9,18 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — A-16 Automatisches Zusammenführen für Dokument-/Datenänderungen — **fertig**
-- Workflow `pr-auto-merge.yml`: merged claude/*-Pull-Requests automatisch,
-  wenn sie nur docs/**, CLAUDE.md oder data/** ändern, sonst nichts. Bei
-  Konflikt bleibt er offen, kommentiert „Konflikt, bitte in einer Sitzung
-  lösen".
-- Beide Fälle per Code geprüft (Logik, YAML- und Skriptsyntax) — echtes
-  Zusammenführen im Repository nicht: die nötige Freischaltung fehlt noch
-  (siehe Nachricht an Tim), zeigt sich beim ersten Pull Request danach.
-- Nächtliche Datenstand-Action läuft unverändert weiter.
-- CLAUDE.md, Abschnitt „Sitzungen" angepasst wie vorgegeben. Kein App-Code
-  geändert, keine Schutzregel abgeschaltet, kein Service-Role-Key
-  verwendet.
+16.09.2026 — Clubs-Seite mit Liste/Karte-Umschalter, Wortmarke verlinkt — **fertig**
+- Neue Seite `/clubs` ersetzt `/liste` und `/karte`: ein Umschalter direkt
+  unter der Kopfzeile wechselt zwischen Liste und Karte, Filterauswahl
+  bleibt beim Wechsel erhalten. Unten in der Navigation steht „Clubs" statt
+  „Liste"/„Karte".
+- Der Schriftzug „Kaverne" oben links führt auf jeder Seite mit Kopfzeile
+  (Start, Clubs, Magazin) zur Startseite zurück.
+- Geprüft: `npm run lint`, `npx tsc --noEmit`, `npm run build` fehlerfrei;
+  Liste- und Kartenansicht sowie der Wortmarke-Link im Browser mit
+  Testdaten kontrolliert (echte Supabase-Daten in dieser Sitzung ohne
+  Netzwerkzugriff nicht erreichbar).
+- CLAUDE.md, Abschnitt „Seiten" auf `/clubs` aktualisiert.
 
 ## Als Nächstes für Claude Code
 
@@ -50,6 +50,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Clubs-Seite mit Liste/Karte-Umschalter, Wortmarke verlinkt (16.09.)
 - Sheet in „ARCHIV – nicht pflegen" umbenannt (16.09.)
 - Erste Kurzbeschreibung: Gotec Club (16.09.)
 - A-16 Automatisches Zusammenführen für Dokument-/Datenänderungen (16.09.)
