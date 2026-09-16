@@ -51,10 +51,15 @@ sind in Vercel als Config (nicht Secret) hinterlegt, weil sie absichtlich
 - Ein Thema pro Sitzung. Tims erster Satz sagt, worum es geht.
 - Zu Beginn jeder Sitzung git pull. Am Ende jeder Sitzung, die etwas
   geändert hat: committen und pushen. Nichts bleibt uncommittet liegen.
-- Jede Sitzung arbeitet auf einem eigenen Zweig. Stand, Klären, Recherche
-  und Daten: am Ende selbst in main zusammenführen. Bauen: erst nach Tims
-  „live". Geht das Zusammenführen nicht ohne Tim, einen Pull Request
-  erstellen und Tim Schritt für Schritt sagen, wo er in GitHub klickt.
+- Zu Beginn jeder Sitzung prüfen, ob offene Pull Requests früherer
+  Sitzungen existieren. Wenn ja, zuerst nennen, was darin steckt und ob er
+  zusammengeführt werden kann.
+- Jede Sitzung arbeitet auf ihrem eigenen Zweig und erstellt am Ende selbst
+  einen Pull Request nach main. Ändert er nur docs/, CLAUDE.md oder data/,
+  wird er automatisch zusammengeführt. Ändert er App-Code, führt Tim ihn
+  zusammen, nachdem er die Vorschau geprüft hat. Dann Tim den Link zum Pull
+  Request und zur Vorschau geben und in einfachen Worten sagen, wo er
+  klickt.
 - Sitzungen laufen in einer Cloud-Umgebung. Dateien gibt Tim als Anhang in
   der Nachricht, nicht über einen Ordner.
 - Stand: „Was steht an?" aus docs/OFFEN.md beantworten, kurz, nach
