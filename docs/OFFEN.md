@@ -9,18 +9,14 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-16.09.2026 — Clubs-Seite mit Liste/Karte-Umschalter, Wortmarke verlinkt — **fertig**
-- Neue Seite `/clubs` ersetzt `/liste` und `/karte`: ein Umschalter direkt
-  unter der Kopfzeile wechselt zwischen Liste und Karte, Filterauswahl
-  bleibt beim Wechsel erhalten. Unten in der Navigation steht „Clubs" statt
-  „Liste"/„Karte".
-- Der Schriftzug „Kaverne" oben links führt auf jeder Seite mit Kopfzeile
-  (Start, Clubs, Magazin) zur Startseite zurück.
-- Geprüft: `npm run lint`, `npx tsc --noEmit`, `npm run build` fehlerfrei;
-  Liste- und Kartenansicht sowie der Wortmarke-Link im Browser mit
-  Testdaten kontrolliert (echte Supabase-Daten in dieser Sitzung ohne
-  Netzwerkzugriff nicht erreichbar).
-- CLAUDE.md, Abschnitt „Seiten" auf `/clubs` aktualisiert.
+17.09.2026 — Fix Kartendarstellung (Dämpfung, Kartenbereich, Attribution, Filter) — **teilweise geprüft, Pull Request #37**
+- Kartenbereich lückenlos bis zur Navigation, Checkbox-Farbe, Filter-Panel
+  nie hinter der Navigation: ja, mit Testdaten im Browser vermessen.
+- Farbdämpfung aller Ebenentypen (Gebäude, Parkumrisse) und kompakte,
+  dunkle Attribution: umgesetzt, aber NICHT auf einem Gerät geprüft —
+  diese Sitzung hat weder Netzwerkzugriff auf die Kartenkacheln noch ein
+  Android-Gerät. Bitte in der Vorschau von PR #37 selbst prüfen.
+- Kein bekannter Fehler, nur diese Abnahme noch offen.
 
 ## Als Nächstes für Claude Code
 
