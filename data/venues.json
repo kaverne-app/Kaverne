@@ -208,7 +208,7 @@
     ],
     "status": "aktiv",
     "oeffnungstage": null,
-    "kurzbeschreibung": null,
+    "kurzbeschreibung": "Gotec hat sich vom soliden Techno-Club der Region zu einem der besten Clubs Deutschlands entwickelt. Mehrere Floors und ein großer Außenbereich, das Programm reicht von Residents und lokalen Acts bis zu internationalen Namen der Szene. Daneben wächst das Unternehmen mit eigenem Studio/Label sowie eigenen Festivals und Reihen in der Region. Liegt am Rand von Karlsruhe, ist aber gut zu erreichen.",
     "kapazitaet": null,
     "residents": null,
     "reihen": "SCHRANZ TILL I DIE, TRANCY & BOUNCY",
@@ -234,7 +234,7 @@
       }
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-16T15:27:55.155139+00:00",
     "aussenbereich": null
   },
   {
@@ -447,7 +447,7 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": "uper Schwarzes Mannheim, DEX!T Techno",
+    "reihen": "Super Schwarzes Mannheim, DEX!T Techno",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -470,7 +470,7 @@
       }
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "updated_at": "2026-09-16T14:12:50.699668+00:00",
     "aussenbereich": null
   },
   {
