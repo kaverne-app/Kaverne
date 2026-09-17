@@ -66,11 +66,14 @@ export default function VenueFilterPanel({
                 <div className="filter-dropdown-panel">
                   {group.options.map((option) => (
                     <label className="filter-checkbox-row" key={option}>
-                      <input
-                        type="checkbox"
-                        checked={filter[group.key].includes(option)}
-                        onChange={() => toggleValue(group.key, option)}
-                      />
+                      <span className="filter-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={filter[group.key].includes(option)}
+                          onChange={() => toggleValue(group.key, option)}
+                        />
+                        <span className="filter-checkbox-box" aria-hidden="true" />
+                      </span>
                       {option}
                     </label>
                   ))}
