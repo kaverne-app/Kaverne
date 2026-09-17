@@ -9,14 +9,13 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-17.09.2026 — Fix Kartendarstellung (Dämpfung, Kartenbereich, Attribution, Filter) — **teilweise geprüft, Pull Request #37**
+17.09.2026 — Fix Kartendarstellung (Dämpfung, Kartenbereich, Attribution, Filter) — **fertig, Pull Request #37**
 - Kartenbereich lückenlos bis zur Navigation, Checkbox-Farbe, Filter-Panel
   nie hinter der Navigation: ja, mit Testdaten im Browser vermessen.
 - Farbdämpfung aller Ebenentypen (Gebäude, Parkumrisse) und kompakte,
-  dunkle Attribution: umgesetzt, aber NICHT auf einem Gerät geprüft —
-  diese Sitzung hat weder Netzwerkzugriff auf die Kartenkacheln noch ein
-  Android-Gerät. Bitte in der Vorschau von PR #37 selbst prüfen.
-- Kein bekannter Fehler, nur diese Abnahme noch offen.
+  dunkle Attribution: ja, von Tim auf dem Android-Gerät in der Vorschau
+  bestätigt.
+- Kein bekannter Fehler. Wartet auf Tims „live" zum Zusammenführen.
 
 ## Als Nächstes für Claude Code
 
