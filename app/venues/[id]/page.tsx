@@ -8,8 +8,6 @@ import BackLink from "@/components/BackLink";
 
 export const dynamic = "force-dynamic";
 
-const PREISNIVEAU_STUFEN = 3;
-
 export default async function VenuePage({
   params,
 }: {
@@ -59,11 +57,7 @@ export default async function VenuePage({
                 <dt>{f.label}</dt>
                 <dd>
                   {f.kind === "text" ? (
-                    f.label === "Preisniveau" ? (
-                      <Preisniveau wert={f.value} />
-                    ) : (
-                      f.value
-                    )
+                    f.value
                   ) : (
                     <span className="link-list">
                       {f.links.map((link) => (
@@ -100,22 +94,6 @@ export default async function VenuePage({
 
       <ReportButton id={venue.id} name={venue.name} />
     </main>
-  );
-}
-
-function Preisniveau({ wert }: { wert: string }) {
-  const stufe = (wert.match(/€/g) ?? []).length;
-  return (
-    <span className="price-level">
-      {Array.from({ length: PREISNIVEAU_STUFEN }).map((_, i) => (
-        <span
-          key={i}
-          className={i < stufe ? "price-level-filled" : "price-level-empty"}
-        >
-          €
-        </span>
-      ))}
-    </span>
   );
 }
 

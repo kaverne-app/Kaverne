@@ -120,36 +120,22 @@ export function buildDetailBlocks(venue: VenueDetail): DetailBlock[] {
     {
       title: "Wann & wo",
       fields: [
-        textField("Öffnungstage", joinList(venue.oeffnungstage)),
+        textField("Übliche Tage", joinList(venue.oeffnungstage)),
         textField("Adresse", venue.adresse),
+        textField("Haltestelle", venue.haltestelle),
       ].filter(isField),
     },
     {
-      title: "Programm & Kanäle",
-      fields: [
-        textField("Reihen", venue.reihen),
-        venue.links && venue.links.length > 0
-          ? ({ kind: "links", label: "Links", links: venue.links } as const)
-          : null,
-      ].filter(isField),
-    },
-    {
-      title: "Preise & Größe",
-      fields: [
-        textField("Preisniveau", venue.preisniveau),
-        textField("Kapazität", venue.kapazitaet),
-      ].filter(isField),
+      title: "Kanäle",
+      fields: [linksField(venue.links)].filter(isField),
     },
     {
       title: "Vor Ort",
       fields: [
+        textField("Floors", venue.floors),
         textField("Kartenzahlung", venue.kartenzahlung),
-        textField("Garderobe", venue.garderobe),
         textField("Raucherbereich", venue.raucherbereich),
         textField("Außenbereich", venue.aussenbereich),
-        textField("Haltestelle", venue.haltestelle),
-        textField("Barrierefreiheit", venue.barrierefreiheit),
-        textField("Kamerapolitik", venue.kamerapolitik),
       ].filter(isField),
     },
   ];
@@ -159,6 +145,10 @@ export function buildDetailBlocks(venue: VenueDetail): DetailBlock[] {
 
 function textField(label: string, value: string | null): DetailField | null {
   return value ? { kind: "text", label, value } : null;
+}
+
+function linksField(links: VenueDetail["links"]): DetailField | null {
+  return links && links.length > 0 ? { kind: "links", label: "Links", links } : null;
 }
 
 function isField(f: DetailField | null): f is DetailField {
