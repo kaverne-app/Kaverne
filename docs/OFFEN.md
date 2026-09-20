@@ -9,26 +9,24 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-20.09.2026 — A-17 Detailseite-Felder — **teilweise fertig, Pull Request #39**
+20.09.2026 — A-17 Detailseite-Felder — **fertig, Pull Request #39**
 - Blöcke/Felder wie gefordert umgesetzt (Wann & wo · Kanäle · Vor Ort),
-  Spalte `floors` ergänzt (schon in Supabase). Geprüft: Build/Lint sauber,
-  Feldlabels und -reihenfolge im Browser mit echten Werten bestätigt
-  (C2 Ost).
-- Reihen-Spalte noch nicht gelöscht — wartet auf Tims Bestätigung (siehe
-  „Als Nächstes"). Die App fragt `reihen` seit diesem Pull Request nicht
-  mehr ab, die Spalte selbst steht noch in Supabase.
-- Kein bekannter Fehler.
+  Spalte `floors` ergänzt. Geprüft: Build/Lint sauber, Feldlabels und
+  -reihenfolge im Browser mit echten Werten bestätigt (C2 Ost), Vorschau
+  von Tim abgenommen.
+- Reihen-Spalte gelöscht, von Tim in Klartext bestätigt. Betroffen: C2 Ost
+  · reihen · „THRILLED!" → gelöscht; Das Zimmer · reihen ·
+  „Der Donnerstag" → gelöscht; Disco Zwei · reihen ·
+  „Ponyclub, PALS, Raserei" → gelöscht; Erdbeermund · reihen ·
+  „Freak 'n Jones, Pandora, THRILLED!" → gelöscht; Gotec Club · reihen ·
+  „SCHRANZ TILL I DIE, TRANCY & BOUNCY" → gelöscht; MS Connexion Complex ·
+  reihen · „Super Schwarzes Mannheim, DEX!T Techno" → gelöscht.
+- Import-Skripte (scripts/lib/types.ts, read-csv.ts, generate-import-sql.ts)
+  an den Wegfall angepasst. Kein bekannter Fehler.
 
 ## Als Nächstes für Claude Code
 
-**A-17 — Rest: Reihen-Spalte löschen**
-
-Nur noch offen: Spalte `reihen` aus `venues` entfernen (Migration in
-`supabase/migrations`), sobald Tim in Klartext bestätigt hat — 6 Läden
-haben dort Daten (C2 Ost, Erdbeermund, Gotec Club, Das Zimmer, Disco Zwei,
-MS Connexion Complex), die beim Löschen verloren gehen. Danach auch
-`scripts/lib/types.ts` und den Import (verweisen noch auf `reihen`)
-anpassen.
+*(nichts offen)*
 
 ## Du selbst
 
@@ -54,6 +52,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-17 Detailseite-Felder angepasst, Floors ergänzt, Reihen-Spalte
+  gelöscht (20.09.)
 - Fix Kartendarstellung: Dämpfung, Kartenbereich, Attribution, Filter (17.09.)
 - Clubs-Seite mit Liste/Karte-Umschalter, Wortmarke verlinkt (16.09.)
 - Sheet in „ARCHIV – nicht pflegen" umbenannt (16.09.)

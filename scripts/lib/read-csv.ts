@@ -103,7 +103,6 @@ export function readVenueCsv(path: string): ParsedCsv {
       kurzbeschreibung: emptyToNull(raw.Kurzbeschreibung),
       kapazitaet: emptyToNull(raw.Kapazität),
       residents: emptyToNull(raw.Residents),
-      reihen: emptyToNull(raw["Wiederkehrende Reihen"]),
       preisniveau: emptyToNull(raw.Preisniveau),
       kartenzahlung: emptyToNull(raw.Kartenzahlung),
       garderobe: emptyToNull(raw.Garderobe),
