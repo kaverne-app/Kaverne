@@ -19,7 +19,41 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-*(nichts offen)*
+**A-17 — Detailseite: Felder anpassen**
+
+Ziel: Auf `/venues/[id]` erscheinen nur noch folgende Felder, je Block
+(leere Felder/Blöcke weiterhin ganz ausgeblendet, bestehende Regel):
+- Kopf (unverändert): Name, Typ · Stadt, Genre-Chips + „Unregelmäßig",
+  Kurzbeschreibung.
+- „Wann & wo": Übliche Tage (Label für das bisherige Feld `oeffnungstage`,
+  Datenfeld bleibt Mo–So-Mehrfachauswahl), Adresse + Kartenausschnitt,
+  Haltestelle (zieht aus „Vor Ort" hierher).
+- „Kanäle" (umbenannt von „Programm & Kanäle"): Website, Instagram,
+  Facebook (nur wenn gepflegt). Reihen entfällt aus der Anzeige.
+- „Vor Ort": Floors (neu), Kartenzahlung, Raucherbereich, Außenbereich.
+  Garderobe, Barrierefreiheit, Kamerapolitik entfallen aus der Anzeige.
+- Block „Preise & Größe" entfällt komplett (Preisniveau, Kapazität nicht
+  mehr angezeigt).
+
+Datenmodell (Migration in `supabase/migrations`):
+- Neue Spalte `floors` (text) in `venues`.
+- Spalte `reihen` aus `venues` entfernen. Vorher Tim noch einmal in
+  Klartext bestätigen lassen — 6 Läden haben dort Daten (C2 Ost,
+  Erdbeermund, Gotec Club, Das Zimmer, Disco Zwei, MS Connexion Complex),
+  die beim Löschen verloren gehen.
+- docs/KAVERNE.md, „Datenfelder" und „Anzeige" sowie die Aufnahme-Regel zu
+  Floors/Reihen entsprechend anpassen.
+
+Prüfkriterien:
+- Detailseite zeigt genau diese Felder, alte Felder (Preisniveau,
+  Kapazität, Garderobe, Barrierefreiheit, Kamerapolitik, Reihen)
+  verschwinden vollständig.
+- `npm run build` und `npm run lint` sauber.
+- Reihen-Spalte nur gelöscht, wenn Tim das in Klartext bestätigt hat.
+
+Verboten:
+- Keine weiteren Felder ergänzen oder entfernen als hier gelistet.
+- `reihen` nicht ohne Tims Bestätigung löschen.
 
 ## Du selbst
 
