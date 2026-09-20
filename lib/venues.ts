@@ -37,23 +37,22 @@ export interface VenueDetail extends VenueSummary {
   lon: number | null;
   kurzbeschreibung: string | null;
   oeffnungstage: string[] | null;
-  reihen: string | null;
   links: VenueLink[] | null;
-  preisniveau: string | null;
-  kapazitaet: string | null;
+  floors: string | null;
   kartenzahlung: string | null;
-  garderobe: string | null;
   raucherbereich: string | null;
   aussenbereich: string | null;
   haltestelle: string | null;
-  barrierefreiheit: string | null;
-  kamerapolitik: string | null;
 }
 
 // "residents" wird hier absichtlich nie ausgewählt — nicht nur im Frontend
-// ausgeblendet, die Spalte taucht in der Abfrage gar nicht auf.
+// ausgeblendet, die Spalte taucht in der Abfrage gar nicht auf. Preisniveau,
+// Kapazität, Garderobe, Barrierefreiheit und Kamerapolitik stehen in
+// Supabase, werden aber auf der Detailseite nicht angezeigt (siehe
+// docs/KAVERNE.md, Abschnitt "Anzeige") — deshalb hier ebenfalls nicht
+// abgefragt.
 const SUMMARY_COLUMNS = "id,name,typ,stadt,genres,status";
-const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,lat,lon,kurzbeschreibung,oeffnungstage,reihen,links,preisniveau,kapazitaet,kartenzahlung,garderobe,raucherbereich,aussenbereich,haltestelle,barrierefreiheit,kamerapolitik`;
+const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,lat,lon,kurzbeschreibung,oeffnungstage,links,floors,kartenzahlung,raucherbereich,aussenbereich,haltestelle`;
 
 // Liste und Karte laden denselben Datensatz — gefiltert wird client-seitig,
 // damit Filterauswahl sich sofort auswirkt, ohne bei jedem Klick neu von

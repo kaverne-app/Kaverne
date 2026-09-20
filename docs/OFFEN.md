@@ -9,51 +9,24 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-17.09.2026 — Fix Kartendarstellung (Dämpfung, Kartenbereich, Attribution, Filter) — **fertig, Pull Request #37**
-- Kartenbereich lückenlos bis zur Navigation, Checkbox-Farbe, Filter-Panel
-  nie hinter der Navigation: ja, mit Testdaten im Browser vermessen.
-- Farbdämpfung aller Ebenentypen (Gebäude, Parkumrisse) und kompakte,
-  dunkle Attribution: ja, von Tim auf dem Android-Gerät in der Vorschau
-  bestätigt.
-- Kein bekannter Fehler. Wartet auf Tims „live" zum Zusammenführen.
+20.09.2026 — A-17 Detailseite-Felder — **fertig, Pull Request #39**
+- Blöcke/Felder wie gefordert umgesetzt (Wann & wo · Kanäle · Vor Ort),
+  Spalte `floors` ergänzt. Geprüft: Build/Lint sauber, Feldlabels und
+  -reihenfolge im Browser mit echten Werten bestätigt (C2 Ost), Vorschau
+  von Tim abgenommen.
+- Reihen-Spalte gelöscht, von Tim in Klartext bestätigt. Betroffen: C2 Ost
+  · reihen · „THRILLED!" → gelöscht; Das Zimmer · reihen ·
+  „Der Donnerstag" → gelöscht; Disco Zwei · reihen ·
+  „Ponyclub, PALS, Raserei" → gelöscht; Erdbeermund · reihen ·
+  „Freak 'n Jones, Pandora, THRILLED!" → gelöscht; Gotec Club · reihen ·
+  „SCHRANZ TILL I DIE, TRANCY & BOUNCY" → gelöscht; MS Connexion Complex ·
+  reihen · „Super Schwarzes Mannheim, DEX!T Techno" → gelöscht.
+- Import-Skripte (scripts/lib/types.ts, read-csv.ts, generate-import-sql.ts)
+  an den Wegfall angepasst. Kein bekannter Fehler.
 
 ## Als Nächstes für Claude Code
 
-**A-17 — Detailseite: Felder anpassen**
-
-Ziel: Auf `/venues/[id]` erscheinen nur noch folgende Felder, je Block
-(leere Felder/Blöcke weiterhin ganz ausgeblendet, bestehende Regel):
-- Kopf (unverändert): Name, Typ · Stadt, Genre-Chips + „Unregelmäßig",
-  Kurzbeschreibung.
-- „Wann & wo": Übliche Tage (Label für das bisherige Feld `oeffnungstage`,
-  Datenfeld bleibt Mo–So-Mehrfachauswahl), Adresse + Kartenausschnitt,
-  Haltestelle (zieht aus „Vor Ort" hierher).
-- „Kanäle" (umbenannt von „Programm & Kanäle"): Website, Instagram,
-  Facebook (nur wenn gepflegt). Reihen entfällt aus der Anzeige.
-- „Vor Ort": Floors (neu), Kartenzahlung, Raucherbereich, Außenbereich.
-  Garderobe, Barrierefreiheit, Kamerapolitik entfallen aus der Anzeige.
-- Block „Preise & Größe" entfällt komplett (Preisniveau, Kapazität nicht
-  mehr angezeigt).
-
-Datenmodell (Migration in `supabase/migrations`):
-- Neue Spalte `floors` (text) in `venues`.
-- Spalte `reihen` aus `venues` entfernen. Vorher Tim noch einmal in
-  Klartext bestätigen lassen — 6 Läden haben dort Daten (C2 Ost,
-  Erdbeermund, Gotec Club, Das Zimmer, Disco Zwei, MS Connexion Complex),
-  die beim Löschen verloren gehen.
-- docs/KAVERNE.md, „Datenfelder" und „Anzeige" sowie die Aufnahme-Regel zu
-  Floors/Reihen entsprechend anpassen.
-
-Prüfkriterien:
-- Detailseite zeigt genau diese Felder, alte Felder (Preisniveau,
-  Kapazität, Garderobe, Barrierefreiheit, Kamerapolitik, Reihen)
-  verschwinden vollständig.
-- `npm run build` und `npm run lint` sauber.
-- Reihen-Spalte nur gelöscht, wenn Tim das in Klartext bestätigt hat.
-
-Verboten:
-- Keine weiteren Felder ergänzen oder entfernen als hier gelistet.
-- `reihen` nicht ohne Tims Bestätigung löschen.
+*(nichts offen)*
 
 ## Du selbst
 
@@ -79,6 +52,9 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-17 Detailseite-Felder angepasst, Floors ergänzt, Reihen-Spalte
+  gelöscht (20.09.)
+- Fix Kartendarstellung: Dämpfung, Kartenbereich, Attribution, Filter (17.09.)
 - Clubs-Seite mit Liste/Karte-Umschalter, Wortmarke verlinkt (16.09.)
 - Sheet in „ARCHIV – nicht pflegen" umbenannt (16.09.)
 - Erste Kurzbeschreibung: Gotec Club (16.09.)

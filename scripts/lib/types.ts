@@ -15,7 +15,6 @@ export interface VenueRow {
   kurzbeschreibung: string | null;
   kapazitaet: string | null;
   residents: string | null;
-  reihen: string | null;
   preisniveau: string | null;
   kartenzahlung: string | null;
   garderobe: string | null;

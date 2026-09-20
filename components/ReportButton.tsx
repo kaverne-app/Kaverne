@@ -6,10 +6,9 @@ import { useState, type FormEvent } from "react";
 // so kann der Nutzer ohne Fachbegriffe angeben, wo etwas nicht stimmt.
 const BETROFFENE_PUNKTE = [
   "Name, Typ oder Stadt",
-  "Wann & wo (Öffnungstage, Adresse)",
-  "Programm & Kanäle (Reihen, Links)",
-  "Preise & Größe",
-  "Vor Ort (Kartenzahlung, Garderobe, Raucherbereich, Haltestelle, Barrierefreiheit, Kamerapolitik)",
+  "Wann & wo (Übliche Tage, Adresse, Haltestelle)",
+  "Kanäle (Website, Instagram, Facebook)",
+  "Vor Ort (Floors, Kartenzahlung, Raucherbereich, Außenbereich)",
   "Etwas anderes",
 ];
 

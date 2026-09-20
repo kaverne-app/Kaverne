@@ -266,18 +266,6 @@ button {
   text-align: right;
 }
 
-.price-level {
-  letter-spacing: 0.05em;
-}
-
-.price-level-filled {
-  color: var(--color-text);
-}
-
-.price-level-empty {
-  color: var(--color-text-secondary);
-}
-
 .link-list {
   display: flex;
   flex-direction: column;

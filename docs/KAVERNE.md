@@ -68,8 +68,8 @@ Der Schwerpunkt wird im Einzelfall beurteilt, nicht über eine feste Quote — d
 Begründung: Die reine Häufigkeitsgrenze hätte Mehrzweck-Locations mit gelegentlichem elektronischem Programm eingeschlossen und das Verzeichnis von einer Anlaufstelle für die Szene zu einem allgemeinen Veranstaltungskalender verwässert.
 
 Floors, Bühnen und Außenformate desselben Betreibers am selben Ort bekommen
-keine eigene Zeile, sondern stehen beim Hauptladen unter „Wiederkehrende
-Reihen". Eigene Zeile nur bei eigener Adresse und eigenem Programm.
+keine eigene Zeile, sondern stehen beim Hauptladen im Feld Floors. Eigene
+Zeile nur bei eigener Adresse und eigenem Programm.
 
 **Region:** Südwest — Rhein-Neckar, Karlsruhe und Bruchsal, Pfalz, Saarland.
 Städte am Rand nach eigenem Ermessen. Danach: Rhein-Main, Stuttgart, Freiburg.
@@ -97,17 +97,20 @@ Nichts belegbar: leer.
 **Status:** aktiv · unregelmäßig · geschlossen (geschlossene Läden werden
 nicht aufgenommen)
 
-**Kern:** Kurzbeschreibung · Öffnungstage (Mo–So, mehrere) · Kapazität ·
-Wiederkehrende Reihen · Preisniveau `€` / `€€` / `€€€` (Eintritt) ·
-Residents (nur Datenbank, nicht angezeigt)
+**Kern:** Kurzbeschreibung · Öffnungstage (Mo–So, mehrere) · Kapazität
+(nur Datenbank, nicht angezeigt) · Preisniveau `€` / `€€` / `€€€` (Eintritt,
+nur Datenbank, nicht angezeigt) · Residents (nur Datenbank, nicht angezeigt)
 
 Kurzbeschreibung: selbst geschrieben, ein bis drei Sätze, nur aus eigener
 Anschauung oder mit Freigabe des Betreibers. Nie abgeschrieben, auch nicht
 umformuliert. Sonst leer.
 
-**Praxis:** Kartenzahlung · Garderobe (Pflicht ja/nein, Preis) ·
-Raucherbereich · Außenbereich · nächste Haltestelle · Barrierefreiheit ·
-Kamerapolitik
+**Praxis:** Kartenzahlung · Floors · Garderobe (Pflicht ja/nein, Preis; nur
+Datenbank, nicht angezeigt) · Raucherbereich · Außenbereich · nächste
+Haltestelle · Barrierefreiheit (nur Datenbank, nicht angezeigt) ·
+Kamerapolitik (nur Datenbank, nicht angezeigt)
+Floors = Namen und ggf. Programm der einzelnen Floors/Bühnen, sofern der
+Laden mehrere hat.
 Raucherbereich = ausgewiesener Bereich zum Rauchen, drinnen oder draußen.
 Außenbereich = Hof, Terrasse oder Fläche im Freien, egal ob dort geraucht
 wird. Beide sind unabhängig voneinander.
@@ -135,14 +138,17 @@ Datenschutzerklärung ohne Hinweis zu Kontaktpersonen auskommt.
 
 ## Anzeige
 
-- Was in `venues` steht, wird angezeigt. Keine Anzeigebedingungen.
+- Was in `venues` steht, wird angezeigt — außer den unten gelisteten
+  Ausnahmen.
 - Leere Felder und leere Blöcke verschwinden ganz, samt Überschrift. Keine
   Platzhalter, keine Bitte um Mithilfe. Ein Laden mit nur Pflichtfeldern
   sieht fertig aus.
 - Ohne Koordinaten: kein Pin, kein Kartenausschnitt. Eintrag sonst voll
   nutzbar.
-- Nie angezeigt: Residents, zuletzt geprüft, Herkunft, Quellen.
-- Detailseite: Wann & wo · Programm & Kanäle · Preise & Größe · Vor Ort.
+- Nie angezeigt: Residents, zuletzt geprüft, Herkunft, Quellen, Preisniveau,
+  Kapazität, Garderobe, Barrierefreiheit, Kamerapolitik — diese Felder
+  stehen in Supabase, aber nicht auf der Detailseite.
+- Detailseite: Wann & wo · Kanäle · Vor Ort.
 - Mobil zuerst, alles in Daumenreichweite.
 
 ## Recherche
