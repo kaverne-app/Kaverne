@@ -15,7 +15,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -39,7 +38,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "heidelberg-halle02",
@@ -58,7 +58,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -82,7 +81,8 @@
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "kaiserslautern-ebene3",
@@ -100,7 +100,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -116,7 +115,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "karlsruhe-c2ost",
@@ -137,7 +137,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": "THRILLED!",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -157,7 +156,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "karlsruhe-erdbeermund",
@@ -177,7 +177,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": "Freak 'n Jones, Pandora, THRILLED!",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -193,7 +192,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "karlsruhe-gotec",
@@ -211,7 +211,6 @@
     "kurzbeschreibung": "Gotec hat sich vom soliden Techno-Club der Region zu einem der besten Clubs Deutschlands entwickelt. Mehrere Floors und ein großer Außenbereich, das Programm reicht von Residents und lokalen Acts bis zu internationalen Namen der Szene. Daneben wächst das Unternehmen mit eigenem Studio/Label sowie eigenen Festivals und Reihen in der Region. Liegt am Rand von Karlsruhe, ist aber gut zu erreichen.",
     "kapazitaet": null,
     "residents": null,
-    "reihen": "SCHRANZ TILL I DIE, TRANCY & BOUNCY",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -235,7 +234,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-16T15:27:55.155139+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "landau-logo",
@@ -253,7 +253,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -269,7 +268,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "mannheim-daszimmer",
@@ -291,7 +291,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": "Der Donnerstag",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -315,7 +314,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "mannheim-discozwei",
@@ -339,7 +339,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": "DMan, mirella, Albert, Baby B, Day V. Jones",
-    "reihen": "Ponyclub, PALS, Raserei",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -350,7 +349,8 @@
     "links": null,
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "mannheim-hafen49",
@@ -371,7 +371,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -395,7 +394,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "mannheim-maimarkthalle",
@@ -413,7 +413,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -429,7 +428,8 @@
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "mannheim-msconnexioncomplex",
@@ -447,7 +447,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": "Super Schwarzes Mannheim, DEX!T Techno",
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -471,7 +470,8 @@
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
     "updated_at": "2026-09-16T14:12:50.699668+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "neustadt-soku",
@@ -490,7 +490,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -514,7 +513,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "pirmasens-lager14",
@@ -532,7 +532,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -552,7 +551,8 @@
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "saarbruecken-discoplexa8",
@@ -573,7 +573,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -589,7 +588,8 @@
     ],
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "saarbruecken-kulturfabrikkufa",
@@ -607,7 +607,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -631,7 +630,8 @@
     ],
     "created_at": "2026-09-15T20:51:26.197131+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "saarbruecken-mauerpfeiffer",
@@ -652,7 +652,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": null,
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -663,7 +662,8 @@
     "links": null,
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "saarbruecken-silodom",
@@ -681,7 +681,6 @@
     "kurzbeschreibung": null,
     "kapazitaet": "800",
     "residents": null,
-    "reihen": null,
     "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
@@ -692,6 +691,7 @@
     "links": null,
     "created_at": "2026-09-11T14:05:33.764235+00:00",
     "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null
+    "aussenbereich": null,
+    "floors": null
   }
 ]
