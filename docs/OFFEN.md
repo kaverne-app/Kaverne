@@ -9,51 +9,30 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-01.10.2026 — A-18 Datenbank verschlanken — **fertig, Pull Request #47**
-- Build und Lint sauber (ja, `npm run build`/`lint`). Suche in Code,
-  Skripten und Docs: kein Verweis mehr auf gestrichene Tabellen/Spalten,
-  außer in den alten Migrationen 0001–0006 und der Entscheidung in
-  docs/KAVERNE.md (ja).
-- Import-Werkzeug gegen Testdatei mit alten Spalten (nur lokal, nichts
-  importiert): erzeugtes SQL ohne gestrichene Spalten, alte CSV-Spalten
-  ignoriert (ja). `npm run import` selbst ohne Service-Key nicht gelaufen.
-- Vorschau vor dem Löschen von Tim abgenommen (ja). Migration `0007` von Tim
-  im SQL-Editor ausgeführt. Danach geprüft: nur `venues` (18 Spalten) und
-  `posts` (8 Spalten) übrig, 23 Läden, Funktion `set_updated_at` da, alter
-  Trigger weg (ja).
-- Seiten nach dem Löschen: die Abfragen der Seiten (Liste, Karte, Detail,
-  Magazin) laufen gegen die neue Datenbank fehlerfrei; die Live-Seite selbst
-  habe ich nicht geöffnet, Tim bitte kurz ansehen.
-- Abweichung: `parseGermanDate` in normalize.ts bleibt ungenutzt stehen
-  (nicht in der Aufgabe genannt). Kein bekannter Fehler.
+01.10.2026 — A-19 Karte — **fertig im Code, wartet auf Vorschau und Datenschutztext**
+- Build und Lint sauber (ja). Gesamtansicht ohne übereinanderliegende Pins,
+  Tipp auf Sammelpunkt zoomt hinein (ja, lokal im Browser mit Testpunkten,
+  Kartenstil nachgestellt, weil OpenFreeMap von hier nicht erreichbar ist).
+- Liste beim letzten Cluster mit zwei Testpunkten gleicher Koordinaten (ja,
+  nur lokal, nichts in die Datenbank geschrieben).
+- Stadtzoom und gemerkte Stadt: im Code umgesetzt, nicht im Browser
+  durchgespielt (nein). Standortknopf: fragt nur nach Tipp, bei Ablehnung
+  nichts; echte Standortfreigabe nicht getestet (nein).
+- Abweichung: Bei Mehrfachauswahl von Städten wird nur die zuletzt
+  hinzugefügte gemerkt; „Zurücksetzen" löscht die Merkung. Pins sind jetzt
+  Kartenebenen statt Einzelelemente, Aussehen gleich.
+- Bekannt: Echte Karte (Schrift der Zahl im Sammelpunkt) bitte in der
+  Vorschau ansehen. Datenschutzerklärung nach Tims Wortlaut angepasst
+  (Abschnitte 5, 6, Stand 01.10.); Vorschau von Tim abgenommen (ja).
+- Zusatzprüfung: Standortknopf schreibt nichts in den Browser-Speicher, und
+  „Zurücksetzen" entfernt die gemerkte Stadt (ja, im Code geprüft).
 
 ## Als Nächstes für Claude Code
 
-**A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf**
-(Entscheidung und Regeln: docs/KAVERNE.md, „Anzeige · Karte")
-- Ziel: Auf `/clubs` (Karte) liegen in der Gesamtansicht keine Pins mehr
-  übereinander (z. B. Mainz, Frankfurt). Fünf Ergänzungen: Clustering mit
-  Anzahl in Akzentfarbe, Liste beim letzten Cluster, Stadtfilter zoomt mit,
-  gewählte Stadt merken, Standort auf Knopfdruck.
-- Prüfkriterien:
-  1. Gesamtansicht ohne übereinanderliegende Pins.
-  2. Tipp auf einen Sammelpunkt (z. B. Mainz) zoomt hinein, bis sich die
-     Läden trennen.
-  3. Stadtwahl zoomt die Karte; die Stadt bleibt nach Neuladen erhalten.
-     Gespeichert wird erst nach aktiver Auswahl, nur der Stadtname.
-  4. Standortknopf fragt erst nach dem Tipp, nie beim Laden. Ablehnen lässt
-     die Karte normal benutzbar, ohne Fehlermeldung und ohne IP-Ersatz.
-  5. Liste beim letzten Cluster: mit zwei Testeinträgen gleicher
-     Koordinaten nur lokal prüfen, nichts in die Datenbank schreiben.
-  6. Läden ohne Koordinaten bleiben ohne Pin; Build und Lint sauber.
-- Verboten: Dienst oder Abhängigkeit außer MapLibre; Standort an
-  Supabase/Vercel/Resend senden, speichern oder mit der Stadt verknüpfen;
-  Spiderfy; Abfrage beim Seitenladen; Banner; weitere Werte im
-  Browser-Speicher.
-- Vor Livegang: Datenschutzerklärung ergänzen (siehe „Zu entscheiden").
-
 ## Du selbst
 
+- A-19 in der Vorschau prüfen: Karte öffnen, auf Sammelpunkt tippen, Stadt
+  wählen und Seite neu laden, Standortknopf tippen (Freigabe und Ablehnen).
 - Kurzbeschreibungen: 1 von 23 (Gotec Club). Für „Öffnen" mindestens bei
   den Läden, die du selbst kennst.
 - Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
@@ -61,9 +40,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Wortlaut der zwei Sätze für die Datenschutzerklärung (gemerkte Stadt;
-  Standort samt OpenFreeMap-Kacheln) — vor Livegang von A-19 freigeben.
-  Sonst geht A-19 nicht in main.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -79,6 +55,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf im Code
+  fertig, Livegang erst nach Tims Vorschau und Datenschutzsätzen (01.10.)
 - Daten: Climax Institutes neu (Koordinaten von Tim geprüft), Gotec
   umbenannt (Name „Gotec", id unverändert), Kurzbeschreibung Gotec
   geleert, Gesamtzahl 27 (01.10.)
