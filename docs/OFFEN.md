@@ -22,8 +22,10 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
   hinzugefügte gemerkt; „Zurücksetzen" löscht die Merkung. Pins sind jetzt
   Kartenebenen statt Einzelelemente, Aussehen gleich.
 - Bekannt: Echte Karte (Schrift der Zahl im Sammelpunkt) bitte in der
-  Vorschau ansehen. Nicht live, solange die zwei Sätze der
-  Datenschutzerklärung fehlen.
+  Vorschau ansehen. Datenschutzerklärung nach Tims Wortlaut angepasst
+  (Abschnitte 5, 6, Stand 01.10.); Vorschau von Tim abgenommen (ja).
+- Zusatzprüfung: Standortknopf schreibt nichts in den Browser-Speicher, und
+  „Zurücksetzen" entfernt die gemerkte Stadt (ja, im Code geprüft).
 
 ## Als Nächstes für Claude Code
 
@@ -38,9 +40,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Wortlaut der zwei Sätze für die Datenschutzerklärung (gemerkte Stadt;
-  Standort samt OpenFreeMap-Kacheln) — vor Livegang von A-19 freigeben.
-  Sonst geht A-19 nicht in main.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.

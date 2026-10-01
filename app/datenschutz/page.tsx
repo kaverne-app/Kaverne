@@ -58,18 +58,30 @@ export default function DatenschutzPage() {
         Standorte.
       </p>
       <p>
+        Über den Standortknopf auf der Karte können Sie die Karte auf Ihren
+        Standort ausrichten. Ihr Browser fragt dafür erst nach Ihrem Tipp um
+        Freigabe. Der Standort wird nur in Ihrem Browser verwendet, nicht an
+        mich übermittelt und nicht gespeichert. Für den angezeigten Ausschnitt
+        lädt Ihr Browser die Kartenbilder von OpenFreeMap; der Anbieter erhält
+        dabei wie bei jedem Kartenabruf Ihre IP-Adresse und den angefragten
+        Kartenausschnitt.
+      </p>
+      <p>
         Datenschutzerklärung des Anbieters: https://openfreemap.org/privacy/
       </p>
 
       <h2>6. Speicherung auf Ihrem Endgerät</h2>
       <p>
-        Gespeichert wird ein einziger Wert: der Zeitpunkt Ihrer letzten
+        Gespeichert werden höchstens zwei Werte: der Zeitpunkt Ihrer letzten
         Meldung über das Meldeformular, damit dieselbe Meldung nicht
-        versehentlich mehrfach abgeschickt wird. Der Wert enthält keine
-        Kennung und lässt keinen Rückschluss auf Ihre Person zu. Er ist für
-        den von Ihnen gewünschten Dienst erforderlich und daher nach § 25
-        Abs. 2 Nr. 2 TDDDG einwilligungsfrei. Über die Browsereinstellungen
-        können Sie ihn löschen.
+        versehentlich mehrfach abgeschickt wird, und – nachdem Sie im Filter
+        eine Stadt gewählt haben – der Name dieser Stadt, damit sie beim
+        nächsten Besuch wieder eingestellt ist. Beide Werte enthalten keine
+        Kennung und lassen keinen Rückschluss auf Ihre Person zu. Sie werden
+        nur auf Ihre eigene Handlung hin gespeichert und sind für den von
+        Ihnen gewünschten Dienst erforderlich; sie sind daher nach § 25 Abs. 2
+        Nr. 2 TDDDG einwilligungsfrei. Über die Browsereinstellungen können
+        Sie sie löschen.
       </p>
 
       <h2>7. Meldeformular</h2>
@@ -116,7 +128,7 @@ export default function DatenschutzPage() {
       </p>
 
       <h2>10. Stand</h2>
-      <p>15.09.2026</p>
+      <p>01.10.2026</p>
     </main>
   );
 }

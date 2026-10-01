@@ -242,8 +242,9 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
   auch, dass die Karte die Kacheln für den angezeigten Ausschnitt von
   OpenFreeMap lädt. Clustering und Stadtzoom haben keine Datenschutzfolgen.
 - Die Datenschutzerklärung deckt ab: Vercel, Supabase, OpenFreeMap, Resend,
-  Empfangspostfach, ein Wert im Browser-Speicher (Zeitstempel des
-  Meldeformulars). Neuer Dienst, neuer Browser-Speicher, Einbettung oder
+  Empfangspostfach, höchstens zwei Werte im Browser-Speicher (Zeitstempel
+  des Meldeformulars, zuletzt gewählte Stadt) und die Standortabfrage ohne
+  Speicherung. Neuer Dienst, neuer Browser-Speicher, Einbettung oder
   Statistik: Datenschutzerklärung vorher anpassen.
 - DSA greift nicht, solange Kaverne nur eigene Inhalte speichert. Sobald
   Nutzer für andere sichtbare Inhalte einstellen: vorher anwaltlich prüfen.
