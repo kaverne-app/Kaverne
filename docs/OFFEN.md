@@ -55,6 +55,9 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Daten: Climax Institutes neu (Koordinaten von Tim geprüft), Gotec
+  umbenannt (Name „Gotec", id unverändert), Kurzbeschreibung Gotec
+  geleert, Gesamtzahl 27 (01.10.)
 - Haltestellen-Regel in KAVERNE.md („Datenfelder"), Haltestelle bei C2 Ost,
   Das Zimmer und Disco Zwei angepasst (01.10.)
 - Daten: 3 Läden neu (Ebene 3, Motke, Adam Riese), 3 ergänzt (Erdbeermund,
