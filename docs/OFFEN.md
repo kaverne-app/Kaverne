@@ -9,7 +9,7 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-01.10.2026 — A-18 Datenbank verschlanken — **Code fertig, Löschen in Supabase offen**
+01.10.2026 — A-18 Datenbank verschlanken — **fertig, Pull Request #47**
 - Build und Lint sauber (ja, `npm run build`/`lint`). Suche in Code,
   Skripten und Docs: kein Verweis mehr auf gestrichene Tabellen/Spalten,
   außer in den alten Migrationen 0001–0006 und der Entscheidung in
@@ -17,9 +17,13 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 - Import-Werkzeug gegen Testdatei mit alten Spalten (nur lokal, nichts
   importiert): erzeugtes SQL ohne gestrichene Spalten, alte CSV-Spalten
   ignoriert (ja). `npm run import` selbst ohne Service-Key nicht gelaufen.
-- Seiten `/`, `/clubs`, `/venues/[id]`, `/magazin` in der Vorschau vor und
-  nach dem Löschen: noch offen (Tim prüft Vorschau; Löschen nach Merge).
-- Migration `0007` liegt als Datei bereit, nicht ausgeführt.
+- Vorschau vor dem Löschen von Tim abgenommen (ja). Migration `0007` von Tim
+  im SQL-Editor ausgeführt. Danach geprüft: nur `venues` (18 Spalten) und
+  `posts` (8 Spalten) übrig, 23 Läden, Funktion `set_updated_at` da, alter
+  Trigger weg (ja).
+- Seiten nach dem Löschen: die Abfragen der Seiten (Liste, Karte, Detail,
+  Magazin) laufen gegen die neue Datenbank fehlerfrei; die Live-Seite selbst
+  habe ich nicht geöffnet, Tim bitte kurz ansehen.
 - Abweichung: `parseGermanDate` in normalize.ts bleibt ungenutzt stehen
   (nicht in der Aufgabe genannt). Kein bekannter Fehler.
 
@@ -29,9 +33,6 @@ Aktuell keine Aufgabe.
 
 ## Du selbst
 
-- A-18: Nach Merge die Zeilen aus `supabase/migrations/0007_datenbank_verschlanken.sql`
-  im Supabase-SQL-Editor ausführen (Sitzung gibt sie dir fertig), danach
-  prüft die Sitzung Tabellen und Spalten.
 - Kurzbeschreibungen: 1 von 23 (Gotec Club). Für „Öffnen" mindestens bei
   den Läden, die du selbst kennst.
 - Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
@@ -54,8 +55,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
-- A-18 Datenbank verschlanken: Code und Migration 0007 fertig, SQL-Ausführung
-  durch Tim und Prüfung danach offen (01.10.)
+- A-18 Datenbank verschlanken: Code, Migration 0007 und Löschen in Supabase
+  erledigt, Tabellen und Spalten geprüft (01.10.)
 - Clubliste-Bereinigung: 10 Läden aus venues gelöscht (Tim im
   Supabase-Dashboard, weil DELETE über das Werkzeug hängt), Gesamtzahl
   23 geprüft (01.10.)
