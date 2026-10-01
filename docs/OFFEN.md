@@ -26,7 +26,45 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-Aktuell nichts offen.
+**A-18 Datenbank verschlanken (Bau-Sitzung)**
+
+Von Tim am 01.10.2026 entschieden und in Klartext bestätigt (siehe
+docs/KAVERNE.md, „Datenfelder"). Ziel: Datenbank enthält nur noch `venues`
+und `posts`; `venues` nur die Spalten, die gebraucht werden.
+
+Fällt weg: Tabellen `ausgeschieden`, `venues_internal`, `people`, `reihen`;
+in `posts` die Spalten `person_id`, `reihe_id` samt Prüfregel
+`posts_single_reference`; in `venues` die Spalten `kapazitaet`, `residents`,
+`preisniveau`, `barrierefreiheit`, `kamerapolitik`, `created_at`,
+`updated_at` samt Trigger `venues_set_updated_at` (die Funktion
+`set_updated_at` bleibt, `posts` nutzt sie). Bleibt: `garderobe`, `posts`
+und das Magazin-Gerüst. Gefüllte Werte, die verloren gehen: Kapazität 1,
+Residents 1, Barrierefreiheit 1, Kamerapolitik 4 Läden, Preisniveau keiner;
+`venues_internal` 8 Zeilen. Die Läden-Werte stehen noch in der Git-Historie
+von `data/venues.json`.
+
+Zu tun:
+- Code so ändern, dass er mit alter und neuer Datenbank läuft:
+  `lib/posts.ts` und `app/magazin/[slug]` ohne Person/Reihe; Import-Werkzeuge
+  (`scripts/import.ts`, `generate-import-sql.ts`, `scripts/lib/types.ts`,
+  `read-csv.ts`) ohne `venues_internal` und ohne die gestrichenen Spalten
+  (unbekannte CSV-Spalten werden ignoriert).
+- Migration `0007` als Datei (mit `if exists`), nicht ausführen.
+- README.md und CLAUDE.md anpassen: Datenbankzeile, Regeln zu
+  `venues_internal`/ansprechpartner/notiz, `ausgeschieden` in Recherche,
+  „Datenpflege Sonntag" (statt „am längsten ungeprüft": was am
+  dringendsten fehlt).
+
+Prüfkriterien: Build und Lint sauber · in Code, Skripten und Docs kein
+Verweis mehr auf gestrichene Tabellen/Spalten (Suche) · `/`, `/clubs`,
+`/venues/[id]`, `/magazin` in der Vorschau ohne Fehler, vor und nach dem
+Löschen in Supabase · Import-Skript läuft gegen eine Testdatei ohne Fehler.
+
+Verbote: DROP/DELETE nicht über das Supabase-Werkzeug ausführen (hängt).
+Nichts außer den oben genannten Dingen entfernen. Keine Beispieldaten.
+
+Danach (Du selbst): Sitzung gibt Tim die fertigen Zeilen für den SQL-Editor,
+Tim führt sie aus, Sitzung prüft Tabellen und Spalten.
 
 ## Du selbst
 
