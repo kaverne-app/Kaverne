@@ -9,8 +9,8 @@ Bauen. Was fürs Produkt gilt, steht in `docs/KAVERNE.md`, was ansteht in
 ## Projektüberblick
 
 Kaverne ist ein mobiles Verzeichnis von Clubs und Venues für elektronische
-Musik im Südwesten Deutschlands: Liste, Karte, dazu ein noch leeres
-Magazin-Gerüst.
+Musik in Rheinland-Pfalz, Hessen, dem Saarland und Baden-Württemberg:
+Liste, Karte, dazu ein noch leeres Magazin-Gerüst.
 
 **Stack:** Next.js 14 (App Router, TypeScript), Supabase (Postgres),
 MapLibre GL für die Karte, gehostet auf Vercel.
