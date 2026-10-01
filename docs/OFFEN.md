@@ -29,7 +29,28 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-Aktuell keine Aufgabe.
+**A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf**
+(Entscheidung und Regeln: docs/KAVERNE.md, „Anzeige · Karte")
+- Ziel: Auf `/clubs` (Karte) liegen in der Gesamtansicht keine Pins mehr
+  übereinander (z. B. Mainz, Frankfurt). Fünf Ergänzungen: Clustering mit
+  Anzahl in Akzentfarbe, Liste beim letzten Cluster, Stadtfilter zoomt mit,
+  gewählte Stadt merken, Standort auf Knopfdruck.
+- Prüfkriterien:
+  1. Gesamtansicht ohne übereinanderliegende Pins.
+  2. Tipp auf einen Sammelpunkt (z. B. Mainz) zoomt hinein, bis sich die
+     Läden trennen.
+  3. Stadtwahl zoomt die Karte; die Stadt bleibt nach Neuladen erhalten.
+     Gespeichert wird erst nach aktiver Auswahl, nur der Stadtname.
+  4. Standortknopf fragt erst nach dem Tipp, nie beim Laden. Ablehnen lässt
+     die Karte normal benutzbar, ohne Fehlermeldung und ohne IP-Ersatz.
+  5. Liste beim letzten Cluster: mit zwei Testeinträgen gleicher
+     Koordinaten nur lokal prüfen, nichts in die Datenbank schreiben.
+  6. Läden ohne Koordinaten bleiben ohne Pin; Build und Lint sauber.
+- Verboten: Dienst oder Abhängigkeit außer MapLibre; Standort an
+  Supabase/Vercel/Resend senden, speichern oder mit der Stadt verknüpfen;
+  Spiderfy; Abfrage beim Seitenladen; Banner; weitere Werte im
+  Browser-Speicher.
+- Vor Livegang: Datenschutzerklärung ergänzen (siehe „Zu entscheiden").
 
 ## Du selbst
 
@@ -40,6 +61,9 @@ Aktuell keine Aufgabe.
 
 ## Zu entscheiden
 
+- Wortlaut der zwei Sätze für die Datenschutzerklärung (gemerkte Stadt;
+  Standort samt OpenFreeMap-Kacheln) — vor Livegang von A-19 freigeben.
+  Sonst geht A-19 nicht in main.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.

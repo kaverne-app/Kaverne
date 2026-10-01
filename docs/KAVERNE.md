@@ -149,6 +149,26 @@ Datenbank — so etwas führt Tim bei Bedarf privat als Datei. Gestrichen am
 - Detailseite: Wann & wo · Kanäle · Vor Ort.
 - Mobil zuerst, alles in Daumenreichweite.
 
+**Karte** (Entscheidung 01.10.2026, Aufgabe A-19):
+- Clustering: Dicht beieinanderliegende Läden werden je nach Zoomstufe zu
+  einem Sammelpunkt mit Anzahl zusammengefasst, in der Akzentfarbe wie die
+  Pins. Tipp darauf zoomt hinein, bis sie sich trennen. Nur MapLibre-
+  Bordmittel, kein zusätzlicher Dienst.
+- Letzter Cluster: Trennt sich ein Sammelpunkt auch bei maximalem Zoom nicht
+  (gleiche Koordinaten), öffnet ein Tipp unten eine kurze Liste der Läden
+  darin, mit Link zur Detailseite. Derzeit gibt es dafür keinen Fall, die
+  Funktion ist für künftige Einträge. Kein Auffächern („Spiderfy").
+- Stadtfilter zoomt mit: Wer eine Stadt wählt, sieht auf der Karte deren
+  Ausschnitt.
+- Gewählte Stadt merken: Die zuletzt gewählte Stadt liegt im Browser-
+  Speicher und wird beim nächsten Besuch wieder gesetzt. Gespeichert wird
+  erst nach aktiver Auswahl und nur der Stadtname.
+- Standort auf Knopfdruck: Ein Knopf auf der Karte zentriert auf den
+  eigenen Standort. Abfrage nur nach dem Tipp, nie beim Laden. Der Standort
+  bleibt im Browser: nicht an Supabase, Vercel oder Resend, nicht
+  gespeichert, nicht mit der gemerkten Stadt verknüpft. Bei Ablehnung kein
+  Ersatz über die IP-Adresse und keine Meldung, die zur Freigabe drängt.
+
 ## Recherche
 
 - Öffnungstage nur mit Quellen jünger als zwölf Monate.
@@ -211,6 +231,16 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
 - Die Seite ist öffentlich. Impressum nach § 5 DDG und § 18 Abs. 1 MStV mit
   Wohnadresse, Postfach genügt nicht. Bei Umzug am selben Tag ändern.
 - Kein Gewerbe, solange kein Geld fließt.
+- Karte, Browser-Speicher und Standort (Entscheidung 01.10.2026,
+  [ungeprüft], Recherche ohne anwaltliche Prüfung): Browser-Speicher fällt
+  unter § 25 TDDDG, die DSK-Orientierungshilfe nennt Local Storage
+  ausdrücklich. Gemerkte Stadt und Standortknopf gelten als „unbedingt
+  erforderlich für einen ausdrücklich gewünschten Dienst" (§ 25 Abs. 2
+  Nr. 2 TDDDG), also ohne Einwilligungsbanner — nur unter den Bedingungen
+  in „Anzeige · Karte". Vor Livegang bekommt die Datenschutzerklärung je
+  einen Satz zur gemerkten Stadt und zum Standort; der Standort-Satz nennt
+  auch, dass die Karte die Kacheln für den angezeigten Ausschnitt von
+  OpenFreeMap lädt. Clustering und Stadtzoom haben keine Datenschutzfolgen.
 - Die Datenschutzerklärung deckt ab: Vercel, Supabase, OpenFreeMap, Resend,
   Empfangspostfach, ein Wert im Browser-Speicher (Zeitstempel des
   Meldeformulars). Neuer Dienst, neuer Browser-Speicher, Einbettung oder
