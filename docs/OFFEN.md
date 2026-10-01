@@ -26,7 +26,28 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-*(nichts offen)*
+**Clubliste-Bereinigung: 10 Läden aus `venues` löschen (Daten-Aufgabe,
+keine Bau-Sitzung nötig)**
+
+Von Tim bereits bestätigt, nicht erneut nachfragen. Blockiert aktuell an
+einem Werkzeugproblem: DELETE-Befehle über das Supabase-Werkzeug
+(`execute_sql` und `apply_migration`) laufen in eine Zeitüberschreitung,
+vermutlich weil destruktive Befehle eine Bestätigung verlangen, die nicht
+ankommt — Lesen, Einfügen und Ändern funktionierten im selben Zeitraum
+einwandfrei. Erst erneut versuchen; bei erneutem Hängen Tim Bescheid
+geben statt endlos zu wiederholen.
+
+Zu löschen aus `venues` (stehen schon korrekt in `ausgeschieden` mit
+Grund „unpassend", Datum 01.10.2026 — dort nicht doppelt eintragen):
+`bruchsal-fabrik`, `heidelberg-halle02`, `kaiserslautern-ebene3`,
+`landau-logo`, `mannheim-maimarkthalle`, `mannheim-msconnexioncomplex`,
+`neustadt-soku`, `pirmasens-lager14`, `saarbruecken-discoplexa8`,
+`saarbruecken-kulturfabrikkufa`.
+
+Danach: Gesamtzahl venues prüfen (sollte 23 sein — die 20 aus der
+Clubliste plus Erdbeermund, Das Zimmer, Disco Zwei, die Tim ausdrücklich
+behalten wollte). Kurzbeschreibungen-Zähler unter „Du selbst" auf 1 von
+23 korrigieren.
 
 ## Du selbst
 
