@@ -79,8 +79,7 @@ export default function DatenschutzPage() {
         nächsten Besuch wieder eingestellt ist. Beide Werte enthalten keine
         Kennung und lassen keinen Rückschluss auf Ihre Person zu. Sie werden
         nur auf Ihre eigene Handlung hin gespeichert und sind für den von
-        Ihnen gewünschten Dienst erforderlich; sie sind daher nach § 25 Abs. 2
-        Nr. 2 TDDDG einwilligungsfrei. Über die Browsereinstellungen können
+        Ihnen gewünschten Dienst erforderlich. Über die Browsereinstellungen können
         Sie sie löschen.
       </p>
 
