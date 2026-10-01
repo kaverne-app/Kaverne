@@ -37,10 +37,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Mauerpfeiffer (Saarbrücken): Clubliste nennt „Mauerpfeiffer & UBar" statt
-  „Mauerpfeiffer" und eine andere Haltestelle („Ludwigsberg/Trierer Str."
-  statt „Ludwigstraße"). Beides noch nicht übernommen, siehe Nachricht an
-  Tim.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -56,8 +52,9 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
-- Clubliste-Import: 15 neue Läden angelegt, 5 bestehende aktualisiert
-  (01.10.), Details in der Nachricht an Tim
+- Clubliste-Import: 15 neue Läden angelegt, 5 bestehende aktualisiert,
+  Mauerpfeiffer-Haltestelle nach Tims Antwort ergänzt (01.10.), Details in
+  der Nachricht an Tim
 - A-17 Detailseite-Felder angepasst, Floors ergänzt, Reihen-Spalte
   gelöscht (20.09.)
 - Fix Kartendarstellung: Dämpfung, Kartenbereich, Attribution, Filter (17.09.)
