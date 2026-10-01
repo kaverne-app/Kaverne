@@ -29,8 +29,8 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 **Clubliste-Import (Daten-Aufgabe, keine Bau-Sitzung nötig)**
 
 Sobald Tim die neue Clubliste als Anhang schickt:
-- Erst die Region-Frage klären (siehe „Zu entscheiden") — betrifft, ob
-  Läden außerhalb der bisherigen Region überhaupt übernommen werden.
+- Region jetzt Rheinland-Pfalz, Hessen, Saarland, Baden-Württemberg (siehe
+  docs/KAVERNE.md) — Läden außerhalb fallen weiterhin raus.
 - Spaltenüberschriften der Datei mit `scripts/lib/read-csv.ts` abgleichen.
   Unbekannte Spalten — auch die zusätzliche Sicherheitsspalte — werden vom
   Import ohnehin ignoriert, da nur bekannte Spaltennamen gelesen werden.
@@ -54,11 +54,6 @@ Sobald Tim die neue Clubliste als Anhang schickt:
 
 ## Zu entscheiden
 
-- Region-Scope: Tim nennt jetzt ganz Hessen, Rheinland-Pfalz, Saarland und
-  Baden-Württemberg als Scope der neuen Clubliste. Das widerspricht
-  docs/KAVERNE.md („Region: Südwest — Rhein-Neckar, Karlsruhe und
-  Bruchsal, Pfalz, Saarland, danach Rhein-Main, Stuttgart, Freiburg").
-  Klären, was gilt, bevor die Liste importiert wird.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.

@@ -8,7 +8,8 @@ Diese Datei beschreibt Leitplanken, kein Pflichtenheft.
 
 ## Was es ist
 
-Anlaufstelle für die elektronische Szene im Südwesten. Das Verzeichnis von
+Anlaufstelle für die elektronische Szene in Rheinland-Pfalz, Hessen, dem
+Saarland und Baden-Württemberg. Das Verzeichnis von
 Clubs und Veranstaltungsorten ist Einstieg und Datengrundlage, das Ziel ist
 ein Magazin unter demselben Namen. Wer über einen Laden liest, landet bei
 seinem Eintrag, und umgekehrt.
@@ -71,9 +72,9 @@ Floors, Bühnen und Außenformate desselben Betreibers am selben Ort bekommen
 keine eigene Zeile, sondern stehen beim Hauptladen im Feld Floors. Eigene
 Zeile nur bei eigener Adresse und eigenem Programm.
 
-**Region:** Südwest — Rhein-Neckar, Karlsruhe und Bruchsal, Pfalz, Saarland.
-Städte am Rand nach eigenem Ermessen. Danach: Rhein-Main, Stuttgart, Freiburg.
-Eine Stadt erscheint im Filter, sobald sie einen Eintrag hat.
+**Region:** Rheinland-Pfalz, Hessen, Saarland, Baden-Württemberg. Städte am
+Rand nach eigenem Ermessen. Eine Stadt erscheint im Filter, sobald sie
+einen Eintrag hat.
 
 Aussortierte Läden stehen in der Tabelle ausgeschieden mit Grund und werden
 einmal im Jahr durchgesehen.
