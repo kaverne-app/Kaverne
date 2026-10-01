@@ -76,8 +76,8 @@ Zeile nur bei eigener Adresse und eigenem Programm.
 Rand nach eigenem Ermessen. Eine Stadt erscheint im Filter, sobald sie
 einen Eintrag hat.
 
-Aussortierte Läden stehen in der Tabelle ausgeschieden mit Grund und werden
-einmal im Jahr durchgesehen.
+Aussortierte Läden werden nicht in der Datenbank geführt; Tim hält sie bei
+Bedarf privat fest.
 
 ## Datenfelder
 
@@ -98,9 +98,7 @@ Nichts belegbar: leer.
 **Status:** aktiv · unregelmäßig · geschlossen (geschlossene Läden werden
 nicht aufgenommen)
 
-**Kern:** Kurzbeschreibung · Öffnungstage (Mo–So, mehrere) · Kapazität
-(nur Datenbank, nicht angezeigt) · Preisniveau `€` / `€€` / `€€€` (Eintritt,
-nur Datenbank, nicht angezeigt) · Residents (nur Datenbank, nicht angezeigt)
+**Kern:** Kurzbeschreibung · Öffnungstage (Mo–So, mehrere)
 
 Kurzbeschreibung: selbst geschrieben, ein bis drei Sätze, nur aus eigener
 Anschauung oder mit Freigabe des Betreibers. Nie abgeschrieben, auch nicht
@@ -108,8 +106,7 @@ umformuliert. Sonst leer.
 
 **Praxis:** Kartenzahlung · Floors · Garderobe (Pflicht ja/nein, Preis; nur
 Datenbank, nicht angezeigt) · Raucherbereich · Außenbereich · nächste
-Haltestelle · Barrierefreiheit (nur Datenbank, nicht angezeigt) ·
-Kamerapolitik (nur Datenbank, nicht angezeigt)
+Haltestelle
 Floors = Namen und ggf. Programm der einzelnen Floors/Bühnen, sofern der
 Laden mehrere hat.
 Raucherbereich = ausgewiesener Bereich zum Rauchen, drinnen oder draußen.
@@ -118,23 +115,20 @@ wird. Beide sind unabhängig voneinander.
 Praxisfelder werden nicht aktiv recherchiert, sondern aus Besuchen,
 Betreiberantworten und Meldungen nachgetragen.
 
-**Nicht erfasst:** Parken, Getränkepreise, Türpolitik.
-
-**Intern** (Tabelle `venues_internal`, nie angezeigt, von der App nie
-abgefragt): zuletzt geprüft · Herkunft · Ansprechpartner · Themenspeicher ·
-Notiz
-Ansprechpartner und Notiz werden in keiner Sitzung gelesen oder
-ausgegeben. In ansprechpartner stehen keine Personennamen, bis die
-Korrekturmails an Betreiber rausgehen — davon hängt ab, dass die
-Datenschutzerklärung ohne Hinweis zu Kontaktpersonen auskommt.
+**Nicht erfasst:** Parken, Getränkepreise, Türpolitik, Kapazität,
+Preisniveau, Residents, Barrierefreiheit, Kamerapolitik. Auch keine
+internen Felder (zuletzt geprüft, Herkunft, Ansprechpartner, Notizen) in der
+Datenbank — so etwas führt Tim bei Bedarf privat als Datei. Gestrichen am
+01.10.2026 (A-18).
 
 **Grundregeln**
 - Leer ist besser als geraten. Ja/Nein als Dropdown, leer heißt unbekannt.
 - ID nach `stadt-name`, ohne Umlaute, ß und Großbuchstaben. Nie geändert,
   nie wiederverwendet.
 - Koordinaten kommen aus der Adresse und werden einmal bestätigt.
-- Personen, Reihen und Beiträge haben eigene Tabellen. Personen und Reihen
-  werden vorerst als Text gefüllt.
+- Die Datenbank enthält nur `venues` und `posts`. Personen und Reihen
+  bekommen eigene Tabellen erst, wenn ein Beitrag sie wirklich braucht;
+  `posts` hängt vorerst nur an einem Laden.
 - Felder ergänzen ist billig, gefüllte Felder umbenennen oder löschen teuer.
 
 ## Anzeige
@@ -146,17 +140,15 @@ Datenschutzerklärung ohne Hinweis zu Kontaktpersonen auskommt.
   sieht fertig aus.
 - Ohne Koordinaten: kein Pin, kein Kartenausschnitt. Eintrag sonst voll
   nutzbar.
-- Nie angezeigt: Residents, zuletzt geprüft, Herkunft, Quellen, Preisniveau,
-  Kapazität, Garderobe, Barrierefreiheit, Kamerapolitik — diese Felder
-  stehen in Supabase, aber nicht auf der Detailseite.
+- Nie angezeigt: Garderobe — steht in Supabase, aber nicht auf der
+  Detailseite.
 - Detailseite: Wann & wo · Kanäle · Vor Ort.
 - Mobil zuerst, alles in Daumenreichweite.
 
 ## Recherche
 
-- Preise und Öffnungstage nur mit Quellen jünger als zwölf Monate.
+- Öffnungstage nur mit Quellen jünger als zwölf Monate.
 - Status aus der Aktualität des Programms.
-- Barrierefreiheit nur bei ausdrücklicher Aussage.
 - Keine fremden Fotos, Logos oder Texte, auch nicht von Instagram. Bilder nur
   eigene oder schriftlich freigegebene, kein Bild ist Pflicht.
 - Fremde Datenbanken nicht automatisiert auslesen. szene-radar.de ist keine
