@@ -26,34 +26,21 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Als Nächstes für Claude Code
 
-**Clubliste-Import (Daten-Aufgabe, keine Bau-Sitzung nötig)**
-
-Sobald Tim die neue Clubliste als Anhang schickt:
-- Region jetzt Rheinland-Pfalz, Hessen, Saarland, Baden-Württemberg (siehe
-  docs/KAVERNE.md) — Läden außerhalb fallen weiterhin raus.
-- Spaltenüberschriften der Datei mit `scripts/lib/read-csv.ts` abgleichen.
-  Unbekannte Spalten — auch die zusätzliche Sicherheitsspalte — werden vom
-  Import ohnehin ignoriert, da nur bekannte Spaltennamen gelesen werden.
-- Vor dem eigentlichen Import je Laden die neuen Werte gegen die
-  bestehenden in Supabase prüfen, nicht blind importieren. Bereits
-  gefüllte Felder werden mit dem neuen Wert überschrieben. Widerspricht
-  ein neuer Wert klar einem bestehenden, gefüllten Feld (z. B. Status
-  aktiv → geschlossen, anderer Typ, andere Adresse): vor dem Überschreiben
-  bei Tim nachfragen statt automatisch zu übernehmen.
-- Liste hat laut Tim keinen Vollständigkeitsanspruch — fehlende Läden sind
-  kein Fehler, weitere kommen im Lauf der Zeit dazu.
-- Ablauf wie gehabt: erst `npm run geocode -- <csv>`, Prüfdatei
-  kontrollieren, dann `npm run import -- <csv>`.
+*(nichts offen)*
 
 ## Du selbst
 
-- Kurzbeschreibungen: 1 von 18 (Gotec Club). Für „Öffnen" mindestens bei
+- Kurzbeschreibungen: 1 von 33 (Gotec Club). Für „Öffnen" mindestens bei
   den Läden, die du selbst kennst.
 - Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
   gibt und die Seite aktiv beworben wird — bis dahin läuft es über Google.
 
 ## Zu entscheiden
 
+- Mauerpfeiffer (Saarbrücken): Clubliste nennt „Mauerpfeiffer & UBar" statt
+  „Mauerpfeiffer" und eine andere Haltestelle („Ludwigsberg/Trierer Str."
+  statt „Ludwigstraße"). Beides noch nicht übernommen, siehe Nachricht an
+  Tim.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -69,6 +56,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Clubliste-Import: 15 neue Läden angelegt, 5 bestehende aktualisiert
+  (01.10.), Details in der Nachricht an Tim
 - A-17 Detailseite-Felder angepasst, Floors ergänzt, Reihen-Spalte
   gelöscht (20.09.)
 - Fix Kartendarstellung: Dämpfung, Kartenbereich, Attribution, Filter (17.09.)
