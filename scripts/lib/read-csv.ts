@@ -2,11 +2,10 @@ import { readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import {
   emptyToNull,
-  parseGermanDate,
   parseInlineCoordinates,
   splitList,
 } from "./normalize";
-import type { VenueInternalRow, VenueLink, VenueRow } from "./types";
+import type { VenueLink, VenueRow } from "./types";
 
 // Spaltennamen exakt wie im Sheet-Export.
 interface RawCsvRow {
@@ -20,10 +19,7 @@ interface RawCsvRow {
   Status: string;
   "Regelmäßige Öffnungstage": string;
   Kurzbeschreibung: string;
-  Kapazität: string;
-  Residents: string;
   "Wiederkehrende Reihen": string;
-  Preisniveau: string;
   Website: string;
   Instagram: string;
   Facebook: string;
@@ -33,11 +29,6 @@ interface RawCsvRow {
   Raucherbereich: string;
   ÖPNV: string;
   Parken: string;
-  Barrierefreiheit: string;
-  Kamerapolitik: string;
-  "Zuletzt geprüft": string;
-  "Quelle (URL oder benannte Quelle)": string;
-  Ansprechpartner: string;
 }
 
 function buildLinks(raw: RawCsvRow): VenueLink[] | null {
@@ -53,7 +44,6 @@ function buildLinks(raw: RawCsvRow): VenueLink[] | null {
 
 export interface ParsedCsv {
   venues: VenueRow[];
-  internal: VenueInternalRow[];
   // id -> Koordinaten, die bereits in der Tabelle standen (kein Geocoding nötig)
   inlineCoordinates: Map<string, [number, number]>;
   // id -> { name, adresse }, für das Geocoding
@@ -76,7 +66,6 @@ export function readVenueCsv(path: string): ParsedCsv {
   });
 
   const venues: VenueRow[] = [];
-  const internal: VenueInternalRow[] = [];
   const inlineCoordinates = new Map<string, [number, number]>();
   const addresses = new Map<string, { name: string; adresse: string }>();
   const rowInfo = new Map<string, { name: string; adresse: string | null }>();
@@ -101,24 +90,12 @@ export function readVenueCsv(path: string): ParsedCsv {
       status: emptyToNull(raw.Status),
       oeffnungstage: splitList(raw["Regelmäßige Öffnungstage"]),
       kurzbeschreibung: emptyToNull(raw.Kurzbeschreibung),
-      kapazitaet: emptyToNull(raw.Kapazität),
-      residents: emptyToNull(raw.Residents),
-      preisniveau: emptyToNull(raw.Preisniveau),
       kartenzahlung: emptyToNull(raw.Kartenzahlung),
       garderobe: emptyToNull(raw.Garderobe),
       raucherbereich: emptyToNull(raw.Raucherbereich),
       aussenbereich: emptyToNull(raw.Außenbereich),
       haltestelle: emptyToNull(raw.ÖPNV),
-      barrierefreiheit: emptyToNull(raw.Barrierefreiheit),
-      kamerapolitik: emptyToNull(raw.Kamerapolitik),
       links: buildLinks(raw),
-    });
-
-    internal.push({
-      venue_id: id,
-      zuletzt_geprueft: parseGermanDate(raw["Zuletzt geprüft"]),
-      herkunft: emptyToNull(raw["Quelle (URL oder benannte Quelle)"]),
-      ansprechpartner: emptyToNull(raw.Ansprechpartner),
     });
 
     const inline = parseInlineCoordinates(raw.Koordinaten);
@@ -132,5 +109,5 @@ export function readVenueCsv(path: string): ParsedCsv {
     }
   });
 
-  return { venues, internal, inlineCoordinates, addresses, rowInfo, lineNumbers };
+  return { venues, inlineCoordinates, addresses, rowInfo, lineNumbers };
 }

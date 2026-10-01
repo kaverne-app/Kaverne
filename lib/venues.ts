@@ -45,12 +45,8 @@ export interface VenueDetail extends VenueSummary {
   haltestelle: string | null;
 }
 
-// "residents" wird hier absichtlich nie ausgewählt — nicht nur im Frontend
-// ausgeblendet, die Spalte taucht in der Abfrage gar nicht auf. Preisniveau,
-// Kapazität, Garderobe, Barrierefreiheit und Kamerapolitik stehen in
-// Supabase, werden aber auf der Detailseite nicht angezeigt (siehe
-// docs/KAVERNE.md, Abschnitt "Anzeige") — deshalb hier ebenfalls nicht
-// abgefragt.
+// Garderobe steht in Supabase, wird aber auf der Detailseite nicht angezeigt
+// (siehe docs/KAVERNE.md, Abschnitt "Anzeige") — deshalb hier nicht abgefragt.
 const SUMMARY_COLUMNS = "id,name,typ,stadt,genres,status";
 const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},adresse,lat,lon,kurzbeschreibung,oeffnungstage,links,floors,kartenzahlung,raucherbereich,aussenbereich,haltestelle`;
 

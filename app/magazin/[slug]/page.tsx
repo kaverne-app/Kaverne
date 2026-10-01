@@ -15,11 +15,7 @@ export default async function PostPage({
 
   const reference = post.venue
     ? { label: "Laden", href: `/venues/${post.venue.id}`, text: post.venue.name }
-    : post.person
-      ? { label: "Person", href: null, text: post.person.name }
-      : post.reihe
-        ? { label: "Reihe", href: null, text: post.reihe.name }
-        : null;
+    : null;
 
   return (
     <main className="venue-detail">
@@ -29,11 +25,7 @@ export default async function PostPage({
       {reference && (
         <p className="venue-subtitle">
           {reference.label}:{" "}
-          {reference.href ? (
-            <Link href={reference.href}>{reference.text}</Link>
-          ) : (
-            reference.text
-          )}
+          <Link href={reference.href}>{reference.text}</Link>
         </p>
       )}
       {post.text && <div className="post-text">{post.text}</div>}

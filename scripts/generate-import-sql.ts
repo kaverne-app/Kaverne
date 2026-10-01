@@ -8,7 +8,7 @@
 import { confirmUnknownValuesOrExit } from "./lib/confirm-unknown-values";
 import { readCoordinateReview } from "./lib/coordinates-review";
 import { readVenueCsv } from "./lib/read-csv";
-import type { VenueInternalRow, VenueRow } from "./lib/types";
+import type { VenueRow } from "./lib/types";
 
 function sqlString(value: string | null): string {
   if (value === null) return "NULL";
@@ -17,10 +17,6 @@ function sqlString(value: string | null): string {
 
 function sqlNumber(value: number | null): string {
   return value === null ? "NULL" : String(value);
-}
-
-function sqlDate(value: string | null): string {
-  return value === null ? "NULL" : `'${value}'::date`;
 }
 
 function sqlTextArray(values: string[] | null): string {
@@ -45,16 +41,11 @@ const VENUE_COLUMNS = [
   "status",
   "oeffnungstage",
   "kurzbeschreibung",
-  "kapazitaet",
-  "residents",
-  "preisniveau",
   "kartenzahlung",
   "garderobe",
   "raucherbereich",
   "aussenbereich",
   "haltestelle",
-  "barrierefreiheit",
-  "kamerapolitik",
   "links",
 ];
 
@@ -71,27 +62,12 @@ function venueValues(venue: VenueRow, lat: number | null, lon: number | null): s
     sqlString(venue.status),
     sqlTextArray(venue.oeffnungstage),
     sqlString(venue.kurzbeschreibung),
-    sqlString(venue.kapazitaet),
-    sqlString(venue.residents),
-    sqlString(venue.preisniveau),
     sqlString(venue.kartenzahlung),
     sqlString(venue.garderobe),
     sqlString(venue.raucherbereich),
     sqlString(venue.aussenbereich),
     sqlString(venue.haltestelle),
-    sqlString(venue.barrierefreiheit),
-    sqlString(venue.kamerapolitik),
     sqlJsonb(venue.links),
-  ];
-  return `(${values.join(",")})`;
-}
-
-function internalValues(row: VenueInternalRow): string {
-  const values = [
-    sqlString(row.venue_id),
-    sqlDate(row.zuletzt_geprueft),
-    sqlString(row.herkunft),
-    sqlString(row.ansprechpartner),
   ];
   return `(${values.join(",")})`;
 }
@@ -106,7 +82,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { venues, internal, lineNumbers } = readVenueCsv(csvPath);
+  const { venues, lineNumbers } = readVenueCsv(csvPath);
   const coordinateReview = readCoordinateReview(reviewPath);
 
   await confirmUnknownValuesOrExit(
@@ -125,8 +101,6 @@ async function main() {
     return venueValues(venue, lat, lon);
   });
 
-  const internalRows = internal.map(internalValues);
-
   const venueUpdateSet = VENUE_COLUMNS.filter((c) => c !== "id")
     .map((c) => `${c} = excluded.${c}`)
     .join(",\n    ");
@@ -138,14 +112,6 @@ values
   ${venueRows.join(",\n  ")}
 on conflict (id) do update set
     ${venueUpdateSet};
-
-insert into venues_internal (venue_id, zuletzt_geprueft, herkunft, ansprechpartner)
-values
-  ${internalRows.join(",\n  ")}
-on conflict (venue_id) do update set
-    zuletzt_geprueft = excluded.zuletzt_geprueft,
-    herkunft = excluded.herkunft,
-    ansprechpartner = excluded.ansprechpartner;
 
 commit;
 `;

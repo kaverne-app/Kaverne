@@ -7,16 +7,9 @@ export interface PostSummary {
   datum: string | null;
 }
 
-export interface PostReference {
-  id: string | number;
-  name: string;
-}
-
 export interface PostDetail extends PostSummary {
   text: string | null;
   venue: { id: string; name: string } | null;
-  person: PostReference | null;
-  reihe: PostReference | null;
 }
 
 // Bestimmt, ob der Magazin-Link in der Navigation überhaupt auftauchen
@@ -43,7 +36,7 @@ export async function getPostBySlug(slug: string): Promise<PostDetail | null> {
   const { data, error } = await supabase
     .from("posts")
     .select(
-      "id,titel,slug,datum,text,venue:venues(id,name),person:people(id,name),reihe:reihen(id,name)",
+      "id,titel,slug,datum,text,venue:venues(id,name)",
     )
     .eq("slug", slug)
     .maybeSingle();
