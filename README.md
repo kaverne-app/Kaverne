@@ -6,8 +6,9 @@
 
 1. Ein Supabase-Projekt anlegen (falls noch nicht vorhanden).
 2. Im Supabase-Dashboard unter „SQL Editor" den Inhalt von
-   `supabase/migrations/0001_init.sql` ausführen. Das legt die beiden Tabellen
-   `venues` und `venues_internal` an.
+   `supabase/migrations/0001_init.sql` ausführen. Das legt die Tabellen
+   an (die späteren Migrationen in `supabase/migrations/` danach der Reihe nach
+   ausführen).
 3. `.env.example` nach `.env.local` kopieren und ausfüllen:
    - `SUPABASE_URL` und `SUPABASE_SERVICE_ROLE_KEY` — für den Import (Project
      Settings → API). Der Service-Role-Key ist geheim, nie teilen.
@@ -40,8 +41,7 @@ Wenn die Datei geprüft ist:
 npm run import -- pfad/zur/datei.csv
 ```
 
-Das schreibt alle Läden nach `venues` und die internen Felder (zuletzt
-geprüft, Quelle, Ansprechpartner) nach `venues_internal`. Zeilen werden
+Das schreibt alle Läden nach `venues`. Zeilen werden
 anhand der `id` aktualisiert — ein zweiter Lauf mit korrigierten Daten legt
 keine Dubletten an. Läden ohne bestätigte Koordinaten werden trotzdem
 importiert, nur ohne lat/lon; sie tauchen später auf der Karte nicht auf,

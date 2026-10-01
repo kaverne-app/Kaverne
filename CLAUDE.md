@@ -32,8 +32,8 @@ MapLibre GL für die Karte, gehostet auf Vercel.
 - `lokal/` — Dateien, die Tim als Anhang schickt (z. B. Sheet-Export) und
   die die Sitzung dort ablegt, nie committen
 
-**Datenbank:** `venues` (öffentlich lesbar) und `venues_internal` (nie
-abgefragt); dazu `posts`, `people`, `reihen` für das Magazin.
+**Datenbank:** `venues` (öffentlich lesbar) und `posts` für das Magazin.
+Mehr gibt es nicht (siehe „Datenfelder" in `docs/KAVERNE.md`).
 
 **Befehle:** `npm run dev` / `build` / `lint`; `npm run geocode -- <csv>`
 ermittelt Koordinaten und schreibt eine Prüfdatei; `npm run import -- <csv>`
@@ -90,11 +90,10 @@ und Tim sagen, dass er dafür eine Bau-Sitzung startet.
   Entscheidung, die nicht in einer Datei steht, gilt nicht.
 - Recherche: Regeln aus docs/KAVERNE.md, Abschnitte „Recherche" und
   „Datenfelder". Ergebnis als Steckbrief mit Quellen. Nach Tims „anlegen"
-  direkt in Supabase schreiben. Nach „aussortieren" in die Tabelle
-  ausgeschieden. Wenige Seitenabrufe.
+  direkt in Supabase schreiben. Nach „aussortieren" nichts anlegen und
+  nichts speichern. Wenige Seitenabrufe.
 - Daten: Änderungen direkt in Supabase nach „Supabase-Zugriff".
-  „Datenpflege Sonntag": zuerst nennen, was am längsten ungeprüft ist und
-  was am dringendsten fehlt.
+  „Datenpflege Sonntag": zuerst nennen, was am dringendsten fehlt.
 
 ## Wie Tim arbeitet
 
@@ -125,9 +124,7 @@ und Tim sagen, dass er dafür eine Bau-Sitzung startet.
 ## Supabase-Zugriff
 
 - Supabase ist die einzige Quelle für Ladendaten. Es gibt kein Sheet.
-- Lesen: alle Tabellen. Ausnahme: die Spalten ansprechpartner und notiz in
-  venues_internal nie lesen, ausgeben oder in Dateien schreiben; das
-  Importwerkzeug darf sie schreiben.
+- Lesen: alle Tabellen.
 - Ohne Rückfrage: Zeilen anlegen, Felder füllen oder ändern, Importe,
   Exporte, Migrationen, die eine in docs/KAVERNE.md beschlossene
   Feldänderung umsetzen.
@@ -171,8 +168,6 @@ und Tim sagen, dass er dafür eine Bau-Sitzung startet.
 - Feldlisten, Aufnahme-, Anzeige- und Rechercheregeln stehen in
   `docs/KAVERNE.md`. Vor jeder Aufgabe, die Daten, Import oder Anzeige
   betrifft, die Abschnitte „Datenfelder" und „Anzeige" lesen.
-- `venues_internal` wird von der App nie abgefragt; die Abfrage existiert
-  nicht. Gilt besonders für `ansprechpartner`.
 - IDs werden nie geändert oder wiederverwendet.
 - Der Import ist wiederholbar und aktualisiert anhand der `id`.
 - Leere Zellen bleiben leer, nie „nein", „0" oder „unbekannt".
@@ -185,7 +180,6 @@ Diese Punkte werden nicht umgesetzt, sondern in `docs/OFFEN.md` unter
 
 - Änderungen am Datenmodell
 - Neue Dienste oder Abhängigkeiten, die Geld kosten können
-- Jeder Zugriff auf ansprechpartner oder notiz außerhalb des Importwerkzeugs
 - Alles, was diesen Regeln widerspricht
 
 ## OFFEN.md

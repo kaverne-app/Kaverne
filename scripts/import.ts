@@ -34,7 +34,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { venues, internal, lineNumbers } = readVenueCsv(csvPath);
+  const { venues, lineNumbers } = readVenueCsv(csvPath);
   const coordinateReview = readCoordinateReview(reviewPath);
 
   await confirmUnknownValuesOrExit(
@@ -63,15 +63,6 @@ async function main() {
     .upsert(venuesWithCoordinates, { onConflict: "id" });
   if (venuesError) {
     console.error("Fehler beim Import von venues:", venuesError.message);
-    process.exit(1);
-  }
-
-  console.log(`Importiere ${internal.length} Zeilen nach "venues_internal" ...`);
-  const { error: internalError } = await supabase
-    .from("venues_internal")
-    .upsert(internal, { onConflict: "venue_id" });
-  if (internalError) {
-    console.error("Fehler beim Import von venues_internal:", internalError.message);
     process.exit(1);
   }
 
