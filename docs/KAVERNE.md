@@ -112,6 +112,10 @@ Laden mehrere hat.
 Raucherbereich = ausgewiesener Bereich zum Rauchen, drinnen oder draußen.
 Außenbereich = Hof, Terrasse oder Fläche im Freien, egal ob dort geraucht
 wird. Beide sind unabhängig voneinander.
+Haltestelle: Die Stadt steht einmal vorne, mehrere Haltestellen werden
+mit Komma getrennt, ein Schrägstrich gehört zum Namen einer einzelnen
+Haltestelle. Beispiel: „Karlsruhe Karl-Wilhelm-Platz, Tullastraße/Alter
+Schlachthof".
 Praxisfelder werden nicht aktiv recherchiert, sondern aus Besuchen,
 Betreiberantworten und Meldungen nachgetragen.
 

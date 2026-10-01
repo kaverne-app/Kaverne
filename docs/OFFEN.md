@@ -55,6 +55,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Haltestellen-Regel in KAVERNE.md („Datenfelder"), Haltestelle bei C2 Ost,
+  Das Zimmer und Disco Zwei angepasst (01.10.)
 - Daten: 3 Läden neu (Ebene 3, Motke, Adam Riese), 3 ergänzt (Erdbeermund,
   Das Zimmer, Disco Zwei), Gesamtzahl 26. Tim: bei Widerspruch gilt der Wert mit mehr
   Daten, Erdbeermund und Disco Zwei bleiben bei Genre/Öffnungstagen
