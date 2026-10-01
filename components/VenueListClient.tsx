@@ -1,11 +1,13 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import VenueFilterPanel from "./VenueFilterPanel";
 import { useVenueFilter } from "@/lib/use-venue-filter";
 import type { VenueFilterable } from "@/lib/venues";
 import {
   availableCityOptions,
+  EMPTY_VENUE_FILTER,
   availableGenreOptions,
   buildRowMeta,
   effectiveFilter,
@@ -14,7 +16,8 @@ import {
 } from "@/lib/venue-view";
 
 export default function VenueListClient({ venues }: { venues: VenueFilterable[] }) {
-  const [filter, setFilter] = useVenueFilter();
+  const allCities = useMemo(() => availableCityOptions(venues, EMPTY_VENUE_FILTER), [venues]);
+  const [filter, setFilter] = useVenueFilter(allCities);
 
   const cityOptions = availableCityOptions(venues, filter);
   const genreOptions = availableGenreOptions(venues);
