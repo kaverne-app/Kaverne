@@ -40,6 +40,11 @@ Aktuell keine Aufgabe.
 
 ## Zu entscheiden
 
+- Datenabgleich 01.10.: Tims Angaben würden gefüllte Werte verkleinern.
+  Erdbeermund Genre (jetzt Techno, House, Tech House → nur Techno), Disco
+  Zwei Genre (Techno, House, Tech House → Techno, House) und Öffnungstage
+  (Mittwoch, Freitag, Samstag → Freitag, Samstag). Bis zur Antwort
+  unverändert.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -55,6 +60,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Daten: 3 Läden neu (Ebene 3, Motke, Adam Riese), 3 ergänzt (Erdbeermund,
+  Das Zimmer, Disco Zwei), Gesamtzahl 26 (01.10.)
 - A-18 Datenbank verschlanken: Code, Migration 0007 und Löschen in Supabase
   erledigt, Tabellen und Spalten geprüft (01.10.)
 - Clubliste-Bereinigung: 10 Läden aus venues gelöscht (Tim im
