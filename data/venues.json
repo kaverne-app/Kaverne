@@ -1,88 +1,273 @@
 [
   {
-    "id": "bruchsal-fabrik",
-    "name": "Fabrik",
+    "id": "darmstadt-galeriekurzweil",
+    "name": "Galerie Kurzweil",
     "typ": "Club",
-    "stadt": "Bruchsal",
-    "adresse": "Kinzigstraße 5, 76646 Bruchsal",
-    "lat": 49.1350333448453,
-    "lon": 8.59381072597449,
+    "stadt": "Darmstadt",
+    "adresse": "Bismarckstraße 133a, 64293 Darmstadt",
+    "lat": 49.8754932842654,
+    "lon": 8.63357174260401,
     "genres": [
-      "Gemischt"
+      "House",
+      "Techno",
+      "Trance"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
+    "oeffnungstage": [
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Darmstadt Hauptbahnhof",
     "links": [
       {
         "typ": "website",
-        "url": "https://www.fabrik-bruchsal.de/"
+        "url": "https://krzwl.de/"
       },
       {
         "typ": "instagram",
-        "url": "https://www.instagram.com/fabrik_bruchsal.official"
+        "url": "https://www.instagram.com/galeriekurzweil/"
       },
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/fabrikbruchsal"
+        "url": "https://www.facebook.com/GalerieKurzweil/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": "ja",
+    "floors": null
+  },
+  {
+    "id": "frankfurt-adamriese",
+    "name": "Adam Riese",
+    "typ": "Club",
+    "stadt": "Frankfurt am Main",
+    "adresse": "Mainzer Landstraße 229, 60327 Frankfurt am Main",
+    "lat": 50.1039833223819,
+    "lon": 8.64851376656168,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Trance"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Frankfurt Speyerer Straße, Galluswarte",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://adamriesefrankfurt.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/adamriesefrankfurt/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": null
+  },
+  {
+    "id": "frankfurt-silbergold",
+    "name": "Silbergold",
+    "typ": "Club",
+    "stadt": "Frankfurt am Main",
+    "adresse": "Heiligkreuzgasse 22, 60313 Frankfurt am Main",
+    "lat": 50.1157135442623,
+    "lon": 8.690869056103,
+    "genres": [
+      "House",
+      "Techno",
+      "Drum & Bass"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": "ja",
+    "haltestelle": "Frankfurt Konstablerwache",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://silbergold-club.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/silbergold_club/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/silbergoldclub/"
+      }
+    ],
     "aussenbereich": null,
     "floors": null
   },
   {
-    "id": "heidelberg-halle02",
-    "name": "halle02",
-    "typ": "Location",
-    "stadt": "Heidelberg",
-    "adresse": "Zollhofgarten 2, 69115 Heidelberg",
-    "lat": 49.4022288427668,
-    "lon": 8.67116329715185,
+    "id": "frankfurt-tanzhauswest",
+    "name": "Tanzhaus West",
+    "typ": "Club",
+    "stadt": "Frankfurt am Main",
+    "adresse": "Gutleutstraße 294, 60327 Frankfurt am Main",
+    "lat": 50.0984277503106,
+    "lon": 8.64653755981258,
+    "genres": [
+      "Techno",
+      "House",
+      "Hardtechno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Frankfurt Johanna-Kirchner-AHZ",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://tanzhaus-west.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/tanzhaus.west/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/TanzhausWest/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "4"
+  },
+  {
+    "id": "frankfurt-tokonoma",
+    "name": "Tokonoma",
+    "typ": "Club",
+    "stadt": "Frankfurt am Main",
+    "adresse": "Gutleutstraße 320, 60327 Frankfurt am Main",
+    "lat": 50.0967410788221,
+    "lon": 8.64323255610235,
     "genres": [
       "Techno",
       "House"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": "ja",
-    "kamerapolitik": "Verboten",
+    "haltestelle": "Frankfurt Galluswarte, Halmstraße",
     "links": [
       {
         "typ": "website",
-        "url": "https://www.halle02.de/"
+        "url": "https://tokonoma.club/"
       },
       {
         "typ": "instagram",
-        "url": "https://www.instagram.com/_halle02/"
+        "url": "https://www.instagram.com/tokonoma.club/"
       },
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/halle02/"
+        "url": "https://www.facebook.com/Tokonoma.club/"
       }
     ],
-    "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "aussenbereich": "ja",
+    "floors": "3"
+  },
+  {
+    "id": "fulda-base",
+    "name": "BASE",
+    "typ": "Club",
+    "stadt": "Fulda",
+    "adresse": "Kreuzbergstraße 40, 36043 Fulda",
+    "lat": 50.5380113117,
+    "lon": 9.69709017146348,
+    "genres": [
+      "House",
+      "Techno",
+      "Drum & Bass",
+      "Psytrance"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Fulda Richard-Wagner-Str., Kreuzbergstraße",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://base-fulda.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/base.fulda/"
+      }
+    ],
     "aussenbereich": null,
-    "floors": null
+    "floors": "2"
+  },
+  {
+    "id": "heilbronn-bukowskilive",
+    "name": "Bukowski-Live",
+    "typ": "Club",
+    "stadt": "Heilbronn",
+    "adresse": "Hafenstraße 36, 74076 Heilbronn",
+    "lat": 49.1497909578641,
+    "lon": 9.20502798305099,
+    "genres": [
+      "Techno",
+      "House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Heilbronn Hauptbahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://bukowski-live.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/bukowski_heilbronn/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/Bukowski.live/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "2"
   },
   {
     "id": "kaiserslautern-ebene3",
@@ -90,31 +275,24 @@
     "typ": "Club",
     "stadt": "Kaiserslautern",
     "adresse": "Marktstraße 9, 67655 Kaiserslautern",
-    "lat": 49.4451125329878,
-    "lon": 7.77114128181427,
+    "lat": 49.445112532988,
+    "lon": 7.77117346837982,
     "genres": [
       "Techno"
     ],
-    "status": "unregelmäßig",
+    "status": "aktiv",
     "oeffnungstage": null,
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
     "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
     "links": [
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/Ebene3KL/"
+        "url": "https://www.facebook.com/Ebene3KL"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
     "aussenbereich": null,
     "floors": null
   },
@@ -127,7 +305,11 @@
     "lat": 49.0104977033165,
     "lon": 8.42474338363862,
     "genres": [
-      "Techno"
+      "Techno",
+      "House",
+      "Trance",
+      "Psytrance",
+      "Drum & Bass"
     ],
     "status": "aktiv",
     "oeffnungstage": [
@@ -135,15 +317,10 @@
       "Samstag"
     ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": "Karl-Wilhelm-Platz, Tullastraße/Alter Schlachthof",
-    "barrierefreiheit": "teilweise",
-    "kamerapolitik": "eingeschränkt",
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Karlsruhe Karl-Wilhelm-Platz, Tullastraße/Alter Schlachthof",
     "links": [
       {
         "typ": "website",
@@ -152,12 +329,14 @@
       {
         "typ": "instagram",
         "url": "https://www.instagram.com/c2ost.club/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/C2OST/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
+    "aussenbereich": "nein",
+    "floors": "2"
   },
   {
     "id": "karlsruhe-erdbeermund",
@@ -165,59 +344,54 @@
     "typ": "Club",
     "stadt": "Karlsruhe",
     "adresse": "Baumeisterstraße 54, 76137 Karlsruhe",
-    "lat": 49.0044476298924,
-    "lon": 8.40963475295921,
+    "lat": 49.0051584556394,
+    "lon": 8.40969177770482,
     "genres": [
       "Techno",
       "House",
       "Tech House"
     ],
-    "status": "unregelmäßig",
-    "oeffnungstage": null,
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Karlsruhe Rüppurrer Tor",
     "links": [
       {
         "typ": "instagram",
         "url": "https://www.instagram.com/cluberdbeermund/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
     "aussenbereich": null,
     "floors": null
   },
   {
     "id": "karlsruhe-gotec",
-    "name": "Gotec Club",
+    "name": "Gotec",
     "typ": "Club",
     "stadt": "Karlsruhe",
     "adresse": "Gablonzer Straße 11, 76185 Karlsruhe",
     "lat": 49.0244512714915,
     "lon": 8.35303435296017,
     "genres": [
-      "Techno"
+      "Techno",
+      "Hardtechno"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
-    "kurzbeschreibung": "Gotec hat sich vom soliden Techno-Club der Region zu einem der besten Clubs Deutschlands entwickelt. Mehrere Floors und ein großer Außenbereich, das Programm reicht von Residents und lokalen Acts bis zu internationalen Namen der Szene. Daneben wächst das Unternehmen mit eigenem Studio/Label sowie eigenen Festivals und Reihen in der Region. Liegt am Rand von Karlsruhe, ist aber gut zu erreichen.",
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": "Verboten",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Karlsruhe Neureuter Straße, Mühlburg West",
     "links": [
       {
         "typ": "website",
@@ -232,43 +406,124 @@
         "url": "https://www.facebook.com/GotecClub/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-16T15:27:55.155139+00:00",
-    "aussenbereich": null,
-    "floors": null
+    "aussenbereich": "ja",
+    "floors": "3"
   },
   {
-    "id": "landau-logo",
-    "name": "LOGO",
+    "id": "kassel-grafkarl",
+    "name": "Graf Karl",
     "typ": "Club",
-    "stadt": "Landau",
-    "adresse": "Xylanderstraße 2, 76829 Landau in der Pfalz",
-    "lat": 49.194460917425,
-    "lon": 8.11256915481206,
+    "stadt": "Kassel",
+    "adresse": "Leipziger Straße 407, 34123 Kassel",
+    "lat": 51.2941067336909,
+    "lon": 9.55811871196211,
     "genres": [
-      "Gemischt"
+      "Techno",
+      "Hardtechno",
+      "Trance",
+      "Drum & Bass",
+      "House"
     ],
-    "status": "unregelmäßig",
-    "oeffnungstage": null,
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
+    "kartenzahlung": null,
+    "garderobe": "ja",
+    "raucherbereich": null,
+    "haltestelle": "Kassel Am Kupferhammer",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://grafkarl.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/club.grafkarl/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/clubgrafkarl/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "4"
+  },
+  {
+    "id": "mainz-belliniclub",
+    "name": "Bellini Club",
+    "typ": "Club",
+    "stadt": "Mainz",
+    "adresse": "Rheinallee 159, 55120 Mainz",
+    "lat": 50.0200286155421,
+    "lon": 8.24572001377256,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Trance",
+      "Tech House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Mainz Nordbahnhof / W. & Mertz",
     "links": [
       {
         "typ": "instagram",
-        "url": "https://www.instagram.com/logo.landau/"
+        "url": "https://www.instagram.com/bellinimainz/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/belliniclubmainz/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
+    "aussenbereich": "ja",
+    "floors": null
+  },
+  {
+    "id": "mainz-roof175",
+    "name": "ROOF 175",
+    "typ": "Club",
+    "stadt": "Mainz",
+    "adresse": "Rheinallee 175, 55120 Mainz",
+    "lat": 50.0227840680342,
+    "lon": 8.23692873889889,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Trance"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Mainz Schott Ceran-Center, Alte Waggonfabrik",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://roof175.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/roofmainz/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/Roof175/"
+      }
+    ],
+    "aussenbereich": "ja",
     "floors": null
   },
   {
@@ -277,10 +532,11 @@
     "typ": "Club",
     "stadt": "Mannheim",
     "adresse": "Q5 Passage 14-22, 68161 Mannheim",
-    "lat": 49.4873576908671,
-    "lon": 8.47116781249522,
+    "lat": 49.4872601160698,
+    "lon": 8.47108198187444,
     "genres": [
-      "Trance"
+      "Trance",
+      "Drum & Bass"
     ],
     "status": "aktiv",
     "oeffnungstage": [
@@ -289,15 +545,10 @@
       "Samstag"
     ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
-    "garderobe": null,
+    "garderobe": "ja",
     "raucherbereich": null,
-    "haltestelle": "Strohmarkt, Paradeplatz, Marktplatz",
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Mannheim Strohmarkt, Paradeplatz, Marktplatz",
     "links": [
       {
         "typ": "website",
@@ -312,8 +563,6 @@
         "url": "https://www.facebook.com/daszimmer"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
     "aussenbereich": null,
     "floors": null
   },
@@ -323,8 +572,8 @@
     "typ": "Club",
     "stadt": "Mannheim",
     "adresse": "T6 14, 68161 Mannheim",
-    "lat": 49.489500227292,
-    "lon": 8.47464239715582,
+    "lat": 49.4894653806977,
+    "lon": 8.47456729536705,
     "genres": [
       "Techno",
       "House",
@@ -337,20 +586,26 @@
       "Samstag"
     ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": "DMan, mirella, Albert, Baby B, Day V. Jones",
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": "Nationaltheater, Gewerkschaftshaus",
-    "barrierefreiheit": null,
-    "kamerapolitik": "Verboten",
-    "links": null,
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "haltestelle": "Mannheim Nationaltheater, Gewerkschaftshaus",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://discozwei.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/disco_zwei/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/discozwei"
+      }
+    ],
     "aussenbereich": null,
-    "floors": null
+    "floors": "2"
   },
   {
     "id": "mannheim-hafen49",
@@ -361,7 +616,9 @@
     "lat": 49.498424536746,
     "lon": 8.45731351249576,
     "genres": [
-      "Techno"
+      "House",
+      "Techno",
+      "Hardtechno"
     ],
     "status": "aktiv",
     "oeffnungstage": [
@@ -369,15 +626,10 @@
       "Sonntag"
     ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Mannheim Popakademie, Rheinstraße, Dalbergstraße",
     "links": [
       {
         "typ": "website",
@@ -392,178 +644,99 @@
         "url": "https://www.facebook.com/Hafen49"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
+    "aussenbereich": "ja",
+    "floors": "2"
   },
   {
-    "id": "mannheim-maimarkthalle",
-    "name": "Maimarkthalle",
-    "typ": "Location",
-    "stadt": "Mannheim",
-    "adresse": "Xaver-Fuhr-Straße 101, 68163 Mannheim",
-    "lat": 49.4681723736246,
-    "lon": 8.52391807288769,
-    "genres": [
-      "Gemischt"
-    ],
-    "status": "aktiv",
-    "oeffnungstage": null,
-    "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": "Maimarkt",
-    "barrierefreiheit": "ja",
-    "kamerapolitik": null,
-    "links": [
-      {
-        "typ": "website",
-        "url": "https://www.maimarktgelaende-mannheim.de/"
-      }
-    ],
-    "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
-  },
-  {
-    "id": "mannheim-msconnexioncomplex",
-    "name": "MS Connexion Complex",
+    "id": "offenbach-robertjohnson",
+    "name": "Robert Johnson",
     "typ": "Club",
-    "stadt": "Mannheim",
-    "adresse": "Angelstraße 33, 68199 Mannheim",
-    "lat": 49.4494517237485,
-    "lon": 8.49632944317253,
+    "stadt": "Offenbach am Main",
+    "adresse": "Nordring 131, 63067 Offenbach am Main",
+    "lat": 50.1117308354703,
+    "lon": 8.73916658308421,
     "genres": [
+      "House",
       "Techno"
     ],
-    "status": "aktiv",
-    "oeffnungstage": null,
+    "status": "unregelmäßig",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Offenbach Kaiserlei",
     "links": [
       {
         "typ": "website",
-        "url": "https://www.msconnexion.com/"
+        "url": "https://robert-johnson.de/"
       },
       {
         "typ": "instagram",
-        "url": "http://instagram.com/msconnexioncomplex"
+        "url": "https://www.instagram.com/robertjohnsonclub/"
       },
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/MSConnexion"
+        "url": "https://www.facebook.com/robertjohnsonclub/"
       }
     ],
-    "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-16T14:12:50.699668+00:00",
-    "aussenbereich": null,
-    "floors": null
+    "aussenbereich": "ja",
+    "floors": "2"
   },
   {
-    "id": "neustadt-soku",
-    "name": "Soku",
+    "id": "offenburg-circleclub",
+    "name": "Circle Club",
     "typ": "Club",
-    "stadt": "Neustadt an der Weinstraße",
-    "adresse": "Winzingerstraße 10, 67433 Neustadt an der Weinstraße",
-    "lat": 49.3490171041052,
-    "lon": 8.152362183654,
+    "stadt": "Offenburg",
+    "adresse": "Marlener Straße 5, 77656 Offenburg",
+    "lat": 48.4694691475069,
+    "lon": 7.93058072600383,
     "genres": [
       "Techno",
-      "House"
+      "Hardtechno"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
+    "oeffnungstage": [
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Offenburg Bahnhof",
     "links": [
       {
         "typ": "website",
-        "url": "https://soku-nw.de/"
+        "url": "https://circle-club.de/"
       },
       {
         "typ": "instagram",
-        "url": "https://www.instagram.com/soku_nw/"
+        "url": "https://www.instagram.com/circle_og/"
       },
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/soku.nw/"
+        "url": "https://www.facebook.com/CircleOG/"
       }
     ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
+    "aussenbereich": "ja",
     "floors": null
   },
   {
-    "id": "pirmasens-lager14",
-    "name": "Lager 14",
+    "id": "ravensburg-clubdouala",
+    "name": "Club Douala",
     "typ": "Club",
-    "stadt": "Pirmasens",
-    "adresse": "North Carolina Avenue 5, 66953 Pirmasens",
-    "lat": 49.2197015713869,
-    "lon": 7.60929322472047,
+    "stadt": "Ravensburg",
+    "adresse": "Schubertstraße 2, 88214 Ravensburg",
+    "lat": 47.781014221946,
+    "lon": 9.60454742718681,
     "genres": [
-      "Techno"
-    ],
-    "status": "aktiv",
-    "oeffnungstage": null,
-    "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
-    "links": [
-      {
-        "typ": "website",
-        "url": "https://lager14.de/"
-      },
-      {
-        "typ": "facebook",
-        "url": "https://www.facebook.com/lagervierzehn/"
-      }
-    ],
-    "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
-  },
-  {
-    "id": "saarbruecken-discoplexa8",
-    "name": "Discoplex A8",
-    "typ": "Club",
-    "stadt": "Saarbrücken",
-    "adresse": "An der Saarlandhalle 3, 66113 Saarbrücken",
-    "lat": 49.2506011369294,
-    "lon": 6.98601672413563,
-    "genres": [
-      "Gemischt"
+      "Techno",
+      "Hardtechno",
+      "House",
+      "Psytrance"
     ],
     "status": "aktiv",
     "oeffnungstage": [
@@ -571,66 +744,64 @@
       "Samstag"
     ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
+    "kartenzahlung": "nein",
+    "garderobe": "ja",
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
+    "haltestelle": "Ravensburg Bahnhof / Busbahnhof",
     "links": [
       {
         "typ": "website",
-        "url": "https://www.a8-sb.de/"
-      }
-    ],
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
-  },
-  {
-    "id": "saarbruecken-kulturfabrikkufa",
-    "name": "KuFa Kulturfabrik",
-    "typ": "Club",
-    "stadt": "Saarbrücken",
-    "adresse": "Dudweiler Landstraße 7, 66123 Saarbrücken",
-    "lat": 49.24363443533,
-    "lon": 7.00399659345628,
-    "genres": [
-      "Gemischt"
-    ],
-    "status": "aktiv",
-    "oeffnungstage": null,
-    "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
-    "garderobe": null,
-    "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
-    "links": [
-      {
-        "typ": "website",
-        "url": "https://www.kufa.sb/"
+        "url": "https://clubdouala.de/"
       },
       {
         "typ": "instagram",
-        "url": "https://www.instagram.com/kufasb/"
+        "url": "https://www.instagram.com/clubdouala.ravensburg/"
       },
       {
         "typ": "facebook",
-        "url": "https://www.facebook.com/kufa.saarbruecken/"
+        "url": "https://www.facebook.com/clubdouala/"
       }
     ],
-    "created_at": "2026-09-15T20:51:26.197131+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
     "aussenbereich": null,
+    "floors": "2"
+  },
+  {
+    "id": "ravensburg-motke",
+    "name": "Motke",
+    "typ": "Club",
+    "stadt": "Ravensburg",
+    "adresse": "Escher-Wyss-Straße 9, 88212 Ravensburg",
+    "lat": 47.7834983527848,
+    "lon": 9.60401822597085,
+    "genres": [
+      "House",
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Ravensburg Bahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://motke.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/motke.ravensburg/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/motkeravensburg"
+      }
+    ],
+    "aussenbereich": "ja",
     "floors": null
   },
   {
@@ -643,27 +814,37 @@
     "lon": 6.98085829714459,
     "genres": [
       "Techno",
-      "Trance",
+      "Hardtechno",
       "House",
-      "Tech House"
+      "Trance",
+      "Drum & Bass"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": null,
-    "residents": null,
-    "preisniveau": null,
-    "kartenzahlung": null,
+    "kartenzahlung": "ja",
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": "Ludwigstraße",
-    "barrierefreiheit": null,
-    "kamerapolitik": "Verboten",
-    "links": null,
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
-    "aussenbereich": null,
-    "floors": null
+    "haltestelle": "Saarbrücken Ludwigsberg (Saarbrücken Malstatt), Trierer Str., Ludwigsstraße",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://mauerpfeiffer.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/mauerpfeiffer/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/mauerpfeiffer/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "bis zu 5"
   },
   {
     "id": "saarbruecken-silodom",
@@ -674,24 +855,192 @@
     "lat": 49.2231741290795,
     "lon": 7.02420072597847,
     "genres": [
-      "Techno"
+      "Techno",
+      "House",
+      "Trance"
     ],
     "status": "aktiv",
-    "oeffnungstage": null,
+    "oeffnungstage": [
+      "Samstag"
+    ],
     "kurzbeschreibung": null,
-    "kapazitaet": "800",
-    "residents": null,
-    "preisniveau": null,
     "kartenzahlung": null,
     "garderobe": null,
     "raucherbereich": null,
-    "haltestelle": null,
-    "barrierefreiheit": null,
-    "kamerapolitik": null,
-    "links": null,
-    "created_at": "2026-09-11T14:05:33.764235+00:00",
-    "updated_at": "2026-09-15T20:51:26.197131+00:00",
+    "haltestelle": "Saarbrücken Römerkastel",
+    "links": [
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/silodom.club/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/silodom.sb/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "3"
+  },
+  {
+    "id": "schwetzingen-basement",
+    "name": "BASEMENT",
+    "typ": "Club",
+    "stadt": "Schwetzingen",
+    "adresse": "Carl-Theodor-Straße 7, 68723 Schwetzingen",
+    "lat": 49.3849368554295,
+    "lon": 8.57456786956839,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Trance",
+      "House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Schwetzingen Bahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://basementclub.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/basement.theclub/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/basement.theclub/"
+      }
+    ],
     "aussenbereich": null,
     "floors": null
+  },
+  {
+    "id": "stuttgart-climaxinstitutes",
+    "name": "Climax Institutes",
+    "typ": "Club",
+    "stadt": "Stuttgart",
+    "adresse": "Calwer Straße 25, 70173 Stuttgart",
+    "lat": 48.7762960810788,
+    "lon": 9.17399836834705,
+    "genres": [
+      "Techno",
+      "House",
+      "Tech House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Stuttgart Stadtmitte, Rotebühlplatz",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://climax-institutes.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/climaxinstitutes_stuttgart/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/climaxinstitutes"
+      }
+    ],
+    "aussenbereich": null,
+    "floors": null
+  },
+  {
+    "id": "stuttgart-kowalski",
+    "name": "Kowalski",
+    "typ": "Club",
+    "stadt": "Stuttgart",
+    "adresse": "Kriegsbergstraße 28, 70174 Stuttgart",
+    "lat": 48.7849879235833,
+    "lon": 9.17868835588285,
+    "genres": [
+      "House",
+      "Tech House",
+      "Techno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Stuttgart Hauptbahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://kowalskistuttgart.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/kowalski_stuttgart/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/kowalski.stuttgart/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "2"
+  },
+  {
+    "id": "stuttgart-lehmann",
+    "name": "Lehmann",
+    "typ": "Club",
+    "stadt": "Stuttgart",
+    "adresse": "Breitscheidstraße 12, 70174 Stuttgart",
+    "lat": 48.7798797694258,
+    "lon": 9.1671439137299,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Hardstyle"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": "ja",
+    "raucherbereich": null,
+    "haltestelle": "Stuttgart Berliner Platz (Liederhalle)",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://lehmannclub.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/lehmannclubstuttgart/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/LehmannClub/"
+      }
+    ],
+    "aussenbereich": null,
+    "floors": "2"
   }
 ]
