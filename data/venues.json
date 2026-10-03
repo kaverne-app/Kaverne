@@ -1042,5 +1042,44 @@
     ],
     "aussenbereich": null,
     "floors": "2"
+  },
+  {
+    "id": "ulm-einstiefer",
+    "name": "Eins Tiefer",
+    "typ": "Club",
+    "stadt": "Ulm",
+    "adresse": "Pfauengasse 19, 89073 Ulm",
+    "lat": 48.3996948570763,
+    "lon": 9.98965636652213,
+    "genres": [
+      "House",
+      "Techno",
+      "Hardtechno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": null,
+    "raucherbereich": null,
+    "haltestelle": "Ulm Theater, Hauptbahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://einstiefer.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/einstieferofficial/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/einstieferofficial"
+      }
+    ],
+    "aussenbereich": null,
+    "floors": null
   }
 ]
