@@ -31,9 +31,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Du selbst
 
-- A-19 noch prüfen: Stadt wählen und Seite neu laden, Standortknopf tippen
-  (Freigabe und Ablehnen). Karte und Schrift im Sammelpunkt sind von Tim
-  abgenommen (09.10.).
 - Kurzbeschreibungen: 1 von 23 (Gotec Club). Für „Öffnen" mindestens bei
   den Läden, die du selbst kennst.
 - Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
@@ -58,8 +55,8 @@ Ungeordnet, keine Zusage.
 
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live
   (Pull Request 56); damit ist der Datenschutztext zu A-19 erledigt (09.10.)
-- A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf im Code
-  fertig, Livegang erst nach Tims Vorschau und Datenschutzsätzen (01.10.)
+- A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf live, von
+  Tim vollständig abgenommen (09.10.)
 - Daten: Climax Institutes neu (Koordinaten von Tim geprüft), Gotec
   umbenannt (Name „Gotec", id unverändert), Kurzbeschreibung Gotec
   geleert, Gesamtzahl 27 (01.10.)
