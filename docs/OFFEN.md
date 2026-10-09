@@ -9,23 +9,19 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-01.10.2026 — A-19 Karte — **fertig im Code, wartet auf Vorschau und Datenschutztext**
-- Build und Lint sauber (ja). Gesamtansicht ohne übereinanderliegende Pins,
-  Tipp auf Sammelpunkt zoomt hinein (ja, lokal im Browser mit Testpunkten,
-  Kartenstil nachgestellt, weil OpenFreeMap von hier nicht erreichbar ist).
-- Liste beim letzten Cluster mit zwei Testpunkten gleicher Koordinaten (ja,
-  nur lokal, nichts in die Datenbank geschrieben).
-- Stadtzoom und gemerkte Stadt: im Code umgesetzt, nicht im Browser
-  durchgespielt (nein). Standortknopf: fragt nur nach Tipp, bei Ablehnung
-  nichts; echte Standortfreigabe nicht getestet (nein).
-- Abweichung: Bei Mehrfachauswahl von Städten wird nur die zuletzt
-  hinzugefügte gemerkt; „Zurücksetzen" löscht die Merkung. Pins sind jetzt
-  Kartenebenen statt Einzelelemente, Aussehen gleich.
-- Bekannt: Echte Karte (Schrift der Zahl im Sammelpunkt) bitte in der
-  Vorschau ansehen. Datenschutzerklärung nach Tims Wortlaut angepasst
-  (Abschnitte 5, 6, Stand 01.10.); Vorschau von Tim abgenommen (ja).
-- Zusatzprüfung: Standortknopf schreibt nichts in den Browser-Speicher, und
-  „Zurücksetzen" entfernt die gemerkte Stadt (ja, im Code geprüft).
+09.10.2026 — Logo und Website-Grafiken — **fertig im Code, wartet auf Vorschau und Tims „live"**
+- Build und Lint sauber (ja). Favicon (SVG, PNG-Ersatz), Homescreen-Icons,
+  Manifest, Kopfzeile mit Zeichen und Wortmarke eingebunden; Dateien aus
+  design/website/ unverändert kopiert (ja, im Code und per Seitenabruf).
+- Kopfzeile auf Handybreite (390 px): Höhe weiter 56 px (ja, im Browser).
+- Startseite: Vorschaubild unverändert (ja, Byte-Vergleich). Andere Seiten:
+  Bilder aus der Vorlage mit Plex Sans aus eigenen Dateien (ja, lokal mit
+  Testnamen erzeugt). Echte Läden-Route lokal nicht abrufbar, weil die
+  Datenbank von hier nicht erreichbar ist: bitte in der Vorschau ansehen.
+- Abweichung/Annahme: Vorlage ohne Beschreibung; Umbruch höchstens vier
+  Zeilen (vier Zeilen in der Vorlage), Beitragstitel höchstens drei, Rest
+  mit „…"; linker Rand des Textblocks 80 px [Annahme].
+- Keine neuen Dienste, Einbettungen oder Browser-Speicher (ja).
 
 ## Als Nächstes für Claude Code
 
