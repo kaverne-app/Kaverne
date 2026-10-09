@@ -65,7 +65,7 @@ button {
   cursor: pointer;
 }
 
-/* Kopfzeile mit Wortmarke — auf Start, Liste, Karte, Magazin */
+/* Kopfzeile mit Zeichen und Wortmarke — auf Start, Liste, Karte, Magazin */
 
 .site-header {
   position: fixed;
@@ -82,11 +82,14 @@ button {
 }
 
 .wordmark {
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+}
+
+.wordmark img {
+  display: block;
+  height: 20px;
+  width: auto;
 }
 
 /* Listen (Läden, Magazin) */
