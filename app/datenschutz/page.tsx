@@ -7,19 +7,21 @@ export default function DatenschutzPage() {
       <h1>Datenschutzerklärung</h1>
 
       <h2>1. Verantwortlicher</h2>
-      <p>Tim Fischer 
-         <br />
-        Deutschland 
-         <br />
-        E-Mail: kaverne.app@gmail.com</p>
+      <p>
+        Verantwortlich für Kaverne ist:
+        <br />
+        Tim Fischer
+        <br />
+        E-Mail: kaverne.app@gmail.com
+      </p>
 
       <h2>2. Überblick</h2>
       <p>
-        Diese Website setzt keine Cookies, verwendet keine Analyse- oder
+        Kaverne setzt keine Cookies, verwendet keine Analyse- oder
         Statistikdienste, bindet keine Inhalte Dritter ein und bietet kein
         Nutzerkonto an. Verarbeitet werden nur die technisch anfallenden
         Zugriffsdaten, die Kartenabrufe und das, was Sie freiwillig über das
-        Meldeformular oder per E-Mail mitteilen.
+        Meldeformular, per E-Mail oder über Instagram mitteilen.
       </p>
 
       <h2>3. Aufruf der Website</h2>
@@ -40,7 +42,7 @@ export default function DatenschutzPage() {
 
       <h2>4. Datenbank</h2>
       <p>
-        Die Inhalte dieser Website werden bei Supabase gespeichert,
+        Die Inhalte von Kaverne werden bei Supabase gespeichert,
         Datenhaltung in Irland, Vertragspartner Supabase Inc. (USA) und
         Supabase Pte. Ltd. (Singapur). Es besteht ein Vertrag zur
         Auftragsverarbeitung; die Übermittlung stützt sich auf die
@@ -61,7 +63,7 @@ export default function DatenschutzPage() {
         Über den Standortknopf auf der Karte können Sie die Karte auf Ihren
         Standort ausrichten. Ihr Browser fragt dafür erst nach Ihrem Tipp um
         Freigabe. Der Standort wird nur in Ihrem Browser verwendet, nicht an
-        mich übermittelt und nicht gespeichert. Für den angezeigten Ausschnitt
+        Kaverne übermittelt und nicht gespeichert. Für den angezeigten Ausschnitt
         lädt Ihr Browser die Kartenbilder von OpenFreeMap; der Anbieter erhält
         dabei wie bei jedem Kartenabruf Ihre IP-Adresse und den angefragten
         Kartenausschnitt.
@@ -96,8 +98,8 @@ export default function DatenschutzPage() {
         nicht protokolliert und nicht gespeichert.
       </p>
       <p>
-        Ihre Meldung wird mir per E-Mail zugestellt und gelöscht, sobald sie
-        bearbeitet ist, spätestens nach 90 Tagen. Versanddienstleister ist
+        Meldungen gehen per E-Mail an Kaverne und werden gelöscht, sobald sie
+        bearbeitet sind, spätestens nach 90 Tagen. Versanddienstleister ist
         Resend (Plus Five Five, Inc., USA), nach dem EU-US Data Privacy
         Framework zertifiziert; es besteht ein Vertrag zur
         Auftragsverarbeitung.
@@ -105,14 +107,33 @@ export default function DatenschutzPage() {
 
       <h2>8. Kontakt per E-Mail</h2>
       <p>
-        Schreiben Sie mir per E-Mail, verarbeite ich Ihre Angaben zur
-        Bearbeitung Ihres Anliegens und lösche sie, sobald sie nicht mehr
-        benötigt werden, spätestens nach 12 Monaten. Rechtsgrundlage ist
+        Wenn Sie Kaverne per E-Mail schreiben, werden Ihre Angaben zur
+        Bearbeitung Ihres Anliegens verarbeitet und gelöscht, sobald sie nicht
+        mehr benötigt werden, spätestens nach 12 Monaten. Rechtsgrundlage ist
         Art. 6 Abs. 1 lit. f DSGVO. Das Postfach wird betrieben von Google
-        LLC.
+        Ireland Limited, Irland.
       </p>
 
-      <h2>9. Ihre Rechte</h2>
+      <h2>9. Instagram</h2>
+      <p>
+        Kaverne hat ein Profil auf Instagram (@kaverne.app), betrieben von
+        Meta Platforms Ireland Limited, Irland. Beim Aufruf verarbeitet Meta
+        Ihre Daten nach eigenen Bedingungen:
+        https://privacycenter.instagram.com/policy
+      </p>
+      <p>
+        Meta stellt Kaverne zusammengefasste Nutzungsstatistiken bereit, die
+        keine Rückschlüsse auf einzelne Personen zulassen. Soweit dafür eine
+        gemeinsame Verantwortlichkeit besteht (Art. 26 DSGVO), gilt Metas
+        Vereinbarung:
+        https://www.facebook.com/legal/terms/page_controller_addendum
+      </p>
+      <p>
+        Kommentare und Nachrichten an das Profil verarbeitet Kaverne, um zu
+        antworten (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+
+      <h2>10. Ihre Rechte</h2>
       <p>
         Sie haben das Recht auf Auskunft, Berichtigung, Löschung,
         Einschränkung der Verarbeitung und Datenübertragbarkeit (Art. 15 bis
@@ -126,8 +147,8 @@ export default function DatenschutzPage() {
         55116 Mainz, poststelle@datenschutz.rlp.de
       </p>
 
-      <h2>10. Stand</h2>
-      <p>01.10.2026</p>
+      <h2>11. Stand</h2>
+      <p>09.10.2026</p>
     </main>
   );
 }
