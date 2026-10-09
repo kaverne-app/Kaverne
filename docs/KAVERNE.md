@@ -210,8 +210,9 @@ Durchgehend dunkel, kein Hell-Modus. Grundfarbe fast schwarz (`#0d0d0e`),
 Flächen und Karten etwas heller (`#171719`), Text fast weiß (`#f2f2f0`),
 sekundärer Text grau (`#9b9b9f`). Akzentfarbe Orange (`#ff9f1c`): Kartenpins,
 ausgewählte Filter, Absenden-Button, aktiver Reiter unten. Schrift IBM Plex
-Sans, mit der Seite ausgeliefert statt von Google geladen. Wortmarke „KAVERNE"
-in Versalien, kein Bildlogo. Karte: OpenFreeMap „Liberty", auf die eigene
+Sans, mit der Seite ausgeliefert statt von Google geladen. Zeichen aus Claude Design
+(6D, in kleinen Größen 6A), neben der Wortmarke „KAVERNE" in Versalien;
+Dateien in design/website/. Karte: OpenFreeMap „Liberty", auf die eigene
 Farbpalette gedämpft (Straßennamen und Hausnummern reduziert).
 
 ## Ton
