@@ -31,8 +31,9 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Du selbst
 
-- A-19 in der Vorschau prüfen: Karte öffnen, auf Sammelpunkt tippen, Stadt
-  wählen und Seite neu laden, Standortknopf tippen (Freigabe und Ablehnen).
+- A-19 noch prüfen: Stadt wählen und Seite neu laden, Standortknopf tippen
+  (Freigabe und Ablehnen). Karte und Schrift im Sammelpunkt sind von Tim
+  abgenommen (09.10.).
 - Kurzbeschreibungen: 1 von 23 (Gotec Club). Für „Öffnen" mindestens bei
   den Läden, die du selbst kennst.
 - Postfach mit AV-Vertrag: erst nötig, sobald es einen wirklichen Release
