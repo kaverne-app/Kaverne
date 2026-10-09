@@ -55,6 +55,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live
+  (Pull Request 56); damit ist der Datenschutztext zu A-19 erledigt (09.10.)
 - A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf im Code
   fertig, Livegang erst nach Tims Vorschau und Datenschutzsätzen (01.10.)
 - Daten: Climax Institutes neu (Koordinaten von Tim geprüft), Gotec
