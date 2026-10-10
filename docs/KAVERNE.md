@@ -194,6 +194,14 @@ unberührt, weil die Startseite nichts mehr bei OpenFreeMap lädt.
   bleibt im Browser: nicht an Supabase, Vercel oder Resend, nicht
   gespeichert, nicht mit der gemerkten Stadt verknüpft. Bei Ablehnung kein
   Ersatz über die IP-Adresse und keine Meldung, die zur Freigabe drängt.
+- Ortssuche (Entscheidung 10.10.2026): Suchfeld oben rechts über der Karte
+  für Orte, Straßen und Adressen. Dienst: Photon (photon.komoot.io, komoot
+  GmbH, OpenStreetMap-Daten), kein Konto, kein Schlüssel, kostenlos
+  [ungeprüft: faire Nutzung, keine Zusage]. Anfrage direkt aus dem Browser,
+  erst ab drei Zeichen und 0,4 s nach dem letzten Tastendruck, nie beim
+  Laden. Tipp auf einen Treffer zoomt hin und setzt einen Markierungspunkt;
+  Suchtext und Treffer werden nicht gespeichert. Fällt der Dienst aus oder
+  wird er kostenpflichtig, bleibt die Karte ohne Suche voll nutzbar.
 
 ## Recherche
 
@@ -283,7 +291,7 @@ Stand 15.09.2026, übernommen aus dem Chat „Impressum und Datenschutz".
 - Die Datenschutzerklärung deckt ab: Vercel, Supabase, OpenFreeMap, Resend,
   Empfangspostfach, höchstens zwei Werte im Browser-Speicher (Zeitstempel
   des Meldeformulars, zuletzt gewählte Stadt) und die Standortabfrage ohne
-  Speicherung. Neuer Dienst, neuer Browser-Speicher, Einbettung oder
+  Speicherung. Seit 10.10.2026 auch Photon (Ortssuche). Neuer Dienst, neuer Browser-Speicher, Einbettung oder
   Statistik: Datenschutzerklärung vorher anpassen.
 - DSA greift nicht, solange Kaverne nur eigene Inhalte speichert. Sobald
   Nutzer für andere sichtbare Inhalte einstellen: vorher anwaltlich prüfen.

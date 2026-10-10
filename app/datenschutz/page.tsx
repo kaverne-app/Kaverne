@@ -74,6 +74,18 @@ export default function DatenschutzPage() {
         <p>
           Datenschutzerklärung des Anbieters: https://openfreemap.org/privacy/
         </p>
+        <p>
+          Über das Suchfeld auf der Karte können Sie einen Ort oder eine Adresse
+          suchen. Erst wenn Sie mindestens drei Zeichen eingegeben haben, sendet
+          Ihr Browser den eingegebenen Text direkt an den Suchdienst Photon
+          (photon.komoot.io, betrieben von komoot GmbH, Deutschland, auf Basis
+          von OpenStreetMap-Daten). Der Anbieter erhält dabei den Suchtext und
+          Ihre IP-Adresse. Kaverne erhält den Suchtext nicht und speichert ihn
+          nicht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; das berechtigte
+          Interesse liegt in der Suche nach Orten auf der Karte. Ohne Eingabe
+          findet keine Anfrage statt. Angaben des Anbieters:
+          https://photon.komoot.io/ und https://www.komoot.com/privacy
+        </p>
 
         <h2>6. Speicherung auf Ihrem Endgerät</h2>
         <p>
@@ -151,7 +163,7 @@ export default function DatenschutzPage() {
         </p>
 
         <h2>11. Stand</h2>
-        <p>09.10.2026</p>
+        <p>10.10.2026</p>
       </main>
     </>
   );

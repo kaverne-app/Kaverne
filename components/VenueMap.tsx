@@ -7,6 +7,8 @@ import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { VenuePin } from "@/lib/venues";
 import { loadMutedStyle } from "./mapMutedStyle";
+import MapSearch from "./MapSearch";
+import type { PlaceHit } from "@/lib/place-search";
 
 const SOURCE = "venues";
 const MAX_ZOOM = 17;
@@ -55,6 +57,7 @@ export default function VenueMap({ venues }: { venues: VenuePin[] }) {
   const venuesRef = useRef(venues);
   const hasFitRef = useRef(false);
   const meRef = useRef<maplibregl.Marker | null>(null);
+  const searchPinRef = useRef<maplibregl.Marker | null>(null);
   const router = useRouter();
   const [selected, setSelected] = useState<VenuePin | null>(null);
   const [group, setGroup] = useState<VenuePin[] | null>(null);
@@ -210,6 +213,8 @@ export default function VenueMap({ venues }: { venues: VenuePin[] }) {
       cancelled = true;
       meRef.current?.remove();
       meRef.current = null;
+      searchPinRef.current?.remove();
+      searchPinRef.current = null;
       mapRef.current?.remove();
       mapRef.current = null;
       hasFitRef.current = false;
@@ -255,9 +260,35 @@ export default function VenueMap({ venues }: { venues: VenuePin[] }) {
     );
   }
 
+  // Gesuchter Ort: Karte springt hin, ein Markierungspunkt bleibt bis zum
+  // Löschen der Suche. Nichts davon wird gespeichert.
+  function showPlace(hit: PlaceHit) {
+    const map = mapRef.current;
+    if (!map) return;
+    const lngLat: [number, number] = [hit.lon, hit.lat];
+    if (!searchPinRef.current) {
+      const el = document.createElement("div");
+      el.className = "venue-map-search-pin";
+      searchPinRef.current = new maplibregl.Marker({ element: el }).setLngLat(lngLat).addTo(map);
+    } else {
+      searchPinRef.current.setLngLat(lngLat);
+    }
+    if (hit.bounds) {
+      map.fitBounds(hit.bounds, { padding: 48, maxZoom: 15, duration: 600 });
+    } else {
+      map.easeTo({ center: lngLat, zoom: 16 });
+    }
+  }
+
+  function clearPlace() {
+    searchPinRef.current?.remove();
+    searchPinRef.current = null;
+  }
+
   return (
     <div className="venue-map-wrap">
       <div ref={containerRef} className="venue-map" />
+      <MapSearch onSelect={showPlace} onClear={clearPlace} />
       <button
         type="button"
         className="venue-map-locate"

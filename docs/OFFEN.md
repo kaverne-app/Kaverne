@@ -9,20 +9,16 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Kartenvorschau Startseite, echtes Kartenbild — **fertig und live (Pull Request 65)**
-- Build und Lint sauber (ja). Bild per GitHub-Action erzeugt, weil die
-  Sitzung OpenFreeMap nicht erreicht (Abweichung); Skript und Workflow liegen im Repo.
-- Bild: WebP in drei Größen, 31 / 54 / 75 KB; mobil lädt eines davon (ja).
-- Punkte: 31 = Einträge mit Koordinaten (ja, im Browser gezählt). Lage
-  geprüft an Saarbrücken, Frankfurt, Straßburg, Stuttgart, Bodensee (ja).
-- Handybreite 390 px und Desktop 1400 px angesehen (ja). Klick führt zu
-  /clubs?ansicht=karte (ja). Keine Kartenbibliothek, keine Abrufe bei
-  OpenFreeMap von der Startseite, kein Browser-Speicher (ja).
-- Namensnennung klein in der Bildecke mit Links; Screenreader-Text nach
-  Freigabe eingebaut (ja).
-- Lokal mit data/venues.json als Testdaten geprüft.
-- Von Tim abgenommen (10.10.). Ausschnitt rechnet sich aus den Läden, Bild
-  entsteht nach dem nächtlichen Datenstand bei Bedarf neu (erst ab jetzt in main).
+10.10.2026 — Ortssuche auf der Karte — **fertig, wartet auf deine Vorschau-Prüfung**
+- Build und Lint sauber (ja). Suchfeld oben rechts über der Karte, Zoom- und
+  Standortknopf darunter (ja, im Code; Handybreite nicht angesehen).
+- Dienst Photon (komoot), direkt aus dem Browser, ab drei Zeichen mit 0,4 s
+  Pause; Treffer für Orte, Straßen, Adressen; Tipp zoomt hin, Markierungspunkt.
+- Abweichung: Die Sitzung erreicht Photon nicht (Netzsperre), die Suche ist
+  daher nicht live getestet. Bitte in der Vorschau prüfen: „Kaiserstraße 10
+  Mainz", „Saarbrücken", eine Straße in deiner Stadt.
+- Datenschutzerklärung um Photon ergänzt, Stand 10.10.2026 [ungeprüft].
+- Keine Aufgaben-ID, Auftrag direkt von Tim.
 
 ## Als Nächstes für Claude Code
 
@@ -39,6 +35,9 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
   (Nutzungsbedingungen, Stand 09.09.2026). Das Bild entsteht einmal bei einer
   Stiländerung, ein paar Kacheln. [Annahme] unkritisch; falls du sicher sein
   willst, kurze Mail an info@openfreemap.org.
+- Photon ist ein kostenloser öffentlicher Dienst ohne Zusage. Fällt er aus oder
+  wird begrenzt, gibt es eine eigene Instanz oder einen bezahlten Anbieter
+  (dann Kosten und Schlüssel entscheiden). Bis dahin unkritisch.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
