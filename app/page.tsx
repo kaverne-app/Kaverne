@@ -22,11 +22,13 @@ export default async function StartPage() {
           Clubs und Venues für elektronische Musik im Südwesten
         </p>
 
-        <Link href="/clubs?ansicht=karte" className="home-block">
-          <span className="home-block-title">Clubs</span>
-          <HomeMapPreview points={points} />
-        </Link>
-        <HomeMapCredit />
+        <div className="home-block-wrap">
+          <Link href="/clubs?ansicht=karte" className="home-block">
+            <span className="home-block-title">Clubs</span>
+            <HomeMapPreview points={points} />
+          </Link>
+          <HomeMapCredit />
+        </div>
 
         {showMagazin && (
           <Link href="/magazin" className="home-block">

@@ -160,7 +160,13 @@ keine Kartenbibliothek. Neu erzeugt wird es nur, wenn sich Kartenstil oder
 Ausschnitt ändern: GitHub → Actions → „Kartenbild Startseite" → „Run
 workflow" (Skript `scripts/render-home-map.ts`, Ausschnitt in
 `lib/home-map-projection.ts`).
-Namensnennung: Unter der Kachel steht klein, mit Links, der Text, den
+Läden außerhalb des Bildausschnitts erscheinen in der Vorschau nicht (nur dort,
+nicht auf Liste und Karte); kommt ein Ort außerhalb der vier Länder dazu, den
+Ausschnitt in `lib/home-map-projection.ts` erweitern und das Bild neu erzeugen.
+Screenreader: Die Kachel trägt den Text „Karte von Rheinland-Pfalz, Hessen,
+Saarland und Baden-Württemberg mit den Standorten der Clubs." (freigegeben
+10.10.2026); Bild und Punkte sind ausgeblendet.
+Namensnennung: In der unteren rechten Bildecke steht klein, mit Links, der Text, den
 OpenFreeMap im Kartenstil selbst angibt: „OpenFreeMap © OpenMapTiles Data
 from OpenStreetMap" (Stand 10.10.2026, Quelle: Attribution im Stil und
 Nutzungsbedingungen von openfreemap.org). Die Datenschutzerklärung ist

@@ -708,9 +708,26 @@ button {
   border-color: var(--color-accent);
 }
 
+.home-block-wrap {
+  position: relative;
+  margin-bottom: var(--space-3);
+}
+
+.home-block-wrap .home-block {
+  margin-bottom: 0;
+}
+
+/* Namensnennung in der unteren rechten Bildecke, innerhalb des Kachelrands. */
 .home-map-credit {
-  margin: calc(var(--space-2) * -1) 0 var(--space-3);
-  font-size: 11px;
+  position: absolute;
+  right: calc(var(--page-margin) + 4px);
+  bottom: calc(var(--space-4) + 4px);
+  margin: 0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(13, 13, 14, 0.72);
+  font-size: 10px;
+  line-height: 1.4;
   color: var(--color-text-secondary);
 }
 
@@ -938,4 +955,16 @@ button {
     max-width: 480px;
     margin: 0 auto;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

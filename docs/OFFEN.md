@@ -18,9 +18,11 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 - Handybreite 390 px und Desktop 1400 px angesehen (ja). Klick führt zu
   /clubs?ansicht=karte (ja). Keine Kartenbibliothek, keine Abrufe bei
   OpenFreeMap von der Startseite, kein Browser-Speicher (ja).
-- Namensnennung unter der Kachel mit Links (ja).
+- Namensnennung klein in der Bildecke mit Links; Screenreader-Text nach
+  Freigabe eingebaut (ja).
 - Lokal mit data/venues.json als Testdaten geprüft.
-- Offen: Screenreader-Wortlaut; Ausschnitt/Pins ansehen und freigeben.
+- Offen: Ausschnitt/Pins ansehen und freigeben. Läden außerhalb des
+  Ausschnitts fehlen in der Vorschau, bis Ausschnitt und Bild erweitert sind.
 
 ## Als Nächstes für Claude Code
 
@@ -33,9 +35,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Kartenvorschau Startseite: Wortlaut für Screenreader freigeben (Vorschlag
-  im Pull Request); danach einbauen. Bis dahin ist die Vorschau für
-  Screenreader ausgeblendet, die Kachel heißt nur „Clubs".
 - Kartenvorschau: Ausschnitt (zeigt auch Luxemburg, Straßburg, Zürich als
   Rand) und Pins in Frankfurt (überlappen leicht) ansehen und freigeben.
 - Kartenbild: OpenFreeMap verbietet automatisiertes Abrufen „ohne Erlaubnis"

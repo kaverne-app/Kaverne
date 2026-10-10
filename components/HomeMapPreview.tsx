@@ -9,9 +9,13 @@ export default function HomeMapPreview({ points }: { points: VenueCoordinate[] }
   const { width, height } = HOME_MAP_FRAME;
 
   return (
-    <span className="home-map" aria-hidden="true">
+    <span className="home-map">
+      <span className="visually-hidden">
+        Karte von Rheinland-Pfalz, Hessen, Saarland und Baden-Württemberg mit den
+        Standorten der Clubs.
+      </span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <img aria-hidden="true"
         src="/home-map/home-map-720.webp"
         srcSet="/home-map/home-map-480.webp 480w, /home-map/home-map-720.webp 720w, /home-map/home-map-960.webp 960w"
         sizes="(min-width: 480px) 448px, calc(100vw - 64px)"
@@ -26,6 +30,7 @@ export default function HomeMapPreview({ points }: { points: VenueCoordinate[] }
         return (
           <span
             key={i}
+            aria-hidden="true"
             className={v.status === "unregelmäßig" ? "home-map-pin home-map-pin-open" : "home-map-pin"}
             style={{ left: `${left.toFixed(2)}%`, top: `${top.toFixed(2)}%` }}
           />
@@ -36,7 +41,8 @@ export default function HomeMapPreview({ points }: { points: VenueCoordinate[] }
 }
 
 // Namensnennung im Wortlaut, den OpenFreeMap selbst vorgibt (Attribution im
-// Kartenstil), außerhalb des Kachel-Links (Links in Links sind nicht erlaubt).
+// Kartenstil), klein in der Bildecke, wie das „i" der echten Karte, außerhalb des
+// Kachel-Links (Links in Links sind nicht erlaubt).
 export function HomeMapCredit() {
   return (
     <p className="home-map-credit">
