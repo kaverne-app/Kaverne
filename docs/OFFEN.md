@@ -9,20 +9,21 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Navigation am Desktop — **fertig und live (Pull Request 63)**
-- Build und Lint sauber (ja). Umschaltpunkt 1024 px (Tablet quer): darunter
-  unverändert, darüber Textlinks „Clubs" und „Über" in der Kopfzeile, Leiste
-  unten weg (ja, im Browser bei 390, 1023, 1024 und 1400 px).
-- Markierung stimmt auf Start (keine), Liste, Karte, Laden (Clubs), Über (ja).
-  Kein Springen, keine doppelte Navigation, kein Querscrollen (ja).
-- Tab erreicht Wortmarke und Links, Fokus sichtbar (ja, orangener Rahmen).
-- Reiter, Filterzeile, Liste mittig auf 480 px, Karte voll breit (ja).
-- Kopfzeile erscheint am Desktop auch auf Laden, Über, Impressum, Datenschutz,
-  Beitrag; mobil dort weiter keine (Abweichung: nötig, damit „Clubs" dort
-  aktiv sein kann).
-- Lokal mit Testdaten aus data/venues.json geprüft; Kartenkacheln dort nicht
-  ladbar, Karte also nur im Rahmen, nicht im Bild: bitte in der Vorschau sehen.
-- Keine neuen Dienste, Einbettungen oder Browser-Speicher (ja).
+10.10.2026 — Kartenvorschau auf der Startseite — **fertig, Vorschau zu prüfen (Pull Request offen)**
+- Build und Lint sauber (ja). Kachel „Clubs": Überschrift und Vorschau, Zeile
+  mit Anzahl und Städten entfällt, „Über" unverändert (ja, im Browser).
+- Punkte: 31 = Einträge mit Koordinaten in Supabase (ja, per Abfrage und im
+  Browser gezählt). Lage: Saarbrücken links, Kassel oben, Ravensburg unten (ja).
+- Handybreite 390 px und Desktop 1400 px angesehen, kein Querscrollen (ja).
+- Klick auf die Kachel führt zu /clubs?ansicht=karte (ja); das ging schon
+  über die Adresse, nichts umgebaut.
+- Umrisse: Natural Earth 10m, gemeinfrei, 5,6 KB, mit der Seite ausgeliefert.
+  Keine Kartenbibliothek, kein neuer Dienst, kein Browser-Speicher (ja).
+- Ladezeit lokal gleich (ca. 20 ms vorher und nachher); die Seite wird von
+  9 auf 25 KB größer (Punkte und Umrisse stehen im HTML), ohne Kompression.
+  Echte Netzzeit nur in der Vorschau messbar.
+- Lokal mit data/venues.json als Testdaten geprüft.
+- Offen: Screenreader-Wortlaut und Frankfurt-Überlappung (siehe unten).
 
 ## Als Nächstes für Claude Code
 
@@ -35,6 +36,11 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
+- Kartenvorschau Startseite: Wortlaut für Screenreader freigeben (Vorschlag
+  im Pull Request); danach einbauen. Bis dahin ist die Vorschau für
+  Screenreader ausgeblendet, die Kachel heißt nur „Clubs".
+- Kartenvorschau: Punkte in Frankfurt/Mainz/Wiesbaden überlappen leicht. Ob
+  das ruhig genug wirkt, entscheidest du an der Vorschau.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -50,6 +56,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Kartenvorschau auf der Startseite gebaut, wartet auf Vorschau-Prüfung
+  (10.10.)
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
   nur mobil, live (10.10., Pull Request 63)
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live
