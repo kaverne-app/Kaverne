@@ -674,23 +674,48 @@ button {
 }
 
 .home-map {
+  position: relative;
   display: block;
   width: 100%;
-  height: 260px;
   margin-top: var(--space-3);
+  aspect-ratio: 480 / 576;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-ground);
   pointer-events: none;
 }
 
-.home-map-land {
-  fill: var(--color-ground);
-  stroke: var(--color-text-secondary);
-  stroke-opacity: 0.7;
-  stroke-width: 0.6;
-  stroke-linejoin: round;
+.home-map img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.home-map-dot {
-  fill: var(--color-accent);
+/* Wie die Pins der Karte (Orange mit dunklem Rand), nur kleiner. */
+.home-map-pin {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-ground);
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translate(-50%, -50%);
+}
+
+.home-map-pin-open {
+  background: var(--color-ground);
+  border-color: var(--color-accent);
+}
+
+.home-map-credit {
+  margin: calc(var(--space-2) * -1) 0 var(--space-3);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.home-map-credit a {
+  text-decoration: underline;
 }
 
 /* Meldeformular */

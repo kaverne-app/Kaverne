@@ -62,17 +62,23 @@ export async function getFilterableVenues(): Promise<VenueFilterable[]> {
   return data as VenueFilterable[];
 }
 
+export interface VenueCoordinate {
+  lat: number;
+  lon: number;
+  status: string | null;
+}
+
 // Für die Kartenvorschau auf der Startseite: nur Koordinaten, ohne die
 // übrigen Felder zu laden. Einträge ohne Koordinaten fehlen hier.
-export async function getVenueCoordinates(): Promise<{ lat: number; lon: number }[]> {
+export async function getVenueCoordinates(): Promise<VenueCoordinate[]> {
   const supabase = getSupabaseClient();
   const { data, error } = await supabase
     .from("venues")
-    .select("lat,lon")
+    .select("lat,lon,status")
     .not("lat", "is", null)
     .not("lon", "is", null);
   if (error) throw error;
-  return data as { lat: number; lon: number }[];
+  return data as VenueCoordinate[];
 }
 
 export async function getVenue(id: string): Promise<VenueDetail | null> {

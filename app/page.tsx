@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import { hasAnyPost } from "@/lib/posts";
-import HomeMapPreview from "@/components/HomeMapPreview";
+import HomeMapPreview, { HomeMapCredit } from "@/components/HomeMapPreview";
 import { getVenueCoordinates } from "@/lib/venues";
 
 export const dynamic = "force-dynamic";
@@ -26,6 +26,7 @@ export default async function StartPage() {
           <span className="home-block-title">Clubs</span>
           <HomeMapPreview points={points} />
         </Link>
+        <HomeMapCredit />
 
         {showMagazin && (
           <Link href="/magazin" className="home-block">

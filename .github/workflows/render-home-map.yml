@@ -1,0 +1,53 @@
+name: Kartenbild Startseite
+
+# Erzeugt public/home-map/*.webp neu (siehe scripts/render-home-map.ts). Nur
+# nötig, wenn sich der Kartenstil (components/mapMutedStyle.ts) oder der
+# Ausschnitt (lib/home-map-projection.ts) ändert. Auf Zuruf starten:
+# GitHub → Actions → "Kartenbild Startseite" → Run workflow.
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [claude/affectionate-maxwell-8bbk4g]
+    paths:
+      - scripts/render-home-map.ts
+      - lib/home-map-projection.ts
+      - components/mapMutedStyle.ts
+      - .github/workflows/render-home-map.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+      - run: npm i --no-save playwright@1.56.1 sharp
+      - run: npx playwright install --with-deps chromium
+
+      - name: Bild erzeugen
+        run: npx tsx scripts/render-home-map.ts
+
+      - name: Nutzungsbedingungen von OpenFreeMap (für die Namensnennung)
+        continue-on-error: true
+        run: curl -sSL https://openfreemap.org/tos/ | sed 's/<[^>]*>/ /g' | tr -s ' \n' | head -c 6000
+
+      - name: Commit, falls sich etwas geändert hat
+        run: |
+          git add public/home-map
+          if git diff --cached --quiet; then
+            echo "Kein Unterschied, kein Commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Kartenbild Startseite neu erzeugt"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push
