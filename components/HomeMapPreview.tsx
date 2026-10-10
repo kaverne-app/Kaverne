@@ -35,20 +35,19 @@ export default function HomeMapPreview({ points }: { points: VenueCoordinate[] }
   );
 }
 
-// Namensnennung, ausdrücklich außerhalb des Links (Links in Links sind nicht
-// erlaubt). Wortlaut siehe docs/KAVERNE.md, Abschnitt „Anzeige".
+// Namensnennung im Wortlaut, den OpenFreeMap selbst vorgibt (Attribution im
+// Kartenstil), außerhalb des Kachel-Links (Links in Links sind nicht erlaubt).
 export function HomeMapCredit() {
   return (
     <p className="home-map-credit">
-      Karte ©{" "}
       <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">
         OpenFreeMap
       </a>{" "}
       ©{" "}
-      <a href="https://openmaptiles.org" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener noreferrer">
         OpenMapTiles
       </a>{" "}
-      Daten von{" "}
+      Data from{" "}
       <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">
         OpenStreetMap
       </a>

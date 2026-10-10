@@ -7,13 +7,6 @@ name: Kartenbild Startseite
 
 on:
   workflow_dispatch: {}
-  push:
-    branches: [claude/affectionate-maxwell-8bbk4g]
-    paths:
-      - scripts/render-home-map.ts
-      - lib/home-map-projection.ts
-      - components/mapMutedStyle.ts
-      - .github/workflows/render-home-map.yml
 
 permissions:
   contents: write

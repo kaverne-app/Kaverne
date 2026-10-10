@@ -9,21 +9,18 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Kartenvorschau auf der Startseite — **fertig, Vorschau zu prüfen (Pull Request offen)**
-- Build und Lint sauber (ja). Kachel „Clubs": Überschrift und Vorschau, Zeile
-  mit Anzahl und Städten entfällt, „Über" unverändert (ja, im Browser).
-- Punkte: 31 = Einträge mit Koordinaten in Supabase (ja, per Abfrage und im
-  Browser gezählt). Lage: Saarbrücken links, Kassel oben, Ravensburg unten (ja).
-- Handybreite 390 px und Desktop 1400 px angesehen, kein Querscrollen (ja).
-- Klick auf die Kachel führt zu /clubs?ansicht=karte (ja); das ging schon
-  über die Adresse, nichts umgebaut.
-- Umrisse: Natural Earth 10m, gemeinfrei, 5,6 KB, mit der Seite ausgeliefert.
-  Keine Kartenbibliothek, kein neuer Dienst, kein Browser-Speicher (ja).
-- Ladezeit lokal gleich (ca. 20 ms vorher und nachher); die Seite wird von
-  9 auf 25 KB größer (Punkte und Umrisse stehen im HTML), ohne Kompression.
-  Echte Netzzeit nur in der Vorschau messbar.
+10.10.2026 — Kartenvorschau Startseite, echtes Kartenbild — **fertig, Vorschau zu prüfen (Pull Request 65)**
+- Build und Lint sauber (ja). Bild per GitHub-Action erzeugt, weil die
+  Sitzung OpenFreeMap nicht erreicht (Abweichung); Skript und Workflow liegen im Repo.
+- Bild: WebP in drei Größen, 31 / 54 / 75 KB; mobil lädt eines davon (ja).
+- Punkte: 31 = Einträge mit Koordinaten (ja, im Browser gezählt). Lage
+  geprüft an Saarbrücken, Frankfurt, Straßburg, Stuttgart, Bodensee (ja).
+- Handybreite 390 px und Desktop 1400 px angesehen (ja). Klick führt zu
+  /clubs?ansicht=karte (ja). Keine Kartenbibliothek, keine Abrufe bei
+  OpenFreeMap von der Startseite, kein Browser-Speicher (ja).
+- Namensnennung unter der Kachel mit Links (ja).
 - Lokal mit data/venues.json als Testdaten geprüft.
-- Offen: Screenreader-Wortlaut und Frankfurt-Überlappung (siehe unten).
+- Offen: Screenreader-Wortlaut; Ausschnitt/Pins ansehen und freigeben.
 
 ## Als Nächstes für Claude Code
 
@@ -39,8 +36,12 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 - Kartenvorschau Startseite: Wortlaut für Screenreader freigeben (Vorschlag
   im Pull Request); danach einbauen. Bis dahin ist die Vorschau für
   Screenreader ausgeblendet, die Kachel heißt nur „Clubs".
-- Kartenvorschau: Punkte in Frankfurt/Mainz/Wiesbaden überlappen leicht. Ob
-  das ruhig genug wirkt, entscheidest du an der Vorschau.
+- Kartenvorschau: Ausschnitt (zeigt auch Luxemburg, Straßburg, Zürich als
+  Rand) und Pins in Frankfurt (überlappen leicht) ansehen und freigeben.
+- Kartenbild: OpenFreeMap verbietet automatisiertes Abrufen „ohne Erlaubnis"
+  (Nutzungsbedingungen, Stand 09.09.2026). Das Bild entsteht einmal bei einer
+  Stiländerung, ein paar Kacheln. [Annahme] unkritisch; falls du sicher sein
+  willst, kurze Mail an info@openfreemap.org.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -56,8 +57,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
-- Kartenvorschau auf der Startseite gebaut, wartet auf Vorschau-Prüfung
-  (10.10.)
+- Kartenvorschau auf der Startseite (echtes Kartenbild) gebaut, wartet auf
+  Vorschau-Prüfung (10.10.)
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
   nur mobil, live (10.10., Pull Request 63)
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live

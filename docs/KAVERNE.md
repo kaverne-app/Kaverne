@@ -149,14 +149,22 @@ Datenbank — so etwas führt Tim bei Bedarf privat als Datei. Gestrichen am
 - Detailseite: Wann & wo · Kanäle · Vor Ort.
 - Mobil zuerst, alles in Daumenreichweite.
 
-**Startseite:** Die Kachel „Clubs" zeigt unter der Überschrift eine
-schematische, nicht bedienbare Vorschau: Umrisse von Rheinland-Pfalz, Hessen,
-Saarland und Baden-Württemberg, dazu ein Punkt je Laden mit Koordinaten (beim
-Seitenaufruf aus Supabase berechnet). Die ganze Kachel ist ein Link zur
-Kartenansicht (`/clubs?ansicht=karte`). Umrisse: Natural Earth, gemeinfrei,
-keine Namensnennung nötig; sie liegen mit der Seite in `lib/home-map-outline.ts`
-(erzeugt mit `scripts/generate-home-outline.ts`) und werden nicht von einem
-Dienst geladen.
+**Startseite:** Die Kachel „Clubs" zeigt unter der Überschrift eine nicht
+bedienbare Kartenvorschau: ein festes Bild der echten Karte (OpenFreeMap
+„Liberty", auf die eigene Palette gedämpft) im Ausschnitt der vier Länder,
+dazu ein kleiner Punkt je Laden mit Koordinaten (beim Seitenaufruf berechnet,
+Pins wie auf der Karte, nur kleiner). Die ganze Kachel ist ein Link zur
+Kartenansicht (`/clubs?ansicht=karte`). Das Bild liegt im Repository
+(`public/home-map/`), die Startseite ruft nichts bei OpenFreeMap ab und lädt
+keine Kartenbibliothek. Neu erzeugt wird es nur, wenn sich Kartenstil oder
+Ausschnitt ändern: GitHub → Actions → „Kartenbild Startseite" → „Run
+workflow" (Skript `scripts/render-home-map.ts`, Ausschnitt in
+`lib/home-map-projection.ts`).
+Namensnennung: Unter der Kachel steht klein, mit Links, der Text, den
+OpenFreeMap im Kartenstil selbst angibt: „OpenFreeMap © OpenMapTiles Data
+from OpenStreetMap" (Stand 10.10.2026, Quelle: Attribution im Stil und
+Nutzungsbedingungen von openfreemap.org). Die Datenschutzerklärung ist
+unberührt, weil die Startseite nichts mehr bei OpenFreeMap lädt.
 
 **Karte** (Entscheidung 01.10.2026, Aufgabe A-19):
 - Clustering: Dicht beieinanderliegende Läden werden je nach Zoomstufe zu
