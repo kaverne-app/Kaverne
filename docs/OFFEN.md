@@ -9,7 +9,7 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Navigation am Desktop — **fertig im Code, wartet auf Vorschau und Tims „live"**
+10.10.2026 — Navigation am Desktop — **fertig und live (Pull Request 63)**
 - Build und Lint sauber (ja). Umschaltpunkt 1024 px (Tablet quer): darunter
   unverändert, darüber Textlinks „Clubs" und „Über" in der Kopfzeile, Leiste
   unten weg (ja, im Browser bei 390, 1023, 1024 und 1400 px).
@@ -51,7 +51,7 @@ Ungeordnet, keine Zusage.
 ## Kürzlich erledigt
 
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
-  nur mobil (10.10., wartet auf Tims „live")
+  nur mobil, live (10.10., Pull Request 63)
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live
   (Pull Request 56); damit ist der Datenschutztext zu A-19 erledigt (09.10.)
 - A-19 Karte: Cluster, Stadtzoom, gemerkte Stadt, Standortknopf live, von
