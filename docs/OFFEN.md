@@ -9,14 +9,13 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Ortssuche auf der Karte — **fertig, wartet auf deine Vorschau-Prüfung**
+10.10.2026 — Ortssuche auf der Karte — **fertig und live**
 - Build und Lint sauber (ja). Suchfeld oben rechts über der Karte, Zoom- und
   Standortknopf darunter (ja, im Code; Handybreite nicht angesehen).
 - Dienst Photon (komoot), direkt aus dem Browser, ab drei Zeichen mit 0,4 s
   Pause; Treffer für Orte, Straßen, Adressen; Tipp zoomt hin, Markierungspunkt.
 - Abweichung: Die Sitzung erreicht Photon nicht (Netzsperre), die Suche ist
-  daher nicht live getestet. Bitte in der Vorschau prüfen: „Kaiserstraße 10
-  Mainz", „Saarbrücken", eine Straße in deiner Stadt.
+  dort nicht getestet. Von Tim in der Vorschau abgenommen (10.10.).
 - Datenschutzerklärung um Photon ergänzt, Stand 10.10.2026 [ungeprüft].
 - Keine Aufgaben-ID, Auftrag direkt von Tim.
 
@@ -53,6 +52,7 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Ortssuche auf der Karte (Photon), live (10.10.)
 - Kartenvorschau auf der Startseite (echtes Kartenbild, Ausschnitt rechnet
   sich aus den Läden), live (10.10., Pull Request 65)
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
