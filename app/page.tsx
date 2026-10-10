@@ -3,12 +3,16 @@ import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import Footer from "@/components/Footer";
 import { hasAnyPost } from "@/lib/posts";
-import { getVenueStats } from "@/lib/venues";
+import HomeMapPreview, { HomeMapCredit } from "@/components/HomeMapPreview";
+import { getVenueCoordinates } from "@/lib/venues";
 
 export const dynamic = "force-dynamic";
 
 export default async function StartPage() {
-  const [stats, showMagazin] = await Promise.all([getVenueStats(), hasAnyPost()]);
+  const [points, showMagazin] = await Promise.all([
+    getVenueCoordinates(),
+    hasAnyPost(),
+  ]);
 
   return (
     <>
@@ -18,13 +22,13 @@ export default async function StartPage() {
           Clubs und Venues für elektronische Musik im Südwesten
         </p>
 
-        <Link href="/clubs?ansicht=karte" className="home-block">
-          <span className="home-block-title">Clubs</span>
-          <span className="home-block-meta">
-            {stats.count} {stats.count === 1 ? "Eintrag" : "Einträge"}
-            {stats.cities.length > 0 ? ` · ${stats.cities.join(", ")}` : ""}
-          </span>
-        </Link>
+        <div className="home-block-wrap">
+          <Link href="/clubs?ansicht=karte" className="home-block">
+            <span className="home-block-title">Clubs</span>
+            <HomeMapPreview points={points} />
+          </Link>
+          <HomeMapCredit />
+        </div>
 
         {showMagazin && (
           <Link href="/magazin" className="home-block">

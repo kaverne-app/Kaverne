@@ -1,0 +1,56 @@
+name: Kartenbild Startseite
+
+# Hält das Kartenbild der Startseite passend zu den Läden: berechnet den
+# Ausschnitt aus data/venues.json und rendert public/home-map/*.webp nur neu,
+# wenn ein Laden aus dem bisherigen Ausschnitt fällt (siehe
+# scripts/render-home-map.ts). Läuft nach dem nächtlichen Datenstand und auf Zuruf (GitHub → Actions → "Kartenbild
+# Startseite" → Run workflow; "force" rendert auch ohne Änderung neu, z. B.
+# nach einer Änderung des Kartenstils).
+
+on:
+  workflow_run:
+    workflows: ["Nächtlicher Datenstand"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Auch ohne Änderung neu rendern"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+      - run: npm i --no-save playwright@1.56.1 sharp
+      - run: npx playwright install --with-deps chromium
+
+      - name: Bild erzeugen
+        env:
+          FORCE: ${{ inputs.force && '1' || '' }}
+        run: npx tsx scripts/render-home-map.ts
+
+      - name: Commit, falls sich etwas geändert hat
+        run: |
+          git add public/home-map lib/home-map-frame.json
+          if git diff --cached --quiet; then
+            echo "Kein Unterschied, kein Commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Kartenbild Startseite neu erzeugt"
+          git pull --rebase origin "$(git branch --show-current)"
+          git push

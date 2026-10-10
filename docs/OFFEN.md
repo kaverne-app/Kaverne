@@ -9,20 +9,20 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Navigation am Desktop — **fertig und live (Pull Request 63)**
-- Build und Lint sauber (ja). Umschaltpunkt 1024 px (Tablet quer): darunter
-  unverändert, darüber Textlinks „Clubs" und „Über" in der Kopfzeile, Leiste
-  unten weg (ja, im Browser bei 390, 1023, 1024 und 1400 px).
-- Markierung stimmt auf Start (keine), Liste, Karte, Laden (Clubs), Über (ja).
-  Kein Springen, keine doppelte Navigation, kein Querscrollen (ja).
-- Tab erreicht Wortmarke und Links, Fokus sichtbar (ja, orangener Rahmen).
-- Reiter, Filterzeile, Liste mittig auf 480 px, Karte voll breit (ja).
-- Kopfzeile erscheint am Desktop auch auf Laden, Über, Impressum, Datenschutz,
-  Beitrag; mobil dort weiter keine (Abweichung: nötig, damit „Clubs" dort
-  aktiv sein kann).
-- Lokal mit Testdaten aus data/venues.json geprüft; Kartenkacheln dort nicht
-  ladbar, Karte also nur im Rahmen, nicht im Bild: bitte in der Vorschau sehen.
-- Keine neuen Dienste, Einbettungen oder Browser-Speicher (ja).
+10.10.2026 — Kartenvorschau Startseite, echtes Kartenbild — **fertig, Vorschau zu prüfen (Pull Request 65)**
+- Build und Lint sauber (ja). Bild per GitHub-Action erzeugt, weil die
+  Sitzung OpenFreeMap nicht erreicht (Abweichung); Skript und Workflow liegen im Repo.
+- Bild: WebP in drei Größen, 31 / 54 / 75 KB; mobil lädt eines davon (ja).
+- Punkte: 31 = Einträge mit Koordinaten (ja, im Browser gezählt). Lage
+  geprüft an Saarbrücken, Frankfurt, Straßburg, Stuttgart, Bodensee (ja).
+- Handybreite 390 px und Desktop 1400 px angesehen (ja). Klick führt zu
+  /clubs?ansicht=karte (ja). Keine Kartenbibliothek, keine Abrufe bei
+  OpenFreeMap von der Startseite, kein Browser-Speicher (ja).
+- Namensnennung klein in der Bildecke mit Links; Screenreader-Text nach
+  Freigabe eingebaut (ja).
+- Lokal mit data/venues.json als Testdaten geprüft.
+- Offen: Ausschnitt/Pins ansehen und freigeben. Läden außerhalb des
+  Ausschnitts fehlen in der Vorschau, bis Ausschnitt und Bild erweitert sind.
 
 ## Als Nächstes für Claude Code
 
@@ -35,6 +35,12 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
+- Kartenvorschau: Ausschnitt (zeigt auch Luxemburg, Straßburg, Zürich als
+  Rand) und Pins in Frankfurt (überlappen leicht) ansehen und freigeben.
+- Kartenbild: OpenFreeMap verbietet automatisiertes Abrufen „ohne Erlaubnis"
+  (Nutzungsbedingungen, Stand 09.09.2026). Das Bild entsteht einmal bei einer
+  Stiländerung, ein paar Kacheln. [Annahme] unkritisch; falls du sicher sein
+  willst, kurze Mail an info@openfreemap.org.
 - Themen für die ersten zwei bis drei Artikel.
 - Schwelle für den Eventkalender — erst nach „Öffnen" relevant, kommt noch
   ein gutes Stück später.
@@ -50,6 +56,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
+- Kartenvorschau auf der Startseite (echtes Kartenbild) gebaut, wartet auf
+  Vorschau-Prüfung (10.10.)
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
   nur mobil, live (10.10., Pull Request 63)
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live

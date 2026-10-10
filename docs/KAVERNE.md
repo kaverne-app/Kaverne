@@ -149,6 +149,32 @@ Datenbank — so etwas führt Tim bei Bedarf privat als Datei. Gestrichen am
 - Detailseite: Wann & wo · Kanäle · Vor Ort.
 - Mobil zuerst, alles in Daumenreichweite.
 
+**Startseite:** Die Kachel „Clubs" zeigt unter der Überschrift eine nicht
+bedienbare Kartenvorschau: ein festes Bild der echten Karte (OpenFreeMap
+„Liberty", auf die eigene Palette gedämpft) im Ausschnitt der vier Länder,
+dazu ein kleiner Punkt je Laden mit Koordinaten (beim Seitenaufruf berechnet,
+Pins wie auf der Karte, nur kleiner). Die ganze Kachel ist ein Link zur
+Kartenansicht (`/clubs?ansicht=karte`). Das Bild liegt im Repository
+(`public/home-map/`), die Startseite ruft nichts bei OpenFreeMap ab und lädt
+keine Kartenbibliothek. Neu erzeugt wird es nur, wenn sich Kartenstil oder
+Ausschnitt ändern: GitHub → Actions → „Kartenbild Startseite" → „Run
+workflow", Haken „force" bei geändertem Kartenstil; Skript
+`scripts/render-home-map.ts`).
+Der Ausschnitt rechnet sich selbst: Er umfasst mindestens die vier Länder und
+alle Läden aus `data/venues.json` (`lib/home-map-frame.json`). Nach dem
+nächtlichen Datenstand prüft ein Arbeitsschritt (GitHub-Action „Kartenbild
+Startseite"), ob ein Laden herausfällt, und erzeugt das Bild nur dann neu und
+legt es direkt in main ab. Ein Laden außerhalb des Ausschnitts fehlt in der
+Vorschau höchstens bis zur nächsten Nacht, auf Liste und Karte nie.
+Screenreader: Die Kachel trägt den Text „Karte von Rheinland-Pfalz, Hessen,
+Saarland und Baden-Württemberg mit den Standorten der Clubs." (freigegeben
+10.10.2026); Bild und Punkte sind ausgeblendet.
+Namensnennung: In der unteren rechten Bildecke steht klein, mit Links, der Text, den
+OpenFreeMap im Kartenstil selbst angibt: „OpenFreeMap © OpenMapTiles Data
+from OpenStreetMap" (Stand 10.10.2026, Quelle: Attribution im Stil und
+Nutzungsbedingungen von openfreemap.org). Die Datenschutzerklärung ist
+unberührt, weil die Startseite nichts mehr bei OpenFreeMap lädt.
+
 **Karte** (Entscheidung 01.10.2026, Aufgabe A-19):
 - Clustering: Dicht beieinanderliegende Läden werden je nach Zoomstufe zu
   einem Sammelpunkt mit Anzahl zusammengefasst, in der Akzentfarbe wie die

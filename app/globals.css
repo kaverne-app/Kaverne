@@ -673,11 +673,66 @@ button {
   font-weight: 600;
 }
 
-.home-block-meta {
+.home-map {
+  position: relative;
   display: block;
-  margin-top: var(--space-1);
-  font-size: 13px;
+  width: 100%;
+  margin-top: var(--space-3);
+  aspect-ratio: 480 / 576;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-ground);
+  pointer-events: none;
+}
+
+.home-map img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Wie die Pins der Karte (Orange mit dunklem Rand), nur kleiner. */
+.home-map-pin {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  border: 1.5px solid var(--color-ground);
+  border-radius: 50%;
+  background: var(--color-accent);
+  transform: translate(-50%, -50%);
+}
+
+.home-map-pin-open {
+  background: var(--color-ground);
+  border-color: var(--color-accent);
+}
+
+.home-block-wrap {
+  position: relative;
+  margin-bottom: var(--space-3);
+}
+
+.home-block-wrap .home-block {
+  margin-bottom: 0;
+}
+
+/* Namensnennung in der unteren rechten Bildecke, innerhalb des Kachelrands. */
+.home-map-credit {
+  position: absolute;
+  right: calc(var(--page-margin) + 4px);
+  bottom: calc(var(--space-4) + 4px);
+  margin: 0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(13, 13, 14, 0.72);
+  font-size: 10px;
+  line-height: 1.4;
   color: var(--color-text-secondary);
+}
+
+.home-map-credit a {
+  text-decoration: underline;
 }
 
 /* Meldeformular */
@@ -900,4 +955,16 @@ button {
     max-width: 480px;
     margin: 0 auto;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
