@@ -818,3 +818,86 @@ button {
 .site-footer--bottom-nav {
   padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
 }
+
+/* Desktop ab 1024 px (Tablet quer): Navigation wandert als Textlinks in die
+   Kopfzeile, die Leiste unten entfällt. Darunter gilt alles wie bisher. */
+
+.site-nav {
+  display: none;
+}
+
+.site-header.site-header--desktop-only {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Ohne Leiste unten rechnen alle Abstände und die Karte mit 0. */
+    --bottom-nav-height: 0px;
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+
+  .site-header {
+    justify-content: space-between;
+  }
+
+  /* Seiten ohne Kopfzeile mobil: erst am Desktop sichtbar, Inhalt rückt
+     unter die feste Kopfzeile. */
+  .site-header.site-header--desktop-only {
+    display: flex;
+  }
+
+  .venue-detail {
+    padding-top: calc(var(--header-height) + var(--space-6));
+  }
+
+  .site-nav {
+    display: flex;
+    align-self: stretch;
+    gap: var(--space-6);
+  }
+
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .site-nav a:hover {
+    color: var(--color-text);
+  }
+
+  .site-nav a.active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .site-nav a:focus-visible,
+  .wordmark:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+
+  /* Reiter, Filterzeile und Liste: dieselbe Inhaltsbreite wie die
+     Startseite, mittig. Hintergrund und Linie bleiben über die ganze
+     Breite; die Karte behält die volle Breite. */
+  .view-switch {
+    padding: 0 max(0px, calc((100% - 480px) / 2));
+  }
+
+  .filter-bar {
+    padding: 0 max(var(--page-margin), calc((100% - 480px) / 2 + var(--page-margin)));
+  }
+
+  .venue-list {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}

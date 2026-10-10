@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { notFound } from "next/navigation";
 import { getVenue } from "@/lib/venues";
 import { buildDetailBlocks } from "@/lib/venue-view";
@@ -25,75 +26,78 @@ export default async function VenuePage({
   ];
 
   return (
-    <main className="venue-detail">
-      <BackLink href="/clubs">Zur Liste</BackLink>
+    <>
+      <Header desktopOnly />
+      <main className="venue-detail">
+        <BackLink href="/clubs">Zur Liste</BackLink>
 
-      <div className="venue-head">
-        <div>
-          <h1>{venue.name}</h1>
-          {subtitle && <p className="venue-subtitle">{subtitle}</p>}
+        <div className="venue-head">
+          <div>
+            <h1>{venue.name}</h1>
+            {subtitle && <p className="venue-subtitle">{subtitle}</p>}
+          </div>
+          <ShareButton name={venue.name} />
         </div>
-        <ShareButton name={venue.name} />
-      </div>
 
-      {chips.length > 0 && (
-        <div className="chip-row">
-          {chips.map((chip) => (
-            <span className="chip" key={chip}>
-              {chip}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {venue.kurzbeschreibung && <p className="venue-lead">{venue.kurzbeschreibung}</p>}
-
-      {blocks.map((block) => (
-        <section key={block.title} className="detail-block">
-          <h2>{block.title}</h2>
-          <dl>
-            {block.fields.map((f) => (
-              <div className="detail-field" key={f.label}>
-                <dt>{f.label}</dt>
-                <dd>
-                  {f.kind === "text" ? (
-                    f.value
-                  ) : (
-                    <span className="link-list">
-                      {f.links.map((link) => (
-                        <a
-                          key={link.url}
-                          href={link.url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {linkLabel(link.typ)}
-                        </a>
-                      ))}
-                    </span>
-                  )}
-                </dd>
-              </div>
+        {chips.length > 0 && (
+          <div className="chip-row">
+            {chips.map((chip) => (
+              <span className="chip" key={chip}>
+                {chip}
+              </span>
             ))}
-          </dl>
-          {/* Koordinaten stammen aus der Adresse (siehe Import) — wo sie
-              gesetzt sind, ist auch der Block "Wann & wo" vorhanden. */}
-          {block.title === "Wann & wo" && hasCoordinates && (
-            <div className="venue-map-excerpt">
-              <VenueDetailMap name={venue.name} lat={venue.lat!} lon={venue.lon!} />
-              <a
-                className="map-link"
-                href={`geo:${venue.lat},${venue.lon}?q=${venue.lat},${venue.lon}(${encodeURIComponent(venue.name)})`}
-              >
-                In Karten-App öffnen
-              </a>
-            </div>
-          )}
-        </section>
-      ))}
+          </div>
+        )}
 
-      <ReportButton id={venue.id} name={venue.name} />
-    </main>
+        {venue.kurzbeschreibung && <p className="venue-lead">{venue.kurzbeschreibung}</p>}
+
+        {blocks.map((block) => (
+          <section key={block.title} className="detail-block">
+            <h2>{block.title}</h2>
+            <dl>
+              {block.fields.map((f) => (
+                <div className="detail-field" key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>
+                    {f.kind === "text" ? (
+                      f.value
+                    ) : (
+                      <span className="link-list">
+                        {f.links.map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {linkLabel(link.typ)}
+                          </a>
+                        ))}
+                      </span>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {/* Koordinaten stammen aus der Adresse (siehe Import) — wo sie
+                gesetzt sind, ist auch der Block "Wann & wo" vorhanden. */}
+            {block.title === "Wann & wo" && hasCoordinates && (
+              <div className="venue-map-excerpt">
+                <VenueDetailMap name={venue.name} lat={venue.lat!} lon={venue.lon!} />
+                <a
+                  className="map-link"
+                  href={`geo:${venue.lat},${venue.lon}?q=${venue.lat},${venue.lon}(${encodeURIComponent(venue.name)})`}
+                >
+                  In Karten-App öffnen
+                </a>
+              </div>
+            )}
+          </section>
+        ))}
+
+        <ReportButton id={venue.id} name={venue.name} />
+      </main>
+    </>
   );
 }
 

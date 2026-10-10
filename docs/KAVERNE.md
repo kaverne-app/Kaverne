@@ -209,11 +209,23 @@ DPMA/EUIPO-Vorrecherche 09.09.2026, Klassen 9/41/42, ohne relevante Treffer
 Durchgehend dunkel, kein Hell-Modus. Grundfarbe fast schwarz (`#0d0d0e`),
 Flächen und Karten etwas heller (`#171719`), Text fast weiß (`#f2f2f0`),
 sekundärer Text grau (`#9b9b9f`). Akzentfarbe Orange (`#ff9f1c`): Kartenpins,
-ausgewählte Filter, Absenden-Button, aktiver Reiter unten. Schrift IBM Plex
+ausgewählte Filter, Absenden-Button, aktiver Reiter unten (mobil) bzw. aktiver
+Textlink in der Kopfzeile (Desktop). Schrift IBM Plex
 Sans, mit der Seite ausgeliefert statt von Google geladen. Zeichen aus Claude Design
 (6D, in kleinen Größen 6A), neben der Wortmarke „KAVERNE" in Versalien;
 Dateien in design/website/. Karte: OpenFreeMap „Liberty", auf die eigene
 Farbpalette gedämpft (Straßennamen und Hausnummern reduziert).
+
+Navigation: Mobil (unter 1024 px) liegt sie als Leiste unten (Start, Clubs).
+Ab 1024 px entfällt die Leiste; rechts in der Kopfzeile stehen Textlinks
+„Clubs" und „Über", der aktive mit orangenem Strich darunter wie die Reiter
+„Liste / Karte". Auf Unterseiten eines Ladens ist „Clubs" aktiv. Die
+Wortmarke links führt zur Startseite, einen eigenen Link „Start" gibt es am
+Desktop nicht. „Magazin" kommt in die Kopfzeile, sobald es den ersten
+veröffentlichten Beitrag gibt. Kein Hamburger-Menü, kein Aufklappmenü.
+Am Desktop haben Reiter, Filterzeile und Liste dieselbe Inhaltsbreite wie
+die Startseite (480 px, mittig); die Karte behält die volle Breite.
+Impressum und Datenschutz bleiben im Footer.
 
 ## Ton
 
