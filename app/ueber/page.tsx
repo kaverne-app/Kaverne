@@ -1,9 +1,11 @@
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackLink from "@/components/BackLink";
 
 export default function UeberPage() {
   return (
     <>
+      <Header desktopOnly />
       <main className="venue-detail">
         <BackLink href="/">Zur Startseite</BackLink>
         <h1>Kaverne.</h1>

@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/lib/posts";
@@ -18,18 +19,21 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="venue-detail">
-      <BackLink href="/magazin">Zum Magazin</BackLink>
-      <h1>{post.titel}</h1>
-      {post.datum && <p className="venue-subtitle">{formatDate(post.datum)}</p>}
-      {reference && (
-        <p className="venue-subtitle">
-          {reference.label}:{" "}
-          <Link href={reference.href}>{reference.text}</Link>
-        </p>
-      )}
-      {post.text && <div className="post-text">{post.text}</div>}
-    </main>
+    <>
+      <Header desktopOnly />
+      <main className="venue-detail">
+        <BackLink href="/magazin">Zum Magazin</BackLink>
+        <h1>{post.titel}</h1>
+        {post.datum && <p className="venue-subtitle">{formatDate(post.datum)}</p>}
+        {reference && (
+          <p className="venue-subtitle">
+            {reference.label}:{" "}
+            <Link href={reference.href}>{reference.text}</Link>
+          </p>
+        )}
+        {post.text && <div className="post-text">{post.text}</div>}
+      </main>
+    </>
   );
 }
 
