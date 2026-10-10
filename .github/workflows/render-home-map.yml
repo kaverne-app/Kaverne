@@ -3,8 +3,7 @@ name: Kartenbild Startseite
 # Hält das Kartenbild der Startseite passend zu den Läden: berechnet den
 # Ausschnitt aus data/venues.json und rendert public/home-map/*.webp nur neu,
 # wenn ein Laden aus dem bisherigen Ausschnitt fällt (siehe
-# scripts/render-home-map.ts). Läuft nach dem nächtlichen Datenstand, bei
-# Änderungen an Stil/Skript und auf Zuruf (GitHub → Actions → "Kartenbild
+# scripts/render-home-map.ts). Läuft nach dem nächtlichen Datenstand und auf Zuruf (GitHub → Actions → "Kartenbild
 # Startseite" → Run workflow; "force" rendert auch ohne Änderung neu, z. B.
 # nach einer Änderung des Kartenstils).
 
@@ -18,13 +17,6 @@ on:
         description: "Auch ohne Änderung neu rendern"
         type: boolean
         default: false
-  push:
-    branches: [claude/affectionate-maxwell-8bbk4g]
-    paths:
-      - scripts/render-home-map.ts
-      - lib/home-map-projection.ts
-      - components/mapMutedStyle.ts
-      - .github/workflows/render-home-map.yml
 
 permissions:
   contents: write

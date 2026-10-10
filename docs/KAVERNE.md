@@ -158,11 +158,14 @@ Kartenansicht (`/clubs?ansicht=karte`). Das Bild liegt im Repository
 (`public/home-map/`), die Startseite ruft nichts bei OpenFreeMap ab und lädt
 keine Kartenbibliothek. Neu erzeugt wird es nur, wenn sich Kartenstil oder
 Ausschnitt ändern: GitHub → Actions → „Kartenbild Startseite" → „Run
-workflow" (Skript `scripts/render-home-map.ts`, Ausschnitt in
-`lib/home-map-projection.ts`).
-Läden außerhalb des Bildausschnitts erscheinen in der Vorschau nicht (nur dort,
-nicht auf Liste und Karte); kommt ein Ort außerhalb der vier Länder dazu, den
-Ausschnitt in `lib/home-map-projection.ts` erweitern und das Bild neu erzeugen.
+workflow", Haken „force" bei geändertem Kartenstil; Skript
+`scripts/render-home-map.ts`).
+Der Ausschnitt rechnet sich selbst: Er umfasst mindestens die vier Länder und
+alle Läden aus `data/venues.json` (`lib/home-map-frame.json`). Nach dem
+nächtlichen Datenstand prüft ein Arbeitsschritt (GitHub-Action „Kartenbild
+Startseite"), ob ein Laden herausfällt, und erzeugt das Bild nur dann neu und
+legt es direkt in main ab. Ein Laden außerhalb des Ausschnitts fehlt in der
+Vorschau höchstens bis zur nächsten Nacht, auf Liste und Karte nie.
 Screenreader: Die Kachel trägt den Text „Karte von Rheinland-Pfalz, Hessen,
 Saarland und Baden-Württemberg mit den Standorten der Clubs." (freigegeben
 10.10.2026); Bild und Punkte sind ausgeblendet.
