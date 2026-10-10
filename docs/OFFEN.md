@@ -9,7 +9,7 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 *Claude Code überschreibt nur diesen Abschnitt. Höchstens 15 Zeilen.*
 
-10.10.2026 — Kartenvorschau Startseite, echtes Kartenbild — **fertig, Vorschau zu prüfen (Pull Request 65)**
+10.10.2026 — Kartenvorschau Startseite, echtes Kartenbild — **fertig und live (Pull Request 65)**
 - Build und Lint sauber (ja). Bild per GitHub-Action erzeugt, weil die
   Sitzung OpenFreeMap nicht erreicht (Abweichung); Skript und Workflow liegen im Repo.
 - Bild: WebP in drei Größen, 31 / 54 / 75 KB; mobil lädt eines davon (ja).
@@ -21,8 +21,8 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 - Namensnennung klein in der Bildecke mit Links; Screenreader-Text nach
   Freigabe eingebaut (ja).
 - Lokal mit data/venues.json als Testdaten geprüft.
-- Offen: Ausschnitt/Pins ansehen und freigeben. Läden außerhalb des
-  Ausschnitts fehlen in der Vorschau, bis Ausschnitt und Bild erweitert sind.
+- Von Tim abgenommen (10.10.). Ausschnitt rechnet sich aus den Läden, Bild
+  entsteht nach dem nächtlichen Datenstand bei Bedarf neu (erst ab jetzt in main).
 
 ## Als Nächstes für Claude Code
 
@@ -35,8 +35,6 @@ Wird gepflegt, nicht überschrieben. Erledigtes bleibt eine Woche unter
 
 ## Zu entscheiden
 
-- Kartenvorschau: Ausschnitt (zeigt auch Luxemburg, Straßburg, Zürich als
-  Rand) und Pins in Frankfurt (überlappen leicht) ansehen und freigeben.
 - Kartenbild: OpenFreeMap verbietet automatisiertes Abrufen „ohne Erlaubnis"
   (Nutzungsbedingungen, Stand 09.09.2026). Das Bild entsteht einmal bei einer
   Stiländerung, ein paar Kacheln. [Annahme] unkritisch; falls du sicher sein
@@ -56,8 +54,8 @@ Ungeordnet, keine Zusage.
 
 ## Kürzlich erledigt
 
-- Kartenvorschau auf der Startseite (echtes Kartenbild) gebaut, wartet auf
-  Vorschau-Prüfung (10.10.)
+- Kartenvorschau auf der Startseite (echtes Kartenbild, Ausschnitt rechnet
+  sich aus den Läden), live (10.10., Pull Request 65)
 - Navigation am Desktop: Textlinks in der Kopfzeile ab 1024 px, Leiste unten
   nur mobil, live (10.10., Pull Request 63)
 - Datenschutzerklärung mit Instagram-Abschnitt, Stand 09.10.2026, live
