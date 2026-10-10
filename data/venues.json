@@ -1,5 +1,44 @@
 [
   {
+    "id": "bad-kreuznach-techno-lounge",
+    "name": "Techno Lounge",
+    "typ": "Club",
+    "stadt": "Bad Kreuznach",
+    "adresse": "Europaplatz 1–3, 55543 Bad Kreuznach",
+    "lat": 49.84269,
+    "lon": 7.86589,
+    "genres": [
+      "Techno",
+      "Hardtechno",
+      "Trance"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Bad Kreuznach Bahnhof",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://techno-lounge.de/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/techno_lounge_kh/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/p/Techno-Lounge-Bad-Kreuznach-61556255234561/"
+      }
+    ],
+    "aussenbereich": "ja",
+    "floors": "3"
+  },
+  {
     "id": "darmstadt-galeriekurzweil",
     "name": "Galerie Kurzweil",
     "typ": "Club",
@@ -228,6 +267,38 @@
       }
     ],
     "aussenbereich": null,
+    "floors": "2"
+  },
+  {
+    "id": "giessen-outzeit",
+    "name": "Outzeit",
+    "typ": "Club",
+    "stadt": "Gießen",
+    "adresse": "An der Automeile 24, 35394 Gießen",
+    "lat": 50.57344,
+    "lon": 8.7094,
+    "genres": [
+      "House",
+      "Tech House",
+      "Hardtechno"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Freitag",
+      "Samstag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": null,
+    "garderobe": "ja",
+    "raucherbereich": "ja",
+    "haltestelle": "Gießen Licher Straße, An der Automeile",
+    "links": [
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/outzeit.events/"
+      }
+    ],
+    "aussenbereich": "ja",
     "floors": "2"
   },
   {
@@ -1042,6 +1113,48 @@
     ],
     "aussenbereich": null,
     "floors": "2"
+  },
+  {
+    "id": "stuttgart-romantica",
+    "name": "Romantica",
+    "typ": "Club",
+    "stadt": "Stuttgart",
+    "adresse": "Hauptstätter Straße 40, 70173 Stuttgart",
+    "lat": 48.77267,
+    "lon": 9.17817,
+    "genres": [
+      "Techno",
+      "House"
+    ],
+    "status": "aktiv",
+    "oeffnungstage": [
+      "Dienstag",
+      "Donnerstag",
+      "Freitag",
+      "Samstag",
+      "Sonntag"
+    ],
+    "kurzbeschreibung": null,
+    "kartenzahlung": "ja",
+    "garderobe": "ja",
+    "raucherbereich": null,
+    "haltestelle": "Stuttgart Stadtmitte, Rathaus",
+    "links": [
+      {
+        "typ": "website",
+        "url": "https://romantica-stuttgart.com/"
+      },
+      {
+        "typ": "instagram",
+        "url": "https://www.instagram.com/romanticastuttgart/"
+      },
+      {
+        "typ": "facebook",
+        "url": "https://www.facebook.com/RomanticaStuttgart"
+      }
+    ],
+    "aussenbereich": null,
+    "floors": null
   },
   {
     "id": "ulm-einstiefer",
